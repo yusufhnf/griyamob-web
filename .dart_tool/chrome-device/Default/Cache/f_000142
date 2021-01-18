@@ -1,0 +1,2166 @@
+define(['dart_sdk', 'packages/bezier_chart/src/bezier_chart_config.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/bezier_chart/src/bezier_line.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/services/haptic_feedback.dart', 'packages/flutter/src/gestures/long_press.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/scale.dart', 'packages/flutter/src/widgets/layout_builder.dart', 'packages/bezier_chart/src/my_single_child_scroll_view.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/intl/src/intl_helpers.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__bezier_chart__src__bezier_chart_widget_dart(dart_sdk, packages__bezier_chart__src__bezier_chart_config$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__bezier_chart__src__bezier_line$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__services__haptic_feedback$46dart, packages__flutter__src__gestures__long_press$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__scale$46dart, packages__flutter__src__widgets__layout_builder$46dart, packages__bezier_chart__src__my_single_child_scroll_view$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__intl__src__intl_helpers$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const bezier_chart_config = packages__bezier_chart__src__bezier_chart_config$46dart.src__bezier_chart_config;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const bezier_line = packages__bezier_chart__src__bezier_line$46dart.src__bezier_line;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const feedback = packages__flutter__src__material__icon_button$46dart.src__material__feedback;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const haptic_feedback = packages__flutter__src__services__haptic_feedback$46dart.src__services__haptic_feedback;
+  const long_press = packages__flutter__src__gestures__long_press$46dart.src__gestures__long_press;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const scale = packages__flutter__src__gestures__scale$46dart.src__gestures__scale;
+  const layout_builder = packages__flutter__src__widgets__layout_builder$46dart.src__widgets__layout_builder;
+  const my_single_child_scroll_view = packages__bezier_chart__src__my_single_child_scroll_view$46dart.src__my_single_child_scroll_view;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const inline_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__inline_span;
+  const intl = packages__intl__src__intl_helpers$46dart.intl;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var bezier_chart_widget = Object.create(dart.library);
+  var $length = dartx.length;
+  var $contains = dartx.contains;
+  var $add = dartx.add;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $toDouble = dartx.toDouble;
+  var $indexWhere = dartx.indexWhere;
+  var $toString = dartx.toString;
+  var $padLeft = dartx.padLeft;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $reduce = dartx.reduce;
+  var $keys = dartx.keys;
+  var $split = dartx.split;
+  var $forEach = dartx.forEach;
+  var $sort = dartx.sort;
+  var $last = dartx.last;
+  var $first = dartx.first;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $ceil = dartx.ceil;
+  var $modulo = dartx['%'];
+  var $reversed = dartx.reversed;
+  var $substring = dartx.substring;
+  var $isNaN = dartx.isNaN;
+  var $compareTo = dartx.compareTo;
+  var $toInt = dartx.toInt;
+  var StatefulWidgetL = () => (StatefulWidgetL = dart.constFn(dart.legacy(framework.StatefulWidget)))();
+  var StateOfStatefulWidgetL = () => (StateOfStatefulWidgetL = dart.constFn(framework.State$(StatefulWidgetL())))();
+  var StateLOfStatefulWidgetL = () => (StateLOfStatefulWidgetL = dart.constFn(dart.legacy(StateOfStatefulWidgetL())))();
+  var GlobalKeyOfStateLOfStatefulWidgetL = () => (GlobalKeyOfStateLOfStatefulWidgetL = dart.constFn(framework.GlobalKey$(StateLOfStatefulWidgetL())))();
+  var DataPointL = () => (DataPointL = dart.constFn(dart.legacy(bezier_line.DataPoint)))();
+  var JSArrayOfDataPointL = () => (JSArrayOfDataPointL = dart.constFn(_interceptors.JSArray$(DataPointL())))();
+  var BezierLineL = () => (BezierLineL = dart.constFn(dart.legacy(bezier_line.BezierLine)))();
+  var JSArrayOfBezierLineL = () => (JSArrayOfBezierLineL = dart.constFn(_interceptors.JSArray$(BezierLineL())))();
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var JSArrayOfdoubleL = () => (JSArrayOfdoubleL = dart.constFn(_interceptors.JSArray$(doubleL())))();
+  var DataPointOfdoubleL = () => (DataPointOfdoubleL = dart.constFn(bezier_line.DataPoint$(doubleL())))();
+  var DataPointLOfdoubleL = () => (DataPointLOfdoubleL = dart.constFn(dart.legacy(DataPointOfdoubleL())))();
+  var doubleLToDataPointLOfdoubleL = () => (doubleLToDataPointLOfdoubleL = dart.constFn(dart.fnType(DataPointLOfdoubleL(), [doubleL()])))();
+  var DateTimeL = () => (DateTimeL = dart.constFn(dart.legacy(core.DateTime)))();
+  var DataPointOfDateTimeL = () => (DataPointOfDateTimeL = dart.constFn(bezier_line.DataPoint$(DateTimeL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var DataPointLToboolL = () => (DataPointLToboolL = dart.constFn(dart.fnType(boolL(), [DataPointL()])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var ListOfdoubleL = () => (ListOfdoubleL = dart.constFn(core.List$(doubleL())))();
+  var ListLOfdoubleL = () => (ListLOfdoubleL = dart.constFn(dart.legacy(ListOfdoubleL())))();
+  var LinkedMapOfStringL$ListLOfdoubleL = () => (LinkedMapOfStringL$ListLOfdoubleL = dart.constFn(_js_helper.LinkedMap$(StringL(), ListLOfdoubleL())))();
+  var DataPointLOfDateTimeL = () => (DataPointLOfDateTimeL = dart.constFn(dart.legacy(DataPointOfDateTimeL())))();
+  var LinkedMapOfStringL$doubleL = () => (LinkedMapOfStringL$doubleL = dart.constFn(_js_helper.LinkedMap$(StringL(), doubleL())))();
+  var MapEntryOfStringL$doubleL = () => (MapEntryOfStringL$doubleL = dart.constFn(core.MapEntry$(StringL(), doubleL())))();
+  var doubleLAnddoubleLTodoubleL = () => (doubleLAnddoubleLTodoubleL = dart.constFn(dart.fnType(doubleL(), [doubleL(), doubleL()])))();
+  var MapEntryLOfStringL$doubleL = () => (MapEntryLOfStringL$doubleL = dart.constFn(dart.legacy(MapEntryOfStringL$doubleL())))();
+  var StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL = () => (StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL = dart.constFn(dart.fnType(MapEntryLOfStringL$doubleL(), [StringL(), ListLOfdoubleL()])))();
+  var JSArrayOfDataPointLOfDateTimeL = () => (JSArrayOfDataPointLOfDateTimeL = dart.constFn(_interceptors.JSArray$(DataPointLOfDateTimeL())))();
+  var StringLToNull = () => (StringLToNull = dart.constFn(dart.fnType(core.Null, [StringL()])))();
+  var DataPointLTodoubleL = () => (DataPointLTodoubleL = dart.constFn(dart.fnType(doubleL(), [DataPointL()])))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var doubleLAnddoubleLTointL = () => (doubleLAnddoubleLTointL = dart.constFn(dart.fnType(intL(), [doubleL(), doubleL()])))();
+  var BezierChartL = () => (BezierChartL = dart.constFn(dart.legacy(bezier_chart_widget.BezierChart)))();
+  var PointerDownEventL = () => (PointerDownEventL = dart.constFn(dart.legacy(events.PointerDownEvent)))();
+  var PointerDownEventLToNull = () => (PointerDownEventLToNull = dart.constFn(dart.fnType(core.Null, [PointerDownEventL()])))();
+  var PointerUpEventL = () => (PointerUpEventL = dart.constFn(dart.legacy(events.PointerUpEvent)))();
+  var PointerUpEventLToNull = () => (PointerUpEventLToNull = dart.constFn(dart.fnType(core.Null, [PointerUpEventL()])))();
+  var ScaleStartDetailsL = () => (ScaleStartDetailsL = dart.constFn(dart.legacy(scale.ScaleStartDetails)))();
+  var ScaleStartDetailsLToNull = () => (ScaleStartDetailsLToNull = dart.constFn(dart.fnType(core.Null, [ScaleStartDetailsL()])))();
+  var ScaleUpdateDetailsL = () => (ScaleUpdateDetailsL = dart.constFn(dart.legacy(scale.ScaleUpdateDetails)))();
+  var ScaleUpdateDetailsLTodynamic = () => (ScaleUpdateDetailsLTodynamic = dart.constFn(dart.fnType(dart.dynamic, [ScaleUpdateDetailsL()])))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var doubleLToNull = () => (doubleLToNull = dart.constFn(dart.fnType(core.Null, [doubleL()])))();
+  var DateTimeLToNull = () => (DateTimeLToNull = dart.constFn(dart.fnType(core.Null, [DateTimeL()])))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var doubleN = () => (doubleN = dart.constFn(dart.nullable(core.double)))();
+  var KeyL = () => (KeyL = dart.constFn(dart.legacy(key.Key)))();
+  var doubleL__ToNull = () => (doubleL__ToNull = dart.constFn(dart.fnType(core.Null, [doubleL()], {key: KeyL()}, {})))();
+  var StackL = () => (StackL = dart.constFn(dart.legacy(basic.Stack)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BoxConstraintsL = () => (BoxConstraintsL = dart.constFn(dart.legacy(box.BoxConstraints)))();
+  var BuildContextLAndBoxConstraintsLToStackL = () => (BuildContextLAndBoxConstraintsLToStackL = dart.constFn(dart.fnType(StackL(), [BuildContextL(), BoxConstraintsL()])))();
+  var _CustomValueL = () => (_CustomValueL = dart.constFn(dart.legacy(bezier_chart_widget._CustomValue)))();
+  var JSArrayOf_CustomValueL = () => (JSArrayOf_CustomValueL = dart.constFn(_interceptors.JSArray$(_CustomValueL())))();
+  var JSArrayOfOffsetL = () => (JSArrayOfOffsetL = dart.constFn(_interceptors.JSArray$(OffsetL())))();
+  var BezierLineLTovoid = () => (BezierLineLTovoid = dart.constFn(dart.fnType(dart.void, [BezierLineL()])))();
+  var TextSpanL = () => (TextSpanL = dart.constFn(dart.legacy(text_span.TextSpan)))();
+  var JSArrayOfTextSpanL = () => (JSArrayOfTextSpanL = dart.constFn(_interceptors.JSArray$(TextSpanL())))();
+  var InlineSpanL = () => (InlineSpanL = dart.constFn(dart.legacy(inline_span.InlineSpan)))();
+  var JSArrayOfInlineSpanL = () => (JSArrayOfInlineSpanL = dart.constFn(_interceptors.JSArray$(InlineSpanL())))();
+  var _BezierChartPainterL = () => (_BezierChartPainterL = dart.constFn(dart.legacy(bezier_chart_widget._BezierChartPainter)))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart";
+  var L1 = "package:bezier_chart/src/bezier_chart_widget.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name]: "BezierChartAggregation.SUM",
+        index: 1
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 23,
+        [_Location_line]: 850,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 23,
+        [_Location_line]: 854,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C3 || CT.C3, C4 || CT.C4], _LocationL());
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C2 || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 849,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 21,
+        [_Location_line]: 848,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 849,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.constList([C7 || CT.C7, C8 || CT.C8], _LocationL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C6 || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 847,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 19,
+        [_Location_line]: 840,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 19,
+        [_Location_line]: 841,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 19,
+        [_Location_line]: 844,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 19,
+        [_Location_line]: 845,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 19,
+        [_Location_line]: 846,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 847,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C10 = dart.constList([C11 || CT.C11, C12 || CT.C12, C13 || CT.C13, C14 || CT.C14, C15 || CT.C15, C16 || CT.C16], _LocationL());
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C10 || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 839,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 23,
+        [_Location_line]: 921,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 23,
+        [_Location_line]: 922,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 23,
+        [_Location_line]: 926,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.constList([C19 || CT.C19, C20 || CT.C20, C21 || CT.C21], _LocationL());
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C18 || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 920,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "left",
+        [_Location_column]: 21,
+        [_Location_line]: 917,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "top",
+        [_Location_column]: 21,
+        [_Location_line]: 918,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottom",
+        [_Location_column]: 21,
+        [_Location_line]: 919,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 920,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.constList([C24 || CT.C24, C25 || CT.C25, C26 || CT.C26, C27 || CT.C27], _LocationL());
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C23 || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 916,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 956,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 25,
+        [_Location_line]: 957,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 958,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C29 = dart.constList([C30 || CT.C30, C31 || CT.C31, C32 || CT.C32], _LocationL());
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C29 || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 955,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottom",
+        [_Location_column]: 23,
+        [_Location_line]: 945,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C36 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "left",
+        [_Location_column]: 23,
+        [_Location_line]: 954,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 955,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C34 = dart.constList([C35 || CT.C35, C36 || CT.C36, C37 || CT.C37], _LocationL());
+    },
+    get C33() {
+      return C33 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C34 || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 944,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 986,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.constList([C40 || CT.C40], _LocationL());
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C39 || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 985,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C43() {
+      return C43 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 13,
+        [_Location_line]: 834,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C42 = dart.constList([C43 || CT.C43], _LocationL());
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C42 || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 833,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPressStart",
+        [_Location_column]: 11,
+        [_Location_line]: 814,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C47 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPressMoveUpdate",
+        [_Location_column]: 11,
+        [_Location_line]: 817,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C48 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onScaleStart",
+        [_Location_column]: 11,
+        [_Location_line]: 818,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onScaleUpdate",
+        [_Location_column]: 11,
+        [_Location_line]: 821,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 11,
+        [_Location_line]: 827,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C51 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapDown",
+        [_Location_column]: 11,
+        [_Location_line]: 830,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C52 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 833,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.constList([C46 || CT.C46, C47 || CT.C47, C48 || CT.C48, C49 || CT.C49, C50 || CT.C50, C51 || CT.C51, C52 || CT.C52], _LocationL());
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C45 || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 813,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C55() {
+      return C55 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPointerDown",
+        [_Location_column]: 9,
+        [_Location_line]: 801,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C56 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPointerUp",
+        [_Location_column]: 9,
+        [_Location_line]: 807,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C57 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 813,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C54 = dart.constList([C55 || CT.C55, C56 || CT.C56, C57 || CT.C57], _LocationL());
+    },
+    get C53() {
+      return C53 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C54 || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 800,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 793,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C61 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 799,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 800,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C59 = dart.constList([C60 || CT.C60, C61 || CT.C61, C62 || CT.C62], _LocationL());
+    },
+    get C58() {
+      return C58 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C59 || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 792,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bezier_chart-1.0.17+1/lib/src/bezier_chart_widget.dart"
+      });
+    }
+  }, false);
+  var _name = dart.privateName(bezier_chart_config, "_name");
+  var C0;
+  var config$ = dart.privateName(bezier_chart_widget, "BezierChart.config");
+  var bezierChartScale$ = dart.privateName(bezier_chart_widget, "BezierChart.bezierChartScale");
+  var bezierChartAggregation$ = dart.privateName(bezier_chart_widget, "BezierChart.bezierChartAggregation");
+  var xAxisCustomValues$ = dart.privateName(bezier_chart_widget, "BezierChart.xAxisCustomValues");
+  var footerValueBuilder$ = dart.privateName(bezier_chart_widget, "BezierChart.footerValueBuilder");
+  var bubbleLabelValueBuilder$ = dart.privateName(bezier_chart_widget, "BezierChart.bubbleLabelValueBuilder");
+  var footerDateTimeBuilder$ = dart.privateName(bezier_chart_widget, "BezierChart.footerDateTimeBuilder");
+  var bubbleLabelDateTimeBuilder$ = dart.privateName(bezier_chart_widget, "BezierChart.bubbleLabelDateTimeBuilder");
+  var onIndicatorVisible$ = dart.privateName(bezier_chart_widget, "BezierChart.onIndicatorVisible");
+  var onValueSelected$ = dart.privateName(bezier_chart_widget, "BezierChart.onValueSelected");
+  var onDateTimeSelected$ = dart.privateName(bezier_chart_widget, "BezierChart.onDateTimeSelected");
+  var fromDate$ = dart.privateName(bezier_chart_widget, "BezierChart.fromDate");
+  var toDate$ = dart.privateName(bezier_chart_widget, "BezierChart.toDate");
+  var selectedDate$ = dart.privateName(bezier_chart_widget, "BezierChart.selectedDate");
+  var selectedValue$ = dart.privateName(bezier_chart_widget, "BezierChart.selectedValue");
+  var series$ = dart.privateName(bezier_chart_widget, "BezierChart.series");
+  var onScaleChanged$ = dart.privateName(bezier_chart_widget, "BezierChart.onScaleChanged");
+  bezier_chart_widget.BezierChart = class BezierChart extends framework.StatefulWidget {
+    get config() {
+      return this[config$];
+    }
+    set config(value) {
+      super.config = value;
+    }
+    get bezierChartScale() {
+      return this[bezierChartScale$];
+    }
+    set bezierChartScale(value) {
+      super.bezierChartScale = value;
+    }
+    get bezierChartAggregation() {
+      return this[bezierChartAggregation$];
+    }
+    set bezierChartAggregation(value) {
+      super.bezierChartAggregation = value;
+    }
+    get xAxisCustomValues() {
+      return this[xAxisCustomValues$];
+    }
+    set xAxisCustomValues(value) {
+      super.xAxisCustomValues = value;
+    }
+    get footerValueBuilder() {
+      return this[footerValueBuilder$];
+    }
+    set footerValueBuilder(value) {
+      super.footerValueBuilder = value;
+    }
+    get bubbleLabelValueBuilder() {
+      return this[bubbleLabelValueBuilder$];
+    }
+    set bubbleLabelValueBuilder(value) {
+      super.bubbleLabelValueBuilder = value;
+    }
+    get footerDateTimeBuilder() {
+      return this[footerDateTimeBuilder$];
+    }
+    set footerDateTimeBuilder(value) {
+      super.footerDateTimeBuilder = value;
+    }
+    get bubbleLabelDateTimeBuilder() {
+      return this[bubbleLabelDateTimeBuilder$];
+    }
+    set bubbleLabelDateTimeBuilder(value) {
+      super.bubbleLabelDateTimeBuilder = value;
+    }
+    get onIndicatorVisible() {
+      return this[onIndicatorVisible$];
+    }
+    set onIndicatorVisible(value) {
+      super.onIndicatorVisible = value;
+    }
+    get onValueSelected() {
+      return this[onValueSelected$];
+    }
+    set onValueSelected(value) {
+      super.onValueSelected = value;
+    }
+    get onDateTimeSelected() {
+      return this[onDateTimeSelected$];
+    }
+    set onDateTimeSelected(value) {
+      super.onDateTimeSelected = value;
+    }
+    get fromDate() {
+      return this[fromDate$];
+    }
+    set fromDate(value) {
+      super.fromDate = value;
+    }
+    get toDate() {
+      return this[toDate$];
+    }
+    set toDate(value) {
+      super.toDate = value;
+    }
+    get selectedDate() {
+      return this[selectedDate$];
+    }
+    set selectedDate(value) {
+      super.selectedDate = value;
+    }
+    get selectedValue() {
+      return this[selectedValue$];
+    }
+    set selectedValue(value) {
+      super.selectedValue = value;
+    }
+    get series() {
+      return this[series$];
+    }
+    set series(value) {
+      super.series = value;
+    }
+    get onScaleChanged() {
+      return this[onScaleChanged$];
+    }
+    set onScaleChanged(value) {
+      super.onScaleChanged = value;
+    }
+    createState() {
+      return new bezier_chart_widget.BezierChartState.new();
+    }
+  };
+  (bezier_chart_widget.BezierChart.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let config = opts && 'config' in opts ? opts.config : null;
+    let xAxisCustomValues = opts && 'xAxisCustomValues' in opts ? opts.xAxisCustomValues : null;
+    let footerValueBuilder = opts && 'footerValueBuilder' in opts ? opts.footerValueBuilder : null;
+    let bubbleLabelValueBuilder = opts && 'bubbleLabelValueBuilder' in opts ? opts.bubbleLabelValueBuilder : null;
+    let footerDateTimeBuilder = opts && 'footerDateTimeBuilder' in opts ? opts.footerDateTimeBuilder : null;
+    let bubbleLabelDateTimeBuilder = opts && 'bubbleLabelDateTimeBuilder' in opts ? opts.bubbleLabelDateTimeBuilder : null;
+    let fromDate = opts && 'fromDate' in opts ? opts.fromDate : null;
+    let toDate = opts && 'toDate' in opts ? opts.toDate : null;
+    let selectedDate = opts && 'selectedDate' in opts ? opts.selectedDate : null;
+    let onIndicatorVisible = opts && 'onIndicatorVisible' in opts ? opts.onIndicatorVisible : null;
+    let onDateTimeSelected = opts && 'onDateTimeSelected' in opts ? opts.onDateTimeSelected : null;
+    let onValueSelected = opts && 'onValueSelected' in opts ? opts.onValueSelected : null;
+    let selectedValue = opts && 'selectedValue' in opts ? opts.selectedValue : null;
+    let bezierChartAggregation = opts && 'bezierChartAggregation' in opts ? opts.bezierChartAggregation : C0 || CT.C0;
+    let bezierChartScale = opts && 'bezierChartScale' in opts ? opts.bezierChartScale : null;
+    let series = opts && 'series' in opts ? opts.series : null;
+    let onScaleChanged = opts && 'onScaleChanged' in opts ? opts.onScaleChanged : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[config$] = config;
+    this[xAxisCustomValues$] = xAxisCustomValues;
+    this[footerValueBuilder$] = footerValueBuilder;
+    this[bubbleLabelValueBuilder$] = bubbleLabelValueBuilder;
+    this[footerDateTimeBuilder$] = footerDateTimeBuilder;
+    this[bubbleLabelDateTimeBuilder$] = bubbleLabelDateTimeBuilder;
+    this[fromDate$] = fromDate;
+    this[toDate$] = toDate;
+    this[selectedDate$] = selectedDate;
+    this[onIndicatorVisible$] = onIndicatorVisible;
+    this[onDateTimeSelected$] = onDateTimeSelected;
+    this[onValueSelected$] = onValueSelected;
+    this[selectedValue$] = selectedValue;
+    this[bezierChartAggregation$] = bezierChartAggregation;
+    this[bezierChartScale$] = bezierChartScale;
+    this[series$] = series;
+    this[onScaleChanged$] = onScaleChanged;
+    if (!(bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && xAxisCustomValues != null && series != null || bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM)) dart.assertFailed("The xAxisCustomValues and series must not be null", L0, 101, 11, "(bezierChartScale == BezierChartScale.CUSTOM &&\n                  xAxisCustomValues != null &&\n                  series != null) ||\n              bezierChartScale != BezierChartScale.CUSTOM");
+    if (!(bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && dart.test(bezier_chart_widget._isSorted(dart.dynamic, xAxisCustomValues)) || bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM)) dart.assertFailed("The xAxisCustomValues must be sorted in increasing way", L0, 108, 11, "bezierChartScale == BezierChartScale.CUSTOM &&\n                  _isSorted(xAxisCustomValues) ||\n              bezierChartScale != BezierChartScale.CUSTOM");
+    if (!(bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && dart.test(bezier_chart_widget._compareLengths(xAxisCustomValues[$length], series)) || bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM)) dart.assertFailed("xAxisCustomValues lenght must be equals to series length", L0, 114, 11, "bezierChartScale == BezierChartScale.CUSTOM &&\n                  _compareLengths(xAxisCustomValues.length, series) ||\n              bezierChartScale != BezierChartScale.CUSTOM");
+    if (!(bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && dart.test(bezier_chart_widget._areAllPositive(xAxisCustomValues)) && dart.test(bezier_chart_widget._checkCustomValues(series)) || bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM)) dart.assertFailed("xAxisCustomValues and series must be positives", L0, 120, 11, "(bezierChartScale == BezierChartScale.CUSTOM &&\n                  _areAllPositive(xAxisCustomValues) &&\n                  _checkCustomValues(series)) ||\n              bezierChartScale != BezierChartScale.CUSTOM");
+    if (!(bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM && fromDate != null && toDate != null || bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && fromDate == null && toDate == null)) dart.assertFailed("fromDate and toDate must not be null", L0, 127, 11, "(((bezierChartScale != BezierChartScale.CUSTOM) &&\n                  fromDate != null &&\n                  toDate != null) ||\n              (bezierChartScale == BezierChartScale.CUSTOM &&\n                  fromDate == null &&\n                  toDate == null))");
+    if (!(bezierChartScale != bezier_chart_config.BezierChartScale.CUSTOM && dart.test(toDate.isAfter(fromDate)) || bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM && fromDate == null && toDate == null)) dart.assertFailed("toDate must be after of fromDate", L0, 136, 11, "(((bezierChartScale != BezierChartScale.CUSTOM) &&\n                  toDate.isAfter(fromDate)) ||\n              (bezierChartScale == BezierChartScale.CUSTOM &&\n                  fromDate == null &&\n                  toDate == null))");
+    bezier_chart_widget.BezierChart.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = bezier_chart_widget.BezierChart.prototype;
+  dart.addTypeTests(bezier_chart_widget.BezierChart);
+  dart.addTypeCaches(bezier_chart_widget.BezierChart);
+  dart.setMethodSignature(bezier_chart_widget.BezierChart, () => ({
+    __proto__: dart.getMethods(bezier_chart_widget.BezierChart.__proto__),
+    createState: dart.fnType(dart.legacy(bezier_chart_widget.BezierChartState), [])
+  }));
+  dart.setLibraryUri(bezier_chart_widget.BezierChart, L1);
+  dart.setFieldSignature(bezier_chart_widget.BezierChart, () => ({
+    __proto__: dart.getFields(bezier_chart_widget.BezierChart.__proto__),
+    config: dart.finalFieldType(dart.legacy(bezier_chart_config.BezierChartConfig)),
+    bezierChartScale: dart.finalFieldType(dart.legacy(bezier_chart_config.BezierChartScale)),
+    bezierChartAggregation: dart.finalFieldType(dart.legacy(bezier_chart_config.BezierChartAggregation)),
+    xAxisCustomValues: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.double)))),
+    footerValueBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.double)]))),
+    bubbleLabelValueBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.double)]))),
+    footerDateTimeBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.DateTime), dart.legacy(bezier_chart_config.BezierChartScale)]))),
+    bubbleLabelDateTimeBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.DateTime), dart.legacy(bezier_chart_config.BezierChartScale)]))),
+    onIndicatorVisible: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.bool)]))),
+    onValueSelected: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.double)]))),
+    onDateTimeSelected: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.DateTime)]))),
+    fromDate: dart.finalFieldType(dart.legacy(core.DateTime)),
+    toDate: dart.finalFieldType(dart.legacy(core.DateTime)),
+    selectedDate: dart.finalFieldType(dart.legacy(core.DateTime)),
+    selectedValue: dart.finalFieldType(dart.legacy(core.double)),
+    series: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(bezier_line.BezierLine)))),
+    onScaleChanged: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(bezier_chart_config.BezierChartScale)])))
+  }));
+  var _animationController = dart.privateName(bezier_chart_widget, "_animationController");
+  var _scrollController = dart.privateName(bezier_chart_widget, "_scrollController");
+  var _keyScroll = dart.privateName(bezier_chart_widget, "_keyScroll");
+  var _verticalIndicatorPosition = dart.privateName(bezier_chart_widget, "_verticalIndicatorPosition");
+  var _displayIndicator = dart.privateName(bezier_chart_widget, "_displayIndicator");
+  var _xAxisDataPoints = dart.privateName(bezier_chart_widget, "_xAxisDataPoints");
+  var _currentScale = dart.privateName(bezier_chart_widget, "_currentScale");
+  var _previousScale = dart.privateName(bezier_chart_widget, "_previousScale");
+  var _currentBezierChartScale = dart.privateName(bezier_chart_widget, "_currentBezierChartScale");
+  var _lastValueSnapped = dart.privateName(bezier_chart_widget, "_lastValueSnapped");
+  var _contentWidth = dart.privateName(bezier_chart_widget, "_contentWidth");
+  var _isScrollable = dart.privateName(bezier_chart_widget, "_isScrollable");
+  var _yValues = dart.privateName(bezier_chart_widget, "_yValues");
+  var _tempYValues = dart.privateName(bezier_chart_widget, "_tempYValues");
+  var _dateTimeSelected = dart.privateName(bezier_chart_widget, "_dateTimeSelected");
+  var _valueSelected = dart.privateName(bezier_chart_widget, "_valueSelected");
+  var _keyLastYAxisItem = dart.privateName(bezier_chart_widget, "_keyLastYAxisItem");
+  var _yAxisWidth = dart.privateName(bezier_chart_widget, "_yAxisWidth");
+  var _touchFingers = dart.privateName(bezier_chart_widget, "_touchFingers");
+  var _updatePosition = dart.privateName(bezier_chart_widget, "_updatePosition");
+  var _refreshPosition = dart.privateName(bezier_chart_widget, "_refreshPosition");
+  var _onDataPointSnap = dart.privateName(bezier_chart_widget, "_onDataPointSnap");
+  var _onDisplayIndicator = dart.privateName(bezier_chart_widget, "_onDisplayIndicator");
+  var _onHideIndicator = dart.privateName(bezier_chart_widget, "_onHideIndicator");
+  var _checkMissingValues = dart.privateName(bezier_chart_widget, "_checkMissingValues");
+  var _convertToDateOnly = dart.privateName(bezier_chart_widget, "_convertToDateOnly");
+  var _buildXDataPoints = dart.privateName(bezier_chart_widget, "_buildXDataPoints");
+  var _buildContentWidth = dart.privateName(bezier_chart_widget, "_buildContentWidth");
+  var _checkIfNeedScroll = dart.privateName(bezier_chart_widget, "_checkIfNeedScroll");
+  var _onLayoutDone = dart.privateName(bezier_chart_widget, "_onLayoutDone");
+  var _computeSeries = dart.privateName(bezier_chart_widget, "_computeSeries");
+  var _notifyScaleChanged = dart.privateName(bezier_chart_widget, "_notifyScaleChanged");
+  var _onPinchZoom = dart.privateName(bezier_chart_widget, "_onPinchZoom");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C3;
+  var C4;
+  var C2;
+  var C1;
+  var C7;
+  var C8;
+  var C6;
+  var C5;
+  var C11;
+  var C12;
+  var C13;
+  var C14;
+  var C15;
+  var C16;
+  var C10;
+  var C9;
+  var C19;
+  var C20;
+  var C21;
+  var C18;
+  var C17;
+  var C24;
+  var C25;
+  var C26;
+  var C27;
+  var C23;
+  var C22;
+  var C30;
+  var C31;
+  var C32;
+  var C29;
+  var C28;
+  var C35;
+  var C36;
+  var C37;
+  var C34;
+  var C33;
+  var C40;
+  var C39;
+  var C38;
+  var C43;
+  var C42;
+  var C41;
+  var C46;
+  var C47;
+  var C48;
+  var C49;
+  var C50;
+  var C51;
+  var C52;
+  var C45;
+  var C44;
+  var C55;
+  var C56;
+  var C57;
+  var C54;
+  var C53;
+  var C60;
+  var C61;
+  var C62;
+  var C59;
+  var C58;
+  var horizontalPadding = dart.privateName(bezier_chart_widget, "BezierChartState.horizontalPadding");
+  var horizontalSpacing = dart.privateName(bezier_chart_widget, "BezierChartState.horizontalSpacing");
+  var computedSeries = dart.privateName(bezier_chart_widget, "BezierChartState.computedSeries");
+  var areSeriesDifferent = dart.privateName(bezier_chart_widget, "BezierChartState.areSeriesDifferent");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(dart.legacy(bezier_chart_widget.BezierChart)) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(bezier_chart_widget.BezierChart))[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(bezier_chart_widget.BezierChart)));
+  bezier_chart_widget.BezierChartState = class BezierChartState extends State_SingleTickerProviderStateMixin$36 {
+    get horizontalPadding() {
+      return this[horizontalPadding];
+    }
+    set horizontalPadding(value) {
+      super.horizontalPadding = value;
+    }
+    get horizontalSpacing() {
+      return this[horizontalSpacing];
+    }
+    set horizontalSpacing(value) {
+      this[horizontalSpacing] = value;
+    }
+    get computedSeries() {
+      return this[computedSeries];
+    }
+    set computedSeries(value) {
+      this[computedSeries] = value;
+    }
+    get areSeriesDifferent() {
+      return this[areSeriesDifferent];
+    }
+    set areSeriesDifferent(value) {
+      this[areSeriesDifferent] = value;
+    }
+    get isPinchZoomActive() {
+      return dart.notNull(this[_touchFingers]) > 1 && dart.test(this.widget.config.pinchZoom);
+    }
+    get isOnlyOneAxis() {
+      return dart.notNull(this[_xAxisDataPoints][$length]) <= 1;
+    }
+    [_refreshPosition](details) {
+      if (dart.equals(this[_animationController].status, animation.AnimationStatus.completed) && dart.test(this[_displayIndicator])) {
+        return this[_updatePosition](OffsetL().as(dart.dload(details, 'globalPosition')));
+      }
+    }
+    [_updatePosition](globalPosition) {
+      let renderBox = RenderBoxL().as(this.context.findRenderObject());
+      let position = renderBox.globalToLocal(globalPosition);
+      if (position == null) return;
+      return this.setState(dart.fn(() => {
+        let fixedPosition = new ui.Offset.new(dart.notNull(position.dx) + dart.notNull(this[_scrollController].offset) - dart.notNull(this.horizontalPadding), position.dy);
+        this[_verticalIndicatorPosition] = fixedPosition;
+      }, VoidToNull()));
+    }
+    [_onDisplayIndicator](details, opts) {
+      let t1, t0;
+      let updatePosition = opts && 'updatePosition' in opts ? opts.updatePosition : true;
+      if (!dart.test(this[_displayIndicator])) {
+        this[_displayIndicator] = true;
+        this[_animationController].forward({from: 0.0});
+        if (this.widget.onIndicatorVisible != null) {
+          t0 = this.widget;
+          t1 = true;
+          t0.onIndicatorVisible(t1);
+        }
+      }
+      this[_onDataPointSnap](1.7976931348623157e+308);
+      if (dart.test(updatePosition)) this[_updatePosition](OffsetL().as(dart.dload(details, 'globalPosition')));
+    }
+    [_onHideIndicator]() {
+      let t1, t0;
+      if (dart.test(this[_displayIndicator])) {
+        if (this.widget.onIndicatorVisible != null) {
+          t0 = this.widget;
+          t1 = false;
+          t0.onIndicatorVisible(t1);
+        }
+        this[_animationController].reverse({from: 1.0}).whenCompleteOrCancel(dart.fn(() => {
+          this.setState(dart.fn(() => {
+            this[_displayIndicator] = false;
+          }, VoidToNull()));
+        }, VoidToNull()));
+      }
+    }
+    [_onDataPointSnap](value) {
+      let isIOS = dart.equals(theme.Theme.of(this.context).platform, platform.TargetPlatform.iOS);
+      if (this[_lastValueSnapped] != value && dart.test(this.widget.config.snap)) {
+        if (isIOS) {
+          haptic_feedback.HapticFeedback.heavyImpact();
+        } else {
+          feedback.Feedback.forTap(this.context);
+        }
+        this[_lastValueSnapped] = value;
+      }
+    }
+    [_checkMissingValues](newDate) {
+      let t1, t0;
+      for (let line of this.widget.series) {
+        if (line.onMissingValue != null) {
+          let newValue = (t0 = line, t1 = newDate, t0.onMissingValue(t1));
+          if (!dart.test(this[_tempYValues][$contains](newValue))) this[_tempYValues][$add](newValue);
+        } else if (dart.test(this.widget.config.startYAxisFromNonZeroValue) && line.onMissingValue == null) {
+          if (!dart.test(this[_tempYValues][$contains](0))) this[_tempYValues][$add](0.0);
+        }
+      }
+    }
+    [_buildXDataPoints]() {
+      this[_xAxisDataPoints] = JSArrayOfDataPointL().of([]);
+      this[_tempYValues] = JSArrayOfdoubleL().of([]);
+      let scale = this[_currentBezierChartScale];
+      if (scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        this[_xAxisDataPoints] = this.widget.xAxisCustomValues[$map](DataPointLOfdoubleL(), dart.fn(val => new (DataPointOfdoubleL()).new({value: val, xAxis: val}), doubleLToDataPointLOfdoubleL()))[$toList]();
+      } else if (scale == bezier_chart_config.BezierChartScale.HOURLY) {
+        let hours = this.widget.toDate.difference(this.widget.fromDate).inHours;
+        for (let i = 0; i < dart.notNull(hours); i = i + 1) {
+          let tempDate = this.widget.fromDate.add(new core.Duration.new({hours: i + 1}));
+          let newDate = new core.DateTime.new(tempDate.year, tempDate.month, tempDate.day, tempDate.hour, 0);
+          this[_xAxisDataPoints][$add](new (DataPointOfDateTimeL()).new({value: (i * 5)[$toDouble](), xAxis: newDate}));
+          this[_checkMissingValues](newDate);
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.WEEKLY) {
+        let days = this[_convertToDateOnly](this.widget.toDate).difference(this[_convertToDateOnly](this.widget.fromDate)).inDays;
+        for (let i = 0; i <= dart.notNull(days); i = i + 1) {
+          let newDate = this.widget.fromDate.add(new core.Duration.new({days: i}));
+          this[_xAxisDataPoints][$add](new (DataPointOfDateTimeL()).new({value: (i * 5)[$toDouble](), xAxis: newDate}));
+          this[_checkMissingValues](newDate);
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.MONTHLY) {
+        let startDate = new core.DateTime.new(this.widget.fromDate.year, this.widget.fromDate.month);
+        let endDate = new core.DateTime.new(this.widget.toDate.year, this.widget.toDate.month);
+        for (let i = 0; dart.test(startDate.isBefore(endDate)) || dart.test(bezier_chart_widget.areEqualDates(startDate, endDate)); i = i + 1) {
+          this[_xAxisDataPoints][$add](new (DataPointOfDateTimeL()).new({value: (i * 5)[$toDouble](), xAxis: startDate}));
+          this[_checkMissingValues](startDate);
+          startDate = new core.DateTime.new(startDate.year, dart.notNull(startDate.month) + 1);
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.YEARLY) {
+        let startDate = new core.DateTime.new(this.widget.fromDate.year);
+        let endDate = new core.DateTime.new(this.widget.toDate.year);
+        for (let i = 0; dart.test(startDate.isBefore(endDate)) || dart.test(bezier_chart_widget.areEqualDates(startDate, endDate)); i = i + 1) {
+          this[_xAxisDataPoints][$add](new (DataPointOfDateTimeL()).new({value: (i * 5)[$toDouble](), xAxis: startDate}));
+          this[_checkMissingValues](startDate);
+          startDate = new core.DateTime.new(dart.notNull(startDate.year) + 1);
+        }
+      }
+    }
+    [_convertToDateOnly](date) {
+      let year = date.year;
+      let month = date.month;
+      let day = date.day;
+      return new core.DateTime.new(year, month, day);
+    }
+    [_buildContentWidth](constraints) {
+      let t0;
+      let scale = this[_currentBezierChartScale];
+      if (scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        t0 = this.widget.config.contentWidth;
+        return t0 == null ? dart.notNull(constraints.maxWidth) - 2 * dart.notNull(this.horizontalPadding) : t0;
+      } else {
+        if (scale == bezier_chart_config.BezierChartScale.HOURLY) {
+          this.horizontalSpacing = dart.notNull(constraints.maxWidth) / 7;
+          return dart.notNull(this[_xAxisDataPoints][$length]) * (dart.notNull(this.horizontalSpacing) * dart.notNull(this[_currentScale])) - dart.notNull(this.horizontalPadding) / 2;
+        } else if (scale == bezier_chart_config.BezierChartScale.WEEKLY) {
+          this.horizontalSpacing = dart.notNull(constraints.maxWidth) / 7;
+          return dart.notNull(this[_xAxisDataPoints][$length]) * (dart.notNull(this.horizontalSpacing) * dart.notNull(this[_currentScale])) - dart.notNull(this.horizontalPadding) / 2;
+        } else if (scale == bezier_chart_config.BezierChartScale.MONTHLY) {
+          this.horizontalSpacing = dart.notNull(constraints.maxWidth) / 12;
+          return dart.notNull(this[_xAxisDataPoints][$length]) * (dart.notNull(this.horizontalSpacing) * dart.notNull(this[_currentScale])) - dart.notNull(this.horizontalPadding) / 2;
+        } else if (scale == bezier_chart_config.BezierChartScale.YEARLY) {
+          if (dart.notNull(this[_xAxisDataPoints][$length]) > 12) {
+            this.horizontalSpacing = dart.notNull(constraints.maxWidth) / 12;
+          } else if (dart.notNull(this[_xAxisDataPoints][$length]) < 6) {
+            this.horizontalSpacing = dart.notNull(constraints.maxWidth) / 6;
+          } else {
+            this.horizontalSpacing = dart.notNull(constraints.maxWidth) / dart.notNull(this[_xAxisDataPoints][$length]);
+          }
+          return dart.notNull(this[_xAxisDataPoints][$length]) * (dart.notNull(this.horizontalSpacing) * dart.notNull(this[_currentScale])) - dart.notNull(this.horizontalPadding);
+        }
+        return 0.0;
+      }
+    }
+    [_onLayoutDone](_) {
+      let t0, t0$;
+      this[_yAxisWidth] = (t0$ = (t0 = this[_keyLastYAxisItem].currentContext, t0 == null ? null : t0.size), t0$ == null ? null : t0$.width);
+      if (this.widget.selectedDate != null && this[_currentBezierChartScale] != bezier_chart_config.BezierChartScale.CUSTOM || this.widget.selectedValue != null && this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.CUSTOM) {
+        let index = -1;
+        if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.WEEKLY) {
+          index = this[_xAxisDataPoints][$indexWhere](dart.fn(dp => bezier_chart_widget.areEqualDates(DateTimeL().as(dp.xAxis), this.widget.selectedDate), DataPointLToboolL()));
+        } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.HOURLY) {
+          index = this[_xAxisDataPoints][$indexWhere](dart.fn(dp => DateTimeL().as(dp.xAxis).year == this.widget.selectedDate.year && DateTimeL().as(dp.xAxis).month == this.widget.selectedDate.month && DateTimeL().as(dp.xAxis).day == this.widget.selectedDate.day && DateTimeL().as(dp.xAxis).hour == this.widget.selectedDate.hour, DataPointLToboolL()));
+        } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+          index = this[_xAxisDataPoints][$indexWhere](dart.fn(dp => DateTimeL().as(dp.xAxis).year == this.widget.selectedDate.year && DateTimeL().as(dp.xAxis).month == this.widget.selectedDate.month, DataPointLToboolL()));
+        } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.YEARLY) {
+          index = this[_xAxisDataPoints][$indexWhere](dart.fn(dp => DateTimeL().as(dp.xAxis).year == this.widget.selectedDate.year, DataPointLToboolL()));
+        } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.CUSTOM) {
+          index = this[_xAxisDataPoints][$indexWhere](dart.fn(dp => doubleL().as(dp.xAxis) == this.widget.selectedValue, DataPointLToboolL()));
+        }
+        if (dart.notNull(index) >= 0) {
+          let fixedPosition = null;
+          if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.CUSTOM) {
+            let space = dart.notNull(this[_contentWidth]) / dart.notNull(this[_xAxisDataPoints][$length]);
+            fixedPosition = new ui.Offset.new(dart.test(this.isOnlyOneAxis) ? 0.0 : dart.notNull(index) * space + space / 2, 0.0);
+            this[_scrollController].jumpTo(dart.notNull(index) * space);
+            this.setState(dart.fn(() => {
+              this[_verticalIndicatorPosition] = fixedPosition;
+              this[_onDisplayIndicator](new long_press.LongPressMoveUpdateDetails.new({globalPosition: fixedPosition, offsetFromOrigin: fixedPosition}), {updatePosition: false});
+            }, VoidToNull()));
+          } else {
+            let jumpToX = dart.notNull(index) * dart.notNull(this.horizontalSpacing) - dart.notNull(this.horizontalPadding) / 2 - dart.notNull(this[_keyScroll].currentContext.size.width) / 2;
+            this[_scrollController].jumpTo(jumpToX);
+            fixedPosition = new ui.Offset.new(dart.test(this.isOnlyOneAxis) ? 0.0 : dart.notNull(index) * dart.notNull(this.horizontalSpacing) + 2 * dart.notNull(this.horizontalPadding) - dart.notNull(this[_scrollController].offset), 0.0);
+            this[_verticalIndicatorPosition] = fixedPosition;
+            this[_onDisplayIndicator](new long_press.LongPressMoveUpdateDetails.new({globalPosition: fixedPosition, offsetFromOrigin: fixedPosition}));
+          }
+        }
+      }
+      this[_checkIfNeedScroll]();
+      if (dart.test(this[_isScrollable])) {
+        this.setState(dart.fn(() => {
+        }, VoidToNull()));
+      }
+    }
+    [_checkIfNeedScroll]() {
+      if (dart.notNull(this[_contentWidth]) > dart.notNull(this[_keyScroll].currentContext.size.width) - dart.notNull(this.horizontalPadding) * 2) {
+        this[_isScrollable] = true;
+      }
+    }
+    [_computeSeries]() {
+      this.computedSeries = JSArrayOfBezierLineL().of([]);
+      this[_yValues] = JSArrayOfdoubleL().of([]);
+      if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY || this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.YEARLY || this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.WEEKLY || this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.HOURLY) {
+        for (let line of this.widget.series) {
+          let tmpMap = new (LinkedMapOfStringL$ListLOfdoubleL()).new();
+          for (let t0 of line.data) {
+            let dataPoint = DataPointLOfDateTimeL().as(t0);
+            let key = null;
+            if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+              key = dart.str(dataPoint.xAxis.year) + "," + dart.toString(dataPoint.xAxis.month)[$padLeft](2, "0");
+            } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.YEARLY) {
+              key = dart.str(dataPoint.xAxis.year);
+            } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.WEEKLY) {
+              key = dart.str(dataPoint.xAxis.year) + "," + dart.toString(dataPoint.xAxis.month)[$padLeft](2, "0") + "," + dart.toString(dataPoint.xAxis.day)[$padLeft](2, "0");
+            } else {
+              key = dart.str(dataPoint.xAxis.year) + "," + dart.toString(dataPoint.xAxis.month)[$padLeft](2, "0") + "," + dart.toString(dataPoint.xAxis.day)[$padLeft](2, "0") + "," + dart.toString(dataPoint.xAxis.hour)[$padLeft](2, "0");
+            }
+            if (!dart.test(tmpMap[$containsKey](key))) {
+              tmpMap[$_set](key, JSArrayOfdoubleL().of([]));
+            }
+            tmpMap[$_get](key)[$add](dataPoint.value);
+          }
+          let valueMap = new (LinkedMapOfStringL$doubleL()).new();
+          if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.SUM) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, v[$reduce](dart.fn((c1, c2) => core.double.parse((dart.notNull(c1) + dart.notNull(c2))[$toStringAsFixed](2)), doubleLAnddoubleLTodoubleL()))), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          } else if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.FIRST) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, v[$reduce](dart.fn((c1, c2) => c1, doubleLAnddoubleLTodoubleL()))), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          } else if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.AVERAGE) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, dart.notNull(v[$reduce](dart.fn((c1, c2) => dart.notNull(c1) + dart.notNull(c2), doubleLAnddoubleLTodoubleL()))) / dart.notNull(v[$length])), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          } else if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.COUNT) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, v[$length][$toDouble]()), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          } else if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.MAX) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, v[$reduce](dart.fn((c1, c2) => dart.notNull(c1) > dart.notNull(c2) ? c1 : c2, doubleLAnddoubleLTodoubleL()))), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          } else if (this.widget.bezierChartAggregation == bezier_chart_config.BezierChartAggregation.MIN) {
+            valueMap = tmpMap[$map](StringL(), doubleL(), dart.fn((k, v) => new (MapEntryOfStringL$doubleL()).__(k, v[$reduce](dart.fn((c1, c2) => dart.notNull(c1) < dart.notNull(c2) ? c1 : c2, doubleLAnddoubleLTodoubleL()))), StringLAndListLOfdoubleLToMapEntryLOfStringL$doubleL()));
+          }
+          let newDataPoints = JSArrayOfDataPointLOfDateTimeL().of([]);
+          valueMap[$keys][$forEach](dart.fn(key => {
+            let value = valueMap[$_get](key);
+            if (!dart.test(this[_yValues][$contains](value))) this[_yValues][$add](value);
+            if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.HOURLY) {
+              let split = key[$split](",");
+              let year = core.int.parse(split[$_get](0));
+              let month = core.int.parse(split[$_get](1));
+              let day = core.int.parse(split[$_get](2));
+              let hour = core.int.parse(split[$_get](3));
+              let date = new core.DateTime.new(year, month, day, hour, 0);
+              newDataPoints[$add](new (DataPointOfDateTimeL()).new({value: value, xAxis: date}));
+            } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+              let split = key[$split](",");
+              let year = core.int.parse(split[$_get](0));
+              let month = core.int.parse(split[$_get](1));
+              let date = new core.DateTime.new(year, month);
+              newDataPoints[$add](new (DataPointOfDateTimeL()).new({value: value, xAxis: date}));
+            } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.WEEKLY) {
+              let split = key[$split](",");
+              let year = core.int.parse(split[$_get](0));
+              let month = core.int.parse(split[$_get](1));
+              let day = core.int.parse(split[$_get](2));
+              let date = new core.DateTime.new(year, month, day, 0);
+              newDataPoints[$add](new (DataPointOfDateTimeL()).new({value: value, xAxis: date}));
+            } else {
+              let year = core.int.parse(key);
+              let date = new core.DateTime.new(year);
+              newDataPoints[$add](new (DataPointOfDateTimeL()).new({value: value, xAxis: date}));
+            }
+          }, StringLToNull()));
+          let newBezierLine = bezier_line.BezierLine.copy({bezierLine: new bezier_line.BezierLine.new({lineColor: line.lineColor, label: line.label, lineStrokeWidth: line.lineStrokeWidth, onMissingValue: line.onMissingValue, dataPointFillColor: line.dataPointFillColor, dataPointStrokeColor: line.dataPointStrokeColor, data: newDataPoints})});
+          this.computedSeries[$add](newBezierLine);
+        }
+      } else {
+        for (let line of this.widget.series) {
+          for (let val of line.data[$map](doubleL(), dart.fn(dp => dp.value, DataPointLTodoubleL()))[$toList]()) {
+            if (!dart.test(this[_yValues][$contains](val))) this[_yValues][$add](val);
+          }
+        }
+        this.computedSeries = this.widget.series;
+      }
+      for (let temp of this[_tempYValues]) {
+        if (!dart.test(this[_yValues][$contains](temp))) this[_yValues][$add](temp);
+      }
+      this[_yValues][$sort](dart.fn((val1, val2) => dart.notNull(val1) > dart.notNull(val2) ? 1 : -1, doubleLAnddoubleLTointL()));
+    }
+    [_onPinchZoom](scale) {
+      scale = core.double.parse(scale[$toStringAsFixed](1));
+      if (dart.test(this.isPinchZoomActive)) {
+        let lastScale = bezier_chart_config.BezierChartScale.WEEKLY;
+        if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+          lastScale = bezier_chart_config.BezierChartScale.MONTHLY;
+        } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.YEARLY) {
+          lastScale = bezier_chart_config.BezierChartScale.YEARLY;
+        }
+        if (dart.notNull(scale) < 1) {
+          if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.WEEKLY) {
+            this[_currentBezierChartScale] = bezier_chart_config.BezierChartScale.MONTHLY;
+            this[_previousScale] = 1.5;
+          } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+            this[_currentBezierChartScale] = bezier_chart_config.BezierChartScale.YEARLY;
+          }
+          this[_currentScale] = 1.0;
+          this.setState(dart.fn(() => {
+            this[_buildXDataPoints]();
+            this[_computeSeries]();
+            this[_checkIfNeedScroll]();
+          }, VoidToNull()));
+          this[_notifyScaleChanged](lastScale);
+          return;
+        } else if (dart.notNull(scale) > 1.5 || dart.test(this.isOnlyOneAxis) && dart.notNull(scale) > 1.2) {
+          if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.YEARLY) {
+            this[_currentBezierChartScale] = bezier_chart_config.BezierChartScale.MONTHLY;
+            this[_currentScale] = 1.0;
+            this[_previousScale] = 1.0 / dart.notNull(scale);
+            this.setState(dart.fn(() => {
+              this[_buildXDataPoints]();
+              this[_computeSeries]();
+              this[_checkIfNeedScroll]();
+            }, VoidToNull()));
+            this[_notifyScaleChanged](lastScale);
+          } else if (this[_currentBezierChartScale] == bezier_chart_config.BezierChartScale.MONTHLY) {
+            this[_currentBezierChartScale] = bezier_chart_config.BezierChartScale.WEEKLY;
+            this[_currentScale] = 1.0;
+            this[_previousScale] = 1.0 / dart.notNull(scale);
+            this.setState(dart.fn(() => {
+              this[_buildXDataPoints]();
+              this[_computeSeries]();
+              this[_checkIfNeedScroll]();
+            }, VoidToNull()));
+            this[_notifyScaleChanged](lastScale);
+            return;
+          }
+        } else {
+          if (dart.notNull(scale) > 2.5) scale = 2.5;
+          if (scale != this[_currentScale]) {
+            this.setState(dart.fn(() => {
+              this[_currentScale] = scale;
+            }, VoidToNull()));
+          }
+        }
+      }
+    }
+    [_notifyScaleChanged](lastScale) {
+      let t2, t1;
+      if (this.widget.onScaleChanged != null && lastScale != this[_currentBezierChartScale]) {
+        t1 = this.widget;
+        t2 = this[_currentBezierChartScale];
+        t1.onScaleChanged(t2);
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      BezierChartL().as(oldWidget);
+      this.areSeriesDifferent = false;
+      if (oldWidget.series[$length] != this.widget.series[$length]) {
+        this.areSeriesDifferent = true;
+      } else {
+        if (oldWidget.series[$length] == this.widget.series[$length]) {
+          for (let i = 0; i < dart.notNull(oldWidget.series[$length]); i = i + 1) {
+            let size1 = oldWidget.series[$_get](i);
+            let size2 = this.widget.series[$_get](i);
+            if (size1.data[$length] != size2.data[$length]) {
+              this.areSeriesDifferent = true;
+              break;
+            }
+          }
+        }
+        if (!dart.test(this.areSeriesDifferent)) {
+          for (let i = 0; i < dart.notNull(oldWidget.series[$length]); i = i + 1) {
+            let line1 = oldWidget.series[$_get](i);
+            let line2 = this.widget.series[$_get](i);
+            if (!dart.equals(line1, line2)) {
+              this.areSeriesDifferent = true;
+              break;
+            }
+          }
+        }
+      }
+      if (oldWidget.bezierChartScale != this.widget.bezierChartScale || dart.test(this.areSeriesDifferent) || !dart.equals(oldWidget.fromDate, this.widget.fromDate) || !dart.equals(oldWidget.toDate, this.widget.toDate)) {
+        this[_currentBezierChartScale] = this.widget.bezierChartScale;
+        this[_buildXDataPoints]();
+        this[_computeSeries]();
+      }
+      super.didUpdateWidget(oldWidget);
+    }
+    initState() {
+      this[_currentBezierChartScale] = this.widget.bezierChartScale;
+      this[_scrollController] = new scroll_controller.ScrollController.new();
+      this[_animationController] = new animation_controller.AnimationController.new({vsync: this, duration: new core.Duration.new({milliseconds: 300})});
+      this[_buildXDataPoints]();
+      this[_computeSeries]();
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.bind(this, _onLayoutDone));
+      super.initState();
+    }
+    dispose() {
+      this[_animationController].dispose();
+      this[_scrollController].dispose();
+      super.dispose();
+    }
+    build(context) {
+      return new container.Container.new({decoration: new box_decoration.BoxDecoration.new({color: this.widget.config.backgroundGradient != null ? null : this.widget.config.backgroundColor, gradient: this.widget.config.backgroundGradient}), alignment: alignment.Alignment.center, child: new basic.Listener.new({onPointerDown: dart.fn(_ => {
+            this[_touchFingers] = dart.notNull(this[_touchFingers]) + 1;
+            if (dart.notNull(this[_touchFingers]) > 1) {
+              this.setState(dart.fn(() => {
+              }, VoidToNull()));
+            }
+          }, PointerDownEventLToNull()), onPointerUp: dart.fn(_ => {
+            this[_touchFingers] = dart.notNull(this[_touchFingers]) - 1;
+            if (dart.notNull(this[_touchFingers]) < 2) {
+              this.setState(dart.fn(() => {
+              }, VoidToNull()));
+            }
+          }, PointerUpEventLToNull()), child: new gesture_detector.GestureDetector.new({onLongPressStart: dart.test(this.widget.config.updatePositionOnTap) ? null : dart.test(this.isPinchZoomActive) ? null : dart.bind(this, _onDisplayIndicator), onLongPressMoveUpdate: dart.test(this.isPinchZoomActive) ? null : dart.bind(this, _refreshPosition), onScaleStart: dart.fn(_ => {
+              this[_previousScale] = this[_currentScale];
+            }, ScaleStartDetailsLToNull()), onScaleUpdate: this[_currentBezierChartScale] != bezier_chart_config.BezierChartScale.CUSTOM && this[_currentBezierChartScale] != bezier_chart_config.BezierChartScale.HOURLY && !dart.test(this[_displayIndicator]) ? dart.fn(details => this[_onPinchZoom](dart.notNull(this[_previousScale]) * dart.notNull(details.scale)), ScaleUpdateDetailsLTodynamic()) : null, onTap: dart.test(this.widget.config.updatePositionOnTap) ? null : dart.test(this.isPinchZoomActive) ? null : dart.bind(this, _onHideIndicator), onTapDown: dart.test(this.widget.config.updatePositionOnTap) ? dart.test(this.isPinchZoomActive) ? null : dart.bind(this, _refreshPosition) : null, child: new layout_builder.LayoutBuilder.new({builder: dart.fn((context, constraints) => {
+                let t1, t1$;
+                this[_contentWidth] = this[_buildContentWidth](constraints);
+                let items = JSArrayOfWidgetL().of([]);
+                let maxHeight = dart.notNull(constraints.biggest.height) * 0.75;
+                items[$add](new my_single_child_scroll_view.MySingleChildScrollView.new({controller: this[_scrollController], physics: dart.test(this.isPinchZoomActive) || !dart.test(this[_isScrollable]) ? new scroll_physics.NeverScrollableScrollPhysics.new() : this.widget.config.physics, key: this[_keyScroll], scrollDirection: basic_types.Axis.horizontal, padding: new edge_insets.EdgeInsets.symmetric({horizontal: this.horizontalPadding}), child: new basic.Align.new({alignment: new alignment.Alignment.new(0.0, 0.7), child: new basic.CustomPaint.new({size: new ui.Size.new(this[_contentWidth], maxHeight), painter: new bezier_chart_widget._BezierChartPainter.new({shouldRepaintChart: this.areSeriesDifferent, config: this.widget.config, maxYValue: this[_yValues][$last], minYValue: this[_yValues][$first], bezierChartScale: this[_currentBezierChartScale], verticalIndicatorPosition: this[_verticalIndicatorPosition], series: this.computedSeries, showIndicator: this[_displayIndicator], animation: new animations.CurvedAnimation.new({parent: this[_animationController], curve: new curves.Interval.new(0.0, 1.0, {curve: curves.Curves.elasticOut})}), xAxisDataPoints: this[_xAxisDataPoints], onDataPointSnap: dart.bind(this, _onDataPointSnap), maxWidth: media_query.MediaQuery.of(context).size.width, scrollOffset: dart.test(this[_scrollController].hasClients) ? this[_scrollController].offset : 0.0, footerValueBuilder: this.widget.footerValueBuilder, bubbleLabelValueBuilder: this.widget.bubbleLabelValueBuilder, footerDateTimeBuilder: this.widget.footerDateTimeBuilder, bubbleLabelDateTimeBuilder: this.widget.bubbleLabelDateTimeBuilder, onValueSelected: dart.fn(val => {
+                          let t2, t1, t2$, t1$;
+                          if (this.widget.onValueSelected != null) {
+                            if (this[_valueSelected] == null) {
+                              this[_valueSelected] = val;
+                              t1 = this.widget;
+                              t2 = this[_valueSelected];
+                              t1.onValueSelected(t2);
+                            } else {
+                              if (this[_valueSelected] != val) {
+                                this[_valueSelected] = val;
+                                t1$ = this.widget;
+                                t2$ = this[_valueSelected];
+                                t1$.onValueSelected(t2$);
+                              }
+                            }
+                          }
+                        }, doubleLToNull()), onDateTimeSelected: dart.fn(val => {
+                          let t2, t1, t2$, t1$;
+                          if (this.widget.onDateTimeSelected != null) {
+                            if (this[_dateTimeSelected] == null) {
+                              this[_dateTimeSelected] = val;
+                              t1 = this.widget;
+                              t2 = this[_dateTimeSelected];
+                              t1.onDateTimeSelected(t2);
+                            } else {
+                              if (!dart.equals(this[_dateTimeSelected], val)) {
+                                this[_dateTimeSelected] = val;
+                                t1$ = this.widget;
+                                t2$ = this[_dateTimeSelected];
+                                t1$.onDateTimeSelected(t2$);
+                              }
+                            }
+                          }
+                        }, DateTimeLToNull())}), $creationLocationd_0dea112b090073317d4: C1 || CT.C1}), $creationLocationd_0dea112b090073317d4: C5 || CT.C5}), $creationLocationd_0dea112b090073317d4: C9 || CT.C9}));
+                if (dart.test(this.widget.config.displayYAxis)) {
+                  if (this[_yValues] != null && dart.test(this[_yValues][$isNotEmpty])) {
+                    items[$add](new basic.Positioned.new({left: 0.0, top: 0.0, bottom: 0.0, child: new container.Container.new({width: dart.notNull(this[_yAxisWidth]) + 10, decoration: this.widget.config.backgroundGradient != null ? new box_decoration.BoxDecoration.new({gradient: this.widget.config.backgroundGradient}) : null, color: this.widget.config.backgroundGradient != null ? null : this.widget.config.backgroundColor, $creationLocationd_0dea112b090073317d4: C17 || CT.C17}), $creationLocationd_0dea112b090073317d4: C22 || CT.C22}));
+                  }
+                  let fontSize = (t1$ = (t1 = this.widget.config.yAxisTextStyle, t1 == null ? null : t1.fontSize), t1$ == null ? 8.0 : t1$);
+                  let maxValue = dart.notNull(this[_yValues][$last]) - dart.notNull(dart.test(this.widget.config.startYAxisFromNonZeroValue) ? this[_yValues][$first] : 0.0);
+                  let steps = this.widget.config.stepsYAxis != null && dart.notNull(this.widget.config.stepsYAxis) > 0 ? this.widget.config.stepsYAxis : null;
+                  const _addYItem = (value, opts) => {
+                    let t1;
+                    let key = opts && 'key' in opts ? opts.key : null;
+                    items[$add](new basic.Positioned.new({bottom: doubleN().as(dart.dsend(dart.dsend(bezier_chart_widget._getRealValue(dart.notNull(value) - dart.notNull(dart.test(this.widget.config.startYAxisFromNonZeroValue) ? this[_yValues][$first] : 0.0), maxHeight - dart.notNull(this.widget.config.footerHeight), maxValue), '+', [this.widget.config.footerHeight]), '+', [dart.notNull(fontSize) / 2])), left: 10.0, child: new text.Text.new(bezier_chart_widget.formatAsIntOrDouble(value), {key: key, style: (t1 = this.widget.config.yAxisTextStyle, t1 == null ? new text_style.TextStyle.new({color: colors.Colors.white, fontSize: fontSize}) : t1), $creationLocationd_0dea112b090073317d4: C28 || CT.C28}), $creationLocationd_0dea112b090073317d4: C33 || CT.C33}));
+                  };
+                  dart.fn(_addYItem, doubleL__ToNull());
+                  if (steps != null) {
+                    let max = this[_yValues][$last];
+                    let min = dart.test(this.widget.config.startYAxisFromNonZeroValue) ? this[_yValues][$first][$ceil]() : 0;
+                    for (let i = min; i < dart.notNull(max) + dart.notNull(steps); i = i + 1) {
+                      if (i[$modulo](steps) === 0) {
+                        let isLast = i + dart.notNull(steps) > dart.notNull(max) && i + dart.notNull(steps) >= dart.notNull(max) + dart.notNull(steps);
+                        _addYItem(i[$toDouble](), {key: isLast ? this[_keyLastYAxisItem] : null});
+                      }
+                    }
+                  } else {
+                    for (let val of this[_yValues]) {
+                      _addYItem(val, {key: val == this[_yValues][$last] ? this[_keyLastYAxisItem] : null});
+                    }
+                  }
+                }
+                return new basic.Stack.new({children: items, $creationLocationd_0dea112b090073317d4: C38 || CT.C38});
+              }, BuildContextLAndBoxConstraintsLToStackL()), $creationLocationd_0dea112b090073317d4: C41 || CT.C41}), $creationLocationd_0dea112b090073317d4: C44 || CT.C44}), $creationLocationd_0dea112b090073317d4: C53 || CT.C53}), $creationLocationd_0dea112b090073317d4: C58 || CT.C58});
+    }
+  };
+  (bezier_chart_widget.BezierChartState.new = function() {
+    this[_animationController] = null;
+    this[_scrollController] = null;
+    this[_keyScroll] = GlobalKeyOfStateLOfStatefulWidgetL().new();
+    this[_verticalIndicatorPosition] = null;
+    this[_displayIndicator] = false;
+    this[horizontalPadding] = 50.0;
+    this[horizontalSpacing] = 60.0;
+    this[_xAxisDataPoints] = JSArrayOfDataPointL().of([]);
+    this[computedSeries] = JSArrayOfBezierLineL().of([]);
+    this[_currentScale] = 1.0;
+    this[_previousScale] = null;
+    this[_currentBezierChartScale] = null;
+    this[_lastValueSnapped] = 1 / 0;
+    this[_contentWidth] = 0.0;
+    this[_isScrollable] = false;
+    this[_yValues] = null;
+    this[_tempYValues] = null;
+    this[_dateTimeSelected] = null;
+    this[_valueSelected] = null;
+    this[_keyLastYAxisItem] = GlobalKeyOfStateLOfStatefulWidgetL().new();
+    this[_yAxisWidth] = 0.0;
+    this[areSeriesDifferent] = false;
+    this[_touchFingers] = 0;
+    bezier_chart_widget.BezierChartState.__proto__.new.call(this);
+    ;
+  }).prototype = bezier_chart_widget.BezierChartState.prototype;
+  dart.addTypeTests(bezier_chart_widget.BezierChartState);
+  dart.addTypeCaches(bezier_chart_widget.BezierChartState);
+  dart.setMethodSignature(bezier_chart_widget.BezierChartState, () => ({
+    __proto__: dart.getMethods(bezier_chart_widget.BezierChartState.__proto__),
+    [_refreshPosition]: dart.fnType(dart.void, [dart.dynamic]),
+    [_updatePosition]: dart.fnType(dart.void, [dart.legacy(ui.Offset)]),
+    [_onDisplayIndicator]: dart.fnType(dart.dynamic, [dart.dynamic], {updatePosition: dart.legacy(core.bool)}, {}),
+    [_onHideIndicator]: dart.fnType(dart.dynamic, []),
+    [_onDataPointSnap]: dart.fnType(dart.void, [dart.legacy(core.double)]),
+    [_checkMissingValues]: dart.fnType(dart.dynamic, [dart.legacy(core.DateTime)]),
+    [_buildXDataPoints]: dart.fnType(dart.void, []),
+    [_convertToDateOnly]: dart.fnType(dart.legacy(core.DateTime), [dart.legacy(core.DateTime)]),
+    [_buildContentWidth]: dart.fnType(dart.legacy(core.double), [dart.legacy(box.BoxConstraints)]),
+    [_onLayoutDone]: dart.fnType(dart.dynamic, [dart.dynamic]),
+    [_checkIfNeedScroll]: dart.fnType(dart.dynamic, []),
+    [_computeSeries]: dart.fnType(dart.dynamic, []),
+    [_onPinchZoom]: dart.fnType(dart.dynamic, [dart.legacy(core.double)]),
+    [_notifyScaleChanged]: dart.fnType(dart.void, [dart.legacy(bezier_chart_config.BezierChartScale)]),
+    didUpdateWidget: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setGetterSignature(bezier_chart_widget.BezierChartState, () => ({
+    __proto__: dart.getGetters(bezier_chart_widget.BezierChartState.__proto__),
+    isPinchZoomActive: dart.legacy(core.bool),
+    isOnlyOneAxis: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(bezier_chart_widget.BezierChartState, L1);
+  dart.setFieldSignature(bezier_chart_widget.BezierChartState, () => ({
+    __proto__: dart.getFields(bezier_chart_widget.BezierChartState.__proto__),
+    [_animationController]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_scrollController]: dart.fieldType(dart.legacy(scroll_controller.ScrollController)),
+    [_keyScroll]: dart.fieldType(dart.legacy(framework.GlobalKey$(dart.legacy(framework.State$(dart.legacy(framework.StatefulWidget)))))),
+    [_verticalIndicatorPosition]: dart.fieldType(dart.legacy(ui.Offset)),
+    [_displayIndicator]: dart.fieldType(dart.legacy(core.bool)),
+    horizontalPadding: dart.finalFieldType(dart.legacy(core.double)),
+    horizontalSpacing: dart.fieldType(dart.legacy(core.double)),
+    [_xAxisDataPoints]: dart.fieldType(dart.legacy(core.List$(dart.legacy(bezier_line.DataPoint)))),
+    computedSeries: dart.fieldType(dart.legacy(core.List$(dart.legacy(bezier_line.BezierLine)))),
+    [_currentScale]: dart.fieldType(dart.legacy(core.double)),
+    [_previousScale]: dart.fieldType(dart.legacy(core.double)),
+    [_currentBezierChartScale]: dart.fieldType(dart.legacy(bezier_chart_config.BezierChartScale)),
+    [_lastValueSnapped]: dart.fieldType(dart.legacy(core.double)),
+    [_contentWidth]: dart.fieldType(dart.legacy(core.double)),
+    [_isScrollable]: dart.fieldType(dart.legacy(core.bool)),
+    [_yValues]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.double)))),
+    [_tempYValues]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.double)))),
+    [_dateTimeSelected]: dart.fieldType(dart.legacy(core.DateTime)),
+    [_valueSelected]: dart.fieldType(dart.legacy(core.double)),
+    [_keyLastYAxisItem]: dart.fieldType(dart.legacy(framework.GlobalKey$(dart.legacy(framework.State$(dart.legacy(framework.StatefulWidget)))))),
+    [_yAxisWidth]: dart.fieldType(dart.legacy(core.double)),
+    areSeriesDifferent: dart.fieldType(dart.legacy(core.bool)),
+    [_touchFingers]: dart.fieldType(dart.legacy(core.int))
+  }));
+  var _maxValueY = dart.privateName(bezier_chart_widget, "_maxValueY");
+  var _maxValueX = dart.privateName(bezier_chart_widget, "_maxValueX");
+  var _currentCustomValues = dart.privateName(bezier_chart_widget, "_currentCustomValues");
+  var _currentXDataPoint = dart.privateName(bezier_chart_widget, "_currentXDataPoint");
+  var _getMaxValueY = dart.privateName(bezier_chart_widget, "_getMaxValueY");
+  var _getMaxValueX = dart.privateName(bezier_chart_widget, "_getMaxValueX");
+  var _getFooterText = dart.privateName(bezier_chart_widget, "_getFooterText");
+  var _getYValues = dart.privateName(bezier_chart_widget, "_getYValues");
+  var _getInfoTitleText = dart.privateName(bezier_chart_widget, "_getInfoTitleText");
+  var _fromCenter = dart.privateName(bezier_chart_widget, "_fromCenter");
+  bezier_chart_widget._BezierChartPainter = class _BezierChartPainter extends custom_paint.CustomPainter {
+    [_getMaxValueX]() {
+      let x = -1 / 0;
+      for (let dp of this.xAxisDataPoints) {
+        if (dart.notNull(dp.value) > dart.notNull(x)) x = dp.value;
+      }
+      return x;
+    }
+    [_getMaxValueY]() {
+      if (this.maxYValue === 0.0) return 1.0;
+      return dart.notNull(this.maxYValue) - dart.notNull(dart.test(this.config.startYAxisFromNonZeroValue) ? this.minYValue : 0.0);
+    }
+    paint(canvas, size) {
+      let t1, t2, t3, t3$, t3$0, t3$1, t3$2;
+      let height = dart.notNull(size.height) - dart.notNull(this.config.footerHeight);
+      let paintVerticalIndicator = ui.Paint.new();
+      try {
+        t1 = paintVerticalIndicator;
+        (() => {
+          t1.color = this.config.verticalIndicatorColor;
+          t1.strokeWidth = this.config.verticalIndicatorStrokeWidth;
+          t1.style = ui.PaintingStyle.stroke;
+          t1.strokeCap = ui.StrokeCap.square;
+          return t1;
+        })();
+      } catch (e) {
+        let ex = dart.getThrown(e);
+        core.print("err: " + dart.str(ex));
+      }
+      let paintControlPoints = (t2 = ui.Paint.new(), (() => {
+        t2.strokeCap = ui.StrokeCap.round;
+        return t2;
+      })());
+      let verticalX = 0.0;
+      if (this.verticalIndicatorPosition != null) {
+        verticalX = this.verticalIndicatorPosition.dx;
+        if (dart.notNull(this.verticalIndicatorPosition.dx) < 0) {
+          verticalX = 0.0;
+        } else if (dart.notNull(this.verticalIndicatorPosition.dx) > dart.notNull(size.width)) {
+          verticalX = size.width;
+        }
+      }
+      let p0 = null;
+      let p1 = null;
+      let p2 = null;
+      let p3 = null;
+      const _drawBezierLinePath = line => {
+        let t2, t2$, t2$0, t4, t3, t3$, t3$0, t3$1, t3$2, t3$3;
+        let path = ui.Path.new();
+        let dataPoints = JSArrayOfOffsetL().of([]);
+        let textPainterXAxis = new text_painter.TextPainter.new({textAlign: ui.TextAlign.center, textDirection: ui.TextDirection.ltr});
+        let xAxisTextStyle = (t2 = this.config.xAxisTextStyle, t2 == null ? new text_style.TextStyle.new({color: colors.Colors.white, fontWeight: ui.FontWeight.w400, fontSize: 11.0}) : t2);
+        let paintLine = (t2$ = ui.Paint.new(), (() => {
+          t2$.color = line.lineColor;
+          t2$.strokeWidth = line.lineStrokeWidth;
+          t2$.style = ui.PaintingStyle.stroke;
+          t2$.strokeCap = ui.StrokeCap.round;
+          return t2$;
+        })());
+        let paintXLines = (t2$0 = ui.Paint.new(), (() => {
+          t2$0.color = this.config.xLinesColor;
+          t2$0.strokeWidth = 1.0;
+          t2$0.style = ui.PaintingStyle.stroke;
+          return t2$0;
+        })());
+        let lastPoint = null;
+        for (let i = 0; i < dart.notNull(this.xAxisDataPoints[$length]); i = i + 1) {
+          let value = 0.0;
+          let axisX = this.xAxisDataPoints[$_get](i).value;
+          let valueX = doubleL().as(bezier_chart_widget._getRealValue(axisX, size.width, this[_maxValueX]));
+          let range = dart.notNull(this.maxWidth) * 10;
+          if (dart.notNull(this.scrollOffset) - range >= dart.notNull(valueX) || dart.notNull(this.scrollOffset) + range <= dart.notNull(valueX)) {
+            continue;
+          }
+          let isMissingValue = false;
+          if (this.bezierChartScale == bezier_chart_config.BezierChartScale.CUSTOM) {
+            value = line.data[$_get](i).value;
+          } else {
+            for (let t2$1 of line.data) {
+              let dp = DataPointLOfDateTimeL().as(t2$1);
+              let dateTime = DateTimeL().as(this.xAxisDataPoints[$_get](i).xAxis);
+              if (this.bezierChartScale == bezier_chart_config.BezierChartScale.HOURLY) {
+                if (dart.test(bezier_chart_widget.areEqualDatesIncludingHour(dateTime, dp.xAxis))) {
+                  value = dp.value;
+                  axisX = this.xAxisDataPoints[$_get](i).value;
+                  break;
+                }
+              } else {
+                if (dart.test(bezier_chart_widget.areEqualDates(dateTime, dp.xAxis))) {
+                  value = dp.value;
+                  axisX = this.xAxisDataPoints[$_get](i).value;
+                  break;
+                }
+              }
+            }
+            if (value === 0) {
+              if (line.onMissingValue != null) {
+                isMissingValue = true;
+                value = (t3 = line, t4 = DateTimeL().as(this.xAxisDataPoints[$_get](i).xAxis), t3.onMissingValue(t4));
+              }
+            }
+          }
+          let axisY = value;
+          let valueY = height - dart.notNull(core.num.as(bezier_chart_widget._getRealValue(dart.notNull(axisY) - dart.notNull(dart.test(this.config.startYAxisFromNonZeroValue) ? this.minYValue : 0.0), height, this[_maxValueY])));
+          if (dart.test(this.config.displayLinesXAxis) && this.series[$length] === 1) {
+            canvas.drawLine(new ui.Offset.new(valueX, height), new ui.Offset.new(valueX, valueY), paintXLines);
+          }
+          if (lastPoint == null) {
+            lastPoint = new bezier_chart_widget._AxisValue.new({x: valueX, y: valueY});
+            path.moveTo(valueX, valueY);
+          }
+          let controlPointX = dart.notNull(lastPoint.x) + (dart.notNull(valueX) - dart.notNull(lastPoint.x)) / 2;
+          path.cubicTo(controlPointX, lastPoint.y, controlPointX, valueY, valueX, valueY);
+          if (isMissingValue) {
+            if (dart.test(this.config.displayDataPointWhenNoValue)) {
+              dataPoints[$add](new ui.Offset.new(valueX, valueY));
+            }
+          } else {
+            dataPoints[$add](new ui.Offset.new(valueX, valueY));
+          }
+          if (this.verticalIndicatorPosition != null && dart.notNull(verticalX) >= dart.notNull(lastPoint.x) && dart.notNull(verticalX) <= dart.notNull(valueX)) {
+            p0 = new ui.Offset.new(lastPoint.x, height - dart.notNull(lastPoint.y));
+            p1 = new ui.Offset.new(controlPointX, height - dart.notNull(lastPoint.y));
+            p2 = new ui.Offset.new(controlPointX, height - valueY);
+            p3 = new ui.Offset.new(valueX, height - valueY);
+          }
+          if (this.verticalIndicatorPosition != null) {
+            let nextX = 1 / 0;
+            let lastX = -1 / 0;
+            if (dart.notNull(this.xAxisDataPoints[$length]) > i + 1) {
+              nextX = doubleL().as(bezier_chart_widget._getRealValue(this.xAxisDataPoints[$_get](i + 1).value, size.width, this[_maxValueX]));
+            }
+            if (i > 0) {
+              lastX = doubleL().as(bezier_chart_widget._getRealValue(this.xAxisDataPoints[$_get](i - 1).value, size.width, this[_maxValueX]));
+            }
+            if (dart.notNull(verticalX) >= dart.notNull(valueX) - (dart.notNull(valueX) - dart.notNull(lastX)) / 2 && dart.notNull(verticalX) <= dart.notNull(valueX) + (dart.notNull(nextX) - dart.notNull(valueX)) / 2) {
+              this[_currentXDataPoint] = this.xAxisDataPoints[$_get](i);
+              if (dart.notNull(this[_currentCustomValues][$length]) < dart.notNull(this.series[$length])) {
+                let isDouble = doubleL().is(this.xAxisDataPoints[$_get](i).xAxis);
+                if (isDouble) {
+                  if (this.onValueSelected != null) {
+                    t3$ = this.xAxisDataPoints[$_get](i).xAxis;
+                    this.onValueSelected(doubleL().as(t3$));
+                  }
+                } else {
+                  if (this.onDateTimeSelected != null) {
+                    t3$0 = this.xAxisDataPoints[$_get](i).xAxis;
+                    this.onDateTimeSelected(DateTimeL().as(t3$0));
+                  }
+                }
+                t3$1 = this.xAxisDataPoints[$_get](i).value;
+                this.onDataPointSnap(t3$1);
+                this[_currentCustomValues][$add](new bezier_chart_widget._CustomValue.new({value: dart.str(bezier_chart_widget.formatAsIntOrDouble(axisY)), label: line.label, color: line.lineColor}));
+              }
+            }
+          }
+          lastPoint = new bezier_chart_widget._AxisValue.new({x: valueX, y: valueY});
+          textPainterXAxis.text = new text_span.TextSpan.new({text: this[_getFooterText](this.xAxisDataPoints[$_get](i)), style: xAxisTextStyle});
+          textPainterXAxis.layout();
+          textPainterXAxis.paint(canvas, new ui.Offset.new(dart.notNull(valueX) - dart.notNull(textPainterXAxis.width) / 2, height + dart.notNull(textPainterXAxis.height) / 1.5));
+        }
+        if (!dart.test(this.footerDrawed)) this.footerDrawed = true;
+        canvas.drawPath(path, paintLine);
+        if (dart.test(this.config.showDataPoints)) {
+          if (!true) {
+            canvas.drawPoints(ui.PointMode.points, dataPoints, (t3$2 = paintControlPoints, (() => {
+              t3$2.style = ui.PaintingStyle.stroke;
+              t3$2.strokeWidth = 10.0;
+              t3$2.color = line.dataPointStrokeColor;
+              return t3$2;
+            })()));
+            canvas.drawPoints(ui.PointMode.points, dataPoints, (t3$3 = paintControlPoints, (() => {
+              t3$3.style = ui.PaintingStyle.fill;
+              t3$3.strokeWidth = dart.notNull(line.lineStrokeWidth) * 1.5;
+              t3$3.color = line.dataPointFillColor;
+              return t3$3;
+            })()));
+          }
+        }
+      };
+      dart.fn(_drawBezierLinePath, BezierLineLTovoid());
+      let reversedSeries = this.series[$reversed];
+      for (let line of reversedSeries) {
+        _drawBezierLinePath(line);
+      }
+      if (this.verticalIndicatorPosition != null && dart.test(this.showIndicator)) {
+        if (dart.test(this.config.snap)) {
+          if (this[_currentXDataPoint] != null) {
+            verticalX = doubleL().as(bezier_chart_widget._getRealValue(this[_currentXDataPoint].value, size.width, this[_maxValueX]));
+          } else {
+            verticalX = 0.0;
+          }
+        }
+        if (p0 != null) {
+          let yValue = this[_getYValues](p0, p1, p2, p3, (dart.notNull(verticalX) - dart.notNull(p0.dx)) / (dart.notNull(p3.dx) - dart.notNull(p0.dx)));
+          let infoWidth = 0.0;
+          let infoHeight = 40.0;
+          let horizontalPadding = 28.0;
+          let offsetInfo = 42 + (dart.notNull(this[_currentCustomValues][$length]) - 1.0) * 10.0;
+          let centerForCircle = new ui.Offset.new(verticalX, height - dart.notNull(core.num.as(yValue)));
+          let center = dart.test(this.config.verticalIndicatorFixedPosition) ? new ui.Offset.new(verticalX, offsetInfo) : centerForCircle;
+          if (dart.test(this.config.showVerticalIndicator)) {
+            canvas.drawLine(new ui.Offset.new(verticalX, height), new ui.Offset.new(verticalX, dart.test(this.config.verticalLineFullHeight) ? 0.0 : center.dy), paintVerticalIndicator);
+          }
+          canvas.drawCircle(centerForCircle, this.radiusDotIndicatorMain, (t3 = ui.Paint.new(), (() => {
+            t3.color = this.series[$reversed][$toList]()[$last].dataPointFillColor;
+            t3.strokeWidth = 4.0;
+            return t3;
+          })()));
+          let textValues = JSArrayOfTextSpanL().of([]);
+          let centerCircles = JSArrayOfOffsetL().of([]);
+          let space = 10 - infoHeight / 8.75 * dart.notNull(this[_currentCustomValues][$length]);
+          infoHeight = infoHeight + (dart.notNull(this[_currentCustomValues][$length]) - 1) * (infoHeight / 3);
+          for (let customValue of this[_currentCustomValues][$reversed][$toList]()) {
+            textValues[$add](new text_span.TextSpan.new({text: this.config.bubbleIndicatorValueFormat != null ? dart.str(this.config.bubbleIndicatorValueFormat.format(core.double.parse(customValue.value))) + " " : dart.str(customValue.value) + " ", style: this.config.bubbleIndicatorValueStyle.copyWith({fontSize: 11.0}), children: JSArrayOfInlineSpanL().of([new text_span.TextSpan.new({text: dart.str(customValue.label) + "\n", style: this.config.bubbleIndicatorLabelStyle.copyWith({fontSize: 9.0})})])}));
+            centerCircles[$add](new ui.Offset.new(center.dx, dart.notNull(center.dy) - offsetInfo - dart.notNull(this.radiusDotIndicatorItems) + space + (this[_currentCustomValues][$length] === 1 ? 1 : 0)));
+            space = space + 12.5;
+          }
+          let textPainter = new text_painter.TextPainter.new({textAlign: ui.TextAlign.center, text: new text_span.TextSpan.new({text: this[_getInfoTitleText](), style: this.config.bubbleIndicatorTitleStyle.copyWith({fontSize: 9.5}), children: textValues}), textDirection: ui.TextDirection.ltr});
+          textPainter.layout();
+          infoWidth = dart.notNull(textPainter.width) + dart.notNull(this.radiusDotIndicatorItems) * 2 + horizontalPadding;
+          if (dart.test(this.animation.isCompleted)) {
+            let path = ui.Path.new();
+            path.moveTo(dart.notNull(center.dx) - infoWidth / 2 + 4, dart.notNull(center.dy) - offsetInfo + infoHeight / 1.8);
+            path.lineTo(dart.notNull(center.dx) + infoWidth / 2 + 4, dart.notNull(center.dy) - offsetInfo + infoHeight / 1.8);
+            path.lineTo(dart.notNull(center.dx) + infoWidth / 2 + 4, dart.notNull(center.dy) - offsetInfo - infoHeight / 3);
+            canvas.drawPath(path, (t3$ = paintControlPoints, (() => {
+              t3$.color = colors.Colors.black12;
+              return t3$;
+            })()));
+          }
+          let paintInfo = (t3$0 = ui.Paint.new(), (() => {
+            t3$0.color = this.config.bubbleIndicatorColor;
+            t3$0.style = ui.PaintingStyle.fill;
+            return t3$0;
+          })());
+          canvas.drawRRect(new ui.RRect.fromRectAndRadius(this[_fromCenter]({center: new ui.Offset.new(center.dx, dart.notNull(center.dy) - offsetInfo * dart.notNull(core.num.as(this.animation.value))), width: infoWidth, height: infoHeight}), new ui.Radius.circular(5.0)), paintInfo);
+          let triangleSize = 6.0;
+          let pathArrow = ui.Path.new();
+          pathArrow.moveTo(dart.notNull(center.dx) - triangleSize, dart.notNull(center.dy) - offsetInfo * dart.notNull(core.num.as(this.animation.value)) + infoHeight / 2.1);
+          pathArrow.lineTo(center.dx, dart.notNull(center.dy) - offsetInfo * dart.notNull(core.num.as(this.animation.value)) + infoHeight / 2.1 + triangleSize * 1.5);
+          pathArrow.lineTo(dart.notNull(center.dx) + triangleSize, dart.notNull(center.dy) - offsetInfo * dart.notNull(core.num.as(this.animation.value)) + infoHeight / 2.1);
+          pathArrow.close();
+          canvas.drawPath(pathArrow, paintInfo);
+          if (dart.test(this.animation.isCompleted)) {
+            textPainter.paint(canvas, new ui.Offset.new(dart.notNull(center.dx) - dart.notNull(textPainter.width) / 2, dart.notNull(center.dy) - offsetInfo - infoHeight / 2.5));
+            for (let z = 0; z < dart.notNull(this[_currentCustomValues][$length]); z = z + 1) {
+              let customValue = this[_currentCustomValues][$_get](z);
+              let centerIndicator = centerCircles[$reversed][$toList]()[$_get](z);
+              let fixedCenter = new ui.Offset.new(dart.notNull(centerIndicator.dx) - infoWidth / 2 + dart.notNull(this.radiusDotIndicatorItems) + 4, centerIndicator.dy);
+              canvas.drawCircle(fixedCenter, this.radiusDotIndicatorItems, (t3$1 = ui.Paint.new(), (() => {
+                t3$1.color = customValue.color;
+                t3$1.style = ui.PaintingStyle.fill;
+                return t3$1;
+              })()));
+              canvas.drawCircle(fixedCenter, this.radiusDotIndicatorItems, (t3$2 = ui.Paint.new(), (() => {
+                t3$2.color = colors.Colors.black;
+                t3$2.strokeWidth = 0.5;
+                t3$2.style = ui.PaintingStyle.stroke;
+                return t3$2;
+              })()));
+            }
+          }
+        }
+      }
+    }
+    [_getInfoTitleText]() {
+      let t3, t4, t3$;
+      let scale = this.bezierChartScale;
+      if (this.bubbleLabelValueBuilder != null && scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        t3 = this[_currentXDataPoint].value;
+        return this.bubbleLabelValueBuilder(t3);
+      }
+      if (this.bubbleLabelDateTimeBuilder != null && scale != bezier_chart_config.BezierChartScale.CUSTOM) {
+        t3$ = DateTimeL().as(this[_currentXDataPoint].xAxis);
+        t4 = scale;
+        return this.bubbleLabelDateTimeBuilder(t3$, t4);
+      }
+      if (scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        return dart.str(bezier_chart_widget.formatAsIntOrDouble(this[_currentXDataPoint].value)) + "\n";
+      } else if (scale == bezier_chart_config.BezierChartScale.HOURLY) {
+        let dateFormat = new intl.DateFormat.new("dd/MM HH:mm");
+        let date = DateTimeL().as(this[_currentXDataPoint].xAxis);
+        let now = new core.DateTime.now();
+        if (dart.test(bezier_chart_widget.areEqualDatesIncludingHour(date, now))) {
+          return "Now\n";
+        } else {
+          return dart.str(dateFormat.format(DateTimeL().as(this[_currentXDataPoint].xAxis))) + "\n";
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.WEEKLY) {
+        let dateFormat = new intl.DateFormat.new("EEE d");
+        let date = DateTimeL().as(this[_currentXDataPoint].xAxis);
+        let now = new core.DateTime.now();
+        if (dart.test(bezier_chart_widget.areEqualDates(date, now))) {
+          return "Current\n";
+        } else {
+          return dart.str(dateFormat.format(DateTimeL().as(this[_currentXDataPoint].xAxis))) + "\n";
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.MONTHLY) {
+        let dateFormat = new intl.DateFormat.new("MMM y");
+        let date = DateTimeL().as(this[_currentXDataPoint].xAxis);
+        let now = new core.DateTime.now();
+        if (date.year == now.year && now.month == date.month) {
+          return "Current Month\n";
+        } else {
+          return dart.str(dateFormat.format(DateTimeL().as(this[_currentXDataPoint].xAxis))) + "\n";
+        }
+      } else if (scale == bezier_chart_config.BezierChartScale.YEARLY) {
+        let dateFormat = new intl.DateFormat.new("y");
+        let date = DateTimeL().as(this[_currentXDataPoint].xAxis);
+        let now = new core.DateTime.now();
+        if (date.year == now.year) {
+          return "Current Year\n";
+        } else {
+          return dart.str(dateFormat.format(DateTimeL().as(this[_currentXDataPoint].xAxis))) + "\n";
+        }
+      }
+      return "";
+    }
+    [_getFooterText](dataPoint) {
+      let t3, t4, t3$;
+      let scale = this.bezierChartScale;
+      if (this.footerValueBuilder != null && scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        t3 = dataPoint.value;
+        return this.footerValueBuilder(t3);
+      }
+      if (this.footerDateTimeBuilder != null && scale != bezier_chart_config.BezierChartScale.CUSTOM) {
+        t3$ = DateTimeL().as(dataPoint.xAxis);
+        t4 = scale;
+        return this.footerDateTimeBuilder(t3$, t4);
+      }
+      if (scale == bezier_chart_config.BezierChartScale.CUSTOM) {
+        return dart.str(bezier_chart_widget.formatAsIntOrDouble(dataPoint.value)) + "\n";
+      } else if (scale == bezier_chart_config.BezierChartScale.HOURLY) {
+        let dateFormat = new intl.DateFormat.new("HH:mm\n");
+        return dart.str(dateFormat.format(DateTimeL().as(dataPoint.xAxis)));
+      } else if (scale == bezier_chart_config.BezierChartScale.WEEKLY) {
+        let dateFormat = new intl.DateFormat.new("EEE\nd");
+        return dart.str(dateFormat.format(DateTimeL().as(dataPoint.xAxis)));
+      } else if (scale == bezier_chart_config.BezierChartScale.MONTHLY) {
+        let dateFormat = new intl.DateFormat.new("MMM");
+        let dateFormatYear = new intl.DateFormat.new("y");
+        let year = dateFormatYear.format(DateTimeL().as(dataPoint.xAxis))[$substring](2);
+        return dart.str(dateFormat.format(DateTimeL().as(dataPoint.xAxis))) + "\n'" + year;
+      } else if (scale == bezier_chart_config.BezierChartScale.YEARLY) {
+        let dateFormat = new intl.DateFormat.new("y");
+        return dart.str(dateFormat.format(DateTimeL().as(dataPoint.xAxis)));
+      }
+      return "";
+    }
+    [_getYValues](p0, p1, p2, p3, t) {
+      if (t[$isNaN]) {
+        t = 1.0;
+      }
+      let y0 = p0.dy;
+      let y1 = p1.dy;
+      let y2 = p2.dy;
+      let y3 = p3.dy;
+      let y = math.pow(1 - dart.notNull(t), 3) * dart.notNull(y0) + 3 * math.pow(1 - dart.notNull(t), 2) * dart.notNull(t) * dart.notNull(y1) + 3 * (1 - dart.notNull(t)) * math.pow(t, 2) * dart.notNull(y2) + math.pow(t, 3) * dart.notNull(y3);
+      return y;
+    }
+    [_fromCenter](opts) {
+      let center = opts && 'center' in opts ? opts.center : null;
+      let width = opts && 'width' in opts ? opts.width : null;
+      let height = opts && 'height' in opts ? opts.height : null;
+      return new ui.Rect.fromLTRB(dart.notNull(center.dx) - dart.notNull(width) / 2, dart.notNull(center.dy) - dart.notNull(height) / 2, dart.notNull(center.dx) + dart.notNull(width) / 2, dart.notNull(center.dy) + dart.notNull(height) / 2);
+    }
+    shouldRepaint(oldDelegate) {
+      _BezierChartPainterL().as(oldDelegate);
+      return dart.test(this.shouldRepaintChart) || !dart.equals(oldDelegate.verticalIndicatorPosition, this.verticalIndicatorPosition) || oldDelegate.scrollOffset != this.scrollOffset || !dart.equals(oldDelegate.showIndicator, this.showIndicator);
+    }
+  };
+  (bezier_chart_widget._BezierChartPainter.new = function(opts) {
+    let shouldRepaintChart = opts && 'shouldRepaintChart' in opts ? opts.shouldRepaintChart : null;
+    let config = opts && 'config' in opts ? opts.config : null;
+    let verticalIndicatorPosition = opts && 'verticalIndicatorPosition' in opts ? opts.verticalIndicatorPosition : null;
+    let series = opts && 'series' in opts ? opts.series : null;
+    let showIndicator = opts && 'showIndicator' in opts ? opts.showIndicator : null;
+    let xAxisDataPoints = opts && 'xAxisDataPoints' in opts ? opts.xAxisDataPoints : null;
+    let animation = opts && 'animation' in opts ? opts.animation : null;
+    let bezierChartScale = opts && 'bezierChartScale' in opts ? opts.bezierChartScale : null;
+    let onDataPointSnap = opts && 'onDataPointSnap' in opts ? opts.onDataPointSnap : null;
+    let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
+    let footerValueBuilder = opts && 'footerValueBuilder' in opts ? opts.footerValueBuilder : null;
+    let bubbleLabelValueBuilder = opts && 'bubbleLabelValueBuilder' in opts ? opts.bubbleLabelValueBuilder : null;
+    let scrollOffset = opts && 'scrollOffset' in opts ? opts.scrollOffset : null;
+    let footerDateTimeBuilder = opts && 'footerDateTimeBuilder' in opts ? opts.footerDateTimeBuilder : null;
+    let bubbleLabelDateTimeBuilder = opts && 'bubbleLabelDateTimeBuilder' in opts ? opts.bubbleLabelDateTimeBuilder : null;
+    let maxYValue = opts && 'maxYValue' in opts ? opts.maxYValue : null;
+    let minYValue = opts && 'minYValue' in opts ? opts.minYValue : null;
+    let onDateTimeSelected = opts && 'onDateTimeSelected' in opts ? opts.onDateTimeSelected : null;
+    let onValueSelected = opts && 'onValueSelected' in opts ? opts.onValueSelected : null;
+    this[_maxValueY] = 0.0;
+    this[_maxValueX] = 0.0;
+    this[_currentCustomValues] = JSArrayOf_CustomValueL().of([]);
+    this[_currentXDataPoint] = null;
+    this.radiusDotIndicatorMain = 7.0;
+    this.radiusDotIndicatorItems = 3.5;
+    this.footerDrawed = false;
+    this.shouldRepaintChart = shouldRepaintChart;
+    this.config = config;
+    this.verticalIndicatorPosition = verticalIndicatorPosition;
+    this.series = series;
+    this.showIndicator = showIndicator;
+    this.xAxisDataPoints = xAxisDataPoints;
+    this.animation = animation;
+    this.bezierChartScale = bezierChartScale;
+    this.onDataPointSnap = onDataPointSnap;
+    this.maxWidth = maxWidth;
+    this.footerValueBuilder = footerValueBuilder;
+    this.bubbleLabelValueBuilder = bubbleLabelValueBuilder;
+    this.scrollOffset = scrollOffset;
+    this.footerDateTimeBuilder = footerDateTimeBuilder;
+    this.bubbleLabelDateTimeBuilder = bubbleLabelDateTimeBuilder;
+    this.maxYValue = maxYValue;
+    this.minYValue = minYValue;
+    this.onDateTimeSelected = onDateTimeSelected;
+    this.onValueSelected = onValueSelected;
+    bezier_chart_widget._BezierChartPainter.__proto__.new.call(this, {repaint: animation});
+    this[_maxValueY] = this[_getMaxValueY]();
+    this[_maxValueX] = this[_getMaxValueX]();
+  }).prototype = bezier_chart_widget._BezierChartPainter.prototype;
+  dart.addTypeTests(bezier_chart_widget._BezierChartPainter);
+  dart.addTypeCaches(bezier_chart_widget._BezierChartPainter);
+  dart.setMethodSignature(bezier_chart_widget._BezierChartPainter, () => ({
+    __proto__: dart.getMethods(bezier_chart_widget._BezierChartPainter.__proto__),
+    [_getMaxValueX]: dart.fnType(dart.legacy(core.double), []),
+    [_getMaxValueY]: dart.fnType(dart.legacy(core.double), []),
+    paint: dart.fnType(dart.void, [dart.legacy(ui.Canvas), dart.legacy(ui.Size)]),
+    [_getInfoTitleText]: dart.fnType(dart.legacy(core.String), []),
+    [_getFooterText]: dart.fnType(dart.legacy(core.String), [dart.legacy(bezier_line.DataPoint)]),
+    [_getYValues]: dart.fnType(dart.dynamic, [dart.legacy(ui.Offset), dart.legacy(ui.Offset), dart.legacy(ui.Offset), dart.legacy(ui.Offset), dart.legacy(core.double)]),
+    [_fromCenter]: dart.fnType(dart.legacy(ui.Rect), [], {center: dart.legacy(ui.Offset), height: dart.legacy(core.double), width: dart.legacy(core.double)}, {}),
+    shouldRepaint: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(bezier_chart_widget._BezierChartPainter, L1);
+  dart.setFieldSignature(bezier_chart_widget._BezierChartPainter, () => ({
+    __proto__: dart.getFields(bezier_chart_widget._BezierChartPainter.__proto__),
+    config: dart.finalFieldType(dart.legacy(bezier_chart_config.BezierChartConfig)),
+    verticalIndicatorPosition: dart.finalFieldType(dart.legacy(ui.Offset)),
+    series: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(bezier_line.BezierLine)))),
+    xAxisDataPoints: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(bezier_line.DataPoint)))),
+    [_maxValueY]: dart.fieldType(dart.legacy(core.double)),
+    [_maxValueX]: dart.fieldType(dart.legacy(core.double)),
+    [_currentCustomValues]: dart.fieldType(dart.legacy(core.List$(dart.legacy(bezier_chart_widget._CustomValue)))),
+    [_currentXDataPoint]: dart.fieldType(dart.legacy(bezier_line.DataPoint)),
+    radiusDotIndicatorMain: dart.finalFieldType(dart.legacy(core.double)),
+    radiusDotIndicatorItems: dart.finalFieldType(dart.legacy(core.double)),
+    showIndicator: dart.finalFieldType(dart.legacy(core.bool)),
+    animation: dart.finalFieldType(dart.legacy(animation.Animation)),
+    onDataPointSnap: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.double)]))),
+    bezierChartScale: dart.finalFieldType(dart.legacy(bezier_chart_config.BezierChartScale)),
+    maxWidth: dart.finalFieldType(dart.legacy(core.double)),
+    scrollOffset: dart.finalFieldType(dart.legacy(core.double)),
+    footerDrawed: dart.fieldType(dart.legacy(core.bool)),
+    footerValueBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.double)]))),
+    bubbleLabelValueBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.double)]))),
+    footerDateTimeBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.DateTime), dart.legacy(bezier_chart_config.BezierChartScale)]))),
+    bubbleLabelDateTimeBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.DateTime), dart.legacy(bezier_chart_config.BezierChartScale)]))),
+    maxYValue: dart.finalFieldType(dart.legacy(core.double)),
+    minYValue: dart.finalFieldType(dart.legacy(core.double)),
+    onValueSelected: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.double)]))),
+    onDateTimeSelected: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.DateTime)]))),
+    shouldRepaintChart: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  var x$ = dart.privateName(bezier_chart_widget, "_AxisValue.x");
+  var y$ = dart.privateName(bezier_chart_widget, "_AxisValue.y");
+  bezier_chart_widget._AxisValue = class _AxisValue extends core.Object {
+    get x() {
+      return this[x$];
+    }
+    set x(value) {
+      super.x = value;
+    }
+    get y() {
+      return this[y$];
+    }
+    set y(value) {
+      super.y = value;
+    }
+  };
+  (bezier_chart_widget._AxisValue.new = function(opts) {
+    let x = opts && 'x' in opts ? opts.x : null;
+    let y = opts && 'y' in opts ? opts.y : null;
+    this[x$] = x;
+    this[y$] = y;
+    ;
+  }).prototype = bezier_chart_widget._AxisValue.prototype;
+  dart.addTypeTests(bezier_chart_widget._AxisValue);
+  dart.addTypeCaches(bezier_chart_widget._AxisValue);
+  dart.setLibraryUri(bezier_chart_widget._AxisValue, L1);
+  dart.setFieldSignature(bezier_chart_widget._AxisValue, () => ({
+    __proto__: dart.getFields(bezier_chart_widget._AxisValue.__proto__),
+    x: dart.finalFieldType(dart.legacy(core.double)),
+    y: dart.finalFieldType(dart.legacy(core.double))
+  }));
+  bezier_chart_widget._CustomValue = class _CustomValue extends core.Object {};
+  (bezier_chart_widget._CustomValue.new = function(opts) {
+    let value = opts && 'value' in opts ? opts.value : null;
+    let label = opts && 'label' in opts ? opts.label : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    this.value = value;
+    this.label = label;
+    this.color = color;
+    ;
+  }).prototype = bezier_chart_widget._CustomValue.prototype;
+  dart.addTypeTests(bezier_chart_widget._CustomValue);
+  dart.addTypeCaches(bezier_chart_widget._CustomValue);
+  dart.setLibraryUri(bezier_chart_widget._CustomValue, L1);
+  dart.setFieldSignature(bezier_chart_widget._CustomValue, () => ({
+    __proto__: dart.getFields(bezier_chart_widget._CustomValue.__proto__),
+    value: dart.finalFieldType(dart.legacy(core.String)),
+    label: dart.finalFieldType(dart.legacy(core.String)),
+    color: dart.finalFieldType(dart.legacy(ui.Color))
+  }));
+  bezier_chart_widget._getRealValue = function _getRealValue(value, maxConstraint, maxValue) {
+    return dart.notNull(maxConstraint) * dart.notNull(value) / dart.notNull(maxValue === 0 ? 1 : maxValue);
+  };
+  bezier_chart_widget._compareLengths = function _compareLengths(currentValue, val2) {
+    for (let line of val2) {
+      if (currentValue != line.data[$length]) {
+        return false;
+      }
+    }
+    return true;
+  };
+  bezier_chart_widget._isSorted = function _isSorted(T, list, compare = null) {
+    if (dart.notNull(list[$length]) < 2) return true;
+    compare == null ? compare = dart.fn((a, b) => a[$compareTo](b), doubleLAnddoubleLTointL()) : null;
+    let prev = list[$first];
+    for (let i = 1; i < dart.notNull(list[$length]); i = i + 1) {
+      let next = list[$_get](i);
+      if (dart.notNull(compare(prev, next)) > 0) return false;
+      prev = next;
+    }
+    return true;
+  };
+  bezier_chart_widget._checkCustomValues = function _checkCustomValues(list) {
+    for (let line of list) {
+      if (!dart.test(bezier_chart_widget._areAllPositive(line.data[$map](doubleL(), dart.fn(dp => dp.value, DataPointLTodoubleL()))))) return false;
+    }
+    return true;
+  };
+  bezier_chart_widget._areAllPositive = function _areAllPositive(list) {
+    for (let val of list) {
+      if (dart.notNull(val) < 0) return false;
+    }
+    return true;
+  };
+  bezier_chart_widget.formatAsIntOrDouble = function formatAsIntOrDouble(str) {
+    let values = dart.toString(str)[$split](".");
+    if (dart.notNull(values[$length]) > 1) {
+      let intDecimal = core.int.parse(values[$_get](1));
+      if (intDecimal === 0) {
+        return str[$toInt]()[$toString]();
+      }
+    }
+    return dart.toString(str);
+  };
+  bezier_chart_widget.areEqualDates = function areEqualDates(dateTime1, dateTime2) {
+    return dateTime1.year == dateTime2.year && dateTime1.month == dateTime2.month && dateTime1.day == dateTime2.day;
+  };
+  bezier_chart_widget.areEqualDatesIncludingHour = function areEqualDatesIncludingHour(dateTime1, dateTime2) {
+    return dateTime1.year == dateTime2.year && dateTime1.month == dateTime2.month && dateTime1.day == dateTime2.day && dateTime1.hour == dateTime2.hour;
+  };
+  dart.trackLibraries("packages/bezier_chart/src/bezier_chart_widget.dart", {
+    "package:bezier_chart/src/bezier_chart_widget.dart": bezier_chart_widget
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["bezier_chart_widget.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/bezier_chart/src/bezier_chart_widget.dart.lib.js"}');
+  // Exports:
+  return {
+    src__bezier_chart_widget: bezier_chart_widget
+  };
+}));
+
+//# sourceMappingURL=bezier_chart_widget.dart.lib.js.map

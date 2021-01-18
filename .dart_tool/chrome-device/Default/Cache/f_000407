@@ -1,0 +1,572 @@
+define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/borders.dart'], (function load__packages__loading_animations__src__bouncing_line_dart(dart_sdk, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__borders$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  var bouncing_line = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var ColorL = () => (ColorL = dart.constFn(dart.legacy(ui.Color)))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var TweenOfdoubleL = () => (TweenOfdoubleL = dart.constFn(tween.Tween$(doubleL())))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart";
+  var L1 = "package:loading_animations/src/bouncing_line.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293718001.0
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291811548.0
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289773253.0
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287669422.0
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286091420.0
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284513675.0
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283723386.0
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282735204.0
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281812815.0
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280693304.0
+      });
+    },
+    get C1() {
+      return C1 = dart.constMap(intL(), ColorL(), [50, C2 || CT.C2, 100, C3 || CT.C3, 200, C4 || CT.C4, 300, C5 || CT.C5, 400, C6 || CT.C6, 500, C7 || CT.C7, 600, C8 || CT.C8, 700, C9 || CT.C9, 800, C10 || CT.C10, 900, C11 || CT.C11]);
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: colors.MaterialColor.prototype,
+        [Color_value]: 4284513675.0,
+        [ColorSwatch__swatch]: C1 || CT.C1
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 3000000
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 20,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C15 = dart.constList([C16 || CT.C16], _LocationL());
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C15 || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 20,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.constList([C19 || CT.C19], _LocationL());
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C18 || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 120,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.constList([C22 || CT.C22, C23 || CT.C23, C24 || CT.C24], _LocationL());
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C21 || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 113,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C26 = dart.constList([C27 || CT.C27, C28 || CT.C28], _LocationL());
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C26 || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scale",
+        [_Location_column]: 7,
+        [_Location_line]: 129,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.constList([C31 || CT.C31, C32 || CT.C32], _LocationL());
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C30 || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 128,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 15,
+        [_Location_line]: 140,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C34 = dart.constList([C35 || CT.C35], _LocationL());
+    },
+    get C33() {
+      return C33 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C34 || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 139,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C37 = dart.constList([C38 || CT.C38, C39 || CT.C39], _LocationL());
+    },
+    get C36() {
+      return C36 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C37 || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 135,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_animations-2.1.0/lib/src/bouncing_line.dart"
+      });
+    }
+  }, false);
+  var Color_value = dart.privateName(ui, "Color.value");
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  var C7;
+  var C8;
+  var C9;
+  var C10;
+  var C11;
+  var C1;
+  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
+  var C0;
+  var C12;
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C13;
+  var _shape = dart.privateName(bouncing_line, "_shape");
+  var controller$ = dart.privateName(bouncing_line, "LoadingBouncingLine.controller");
+  var backgroundColor$ = dart.privateName(bouncing_line, "LoadingBouncingLine.backgroundColor");
+  var borderColor$ = dart.privateName(bouncing_line, "LoadingBouncingLine.borderColor");
+  var size$ = dart.privateName(bouncing_line, "LoadingBouncingLine.size");
+  var borderSize$ = dart.privateName(bouncing_line, "LoadingBouncingLine.borderSize");
+  var duration$ = dart.privateName(bouncing_line, "LoadingBouncingLine.duration");
+  var itemBuilder$ = dart.privateName(bouncing_line, "LoadingBouncingLine.itemBuilder");
+  bouncing_line.LoadingBouncingLine = class LoadingBouncingLine extends framework.StatefulWidget {
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get borderColor() {
+      return this[borderColor$];
+    }
+    set borderColor(value) {
+      super.borderColor = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get borderSize() {
+      return this[borderSize$];
+    }
+    set borderSize(value) {
+      super.borderSize = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    createState() {
+      return new bouncing_line._LoadingBouncingLineState.new();
+    }
+  };
+  (bouncing_line.LoadingBouncingLine.circle = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : C0 || CT.C0;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : C12 || CT.C12;
+    let size = opts && 'size' in opts ? opts.size : 50;
+    let borderSize = opts && 'borderSize' in opts ? opts.borderSize : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C13 || CT.C13;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[backgroundColor$] = backgroundColor;
+    this[borderColor$] = borderColor;
+    this[size$] = size;
+    this[borderSize$] = borderSize;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    if (!(backgroundColor != null)) dart.assertFailed("loading_animations: property [backgroundColor] must not be null. Prefer using Colors.transparent instead.", L0, 52, 16, "backgroundColor != null");
+    if (!(borderColor != null)) dart.assertFailed("loading_animations: property [borderColor] must not be null. Prefer using Colors.transparent instead.", L0, 54, 16, "borderColor != null");
+    if (!(size != null)) dart.assertFailed("loading_animations: property [size] must not be null", L0, 56, 16, "size != null");
+    if (!(borderSize != null ? dart.notNull(borderSize) <= dart.notNull(size) / 2 : true)) dart.assertFailed("loading_animations: property [borderSize] must not be greater than half the widget size", L0, 58, 16, "borderSize != null ? borderSize <= size / 2 : true");
+    if (!(duration != null)) dart.assertFailed("loading_animations: property [duration] must not be null", L0, 60, 16, "duration != null");
+    this[_shape] = box_border.BoxShape.circle;
+    bouncing_line.LoadingBouncingLine.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = bouncing_line.LoadingBouncingLine.prototype;
+  (bouncing_line.LoadingBouncingLine.square = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : C0 || CT.C0;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : C12 || CT.C12;
+    let size = opts && 'size' in opts ? opts.size : 50;
+    let borderSize = opts && 'borderSize' in opts ? opts.borderSize : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C13 || CT.C13;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[backgroundColor$] = backgroundColor;
+    this[borderColor$] = borderColor;
+    this[size$] = size;
+    this[borderSize$] = borderSize;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    if (!(backgroundColor != null)) dart.assertFailed("loading_animations: property [backgroundColor] must not be null. Prefer using Colors.transparent instead.", L0, 75, 16, "backgroundColor != null");
+    if (!(borderColor != null)) dart.assertFailed("loading_animations: property [borderColor] must not be null. Prefer using Colors.transparent instead.", L0, 77, 16, "borderColor != null");
+    if (!(size != null)) dart.assertFailed("loading_animations: property [size] must not be null", L0, 79, 16, "size != null");
+    if (!(borderSize != null ? dart.notNull(borderSize) <= dart.notNull(size) / 2 : true)) dart.assertFailed("loading_animations: property [borderSize] must not be greater than half the widget size", L0, 81, 16, "borderSize != null ? borderSize <= size / 2 : true");
+    if (!(duration != null)) dart.assertFailed("loading_animations: property [duration] must not be null", L0, 83, 16, "duration != null");
+    this[_shape] = box_border.BoxShape.rectangle;
+    bouncing_line.LoadingBouncingLine.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = bouncing_line.LoadingBouncingLine.prototype;
+  dart.addTypeTests(bouncing_line.LoadingBouncingLine);
+  dart.addTypeCaches(bouncing_line.LoadingBouncingLine);
+  dart.setMethodSignature(bouncing_line.LoadingBouncingLine, () => ({
+    __proto__: dart.getMethods(bouncing_line.LoadingBouncingLine.__proto__),
+    createState: dart.fnType(dart.legacy(bouncing_line._LoadingBouncingLineState), [])
+  }));
+  dart.setLibraryUri(bouncing_line.LoadingBouncingLine, L1);
+  dart.setFieldSignature(bouncing_line.LoadingBouncingLine, () => ({
+    __proto__: dart.getFields(bouncing_line.LoadingBouncingLine.__proto__),
+    controller: dart.finalFieldType(dart.legacy(animation_controller.AnimationController)),
+    [_shape]: dart.finalFieldType(dart.legacy(box_border.BoxShape)),
+    backgroundColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    borderColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    size: dart.finalFieldType(dart.legacy(core.double)),
+    borderSize: dart.finalFieldType(dart.legacy(core.double)),
+    duration: dart.finalFieldType(dart.legacy(core.Duration)),
+    itemBuilder: dart.finalFieldType(dart.legacy(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))
+  }));
+  var _controller = dart.privateName(bouncing_line, "_controller");
+  var _animation = dart.privateName(bouncing_line, "_animation");
+  var _buildShape = dart.privateName(bouncing_line, "_buildShape");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C16;
+  var C15;
+  var C14;
+  var C19;
+  var C18;
+  var C17;
+  var C22;
+  var C23;
+  var C24;
+  var C21;
+  var C20;
+  var C27;
+  var C28;
+  var C26;
+  var C25;
+  var _itemBuilder = dart.privateName(bouncing_line, "_itemBuilder");
+  var C31;
+  var C32;
+  var C30;
+  var C29;
+  var C35;
+  var C34;
+  var C33;
+  var C38;
+  var C39;
+  var C37;
+  var C36;
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(dart.legacy(bouncing_line.LoadingBouncingLine)) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(bouncing_line.LoadingBouncingLine))[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(bouncing_line.LoadingBouncingLine)));
+  bouncing_line._LoadingBouncingLineState = class _LoadingBouncingLineState extends State_SingleTickerProviderStateMixin$36 {
+    initState() {
+      let t0, t0$;
+      super.initState();
+      this[_controller] = (t0 = this.widget.controller, t0 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t0);
+      this[_animation] = (t0$ = new (TweenOfdoubleL()).new({begin: -3.141592653589793, end: 3.141592653589793}).animate(this[_controller]), (() => {
+        t0$.addListener(dart.fn(() => this.setState(dart.fn(() => {
+        }, VoidToNull())), VoidTovoid()));
+        return t0$;
+      })());
+      this[_controller].repeat();
+    }
+    build(context) {
+      return new basic.SizedBox.fromSize({size: new ui.Size.square(this.widget.size), child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, crossAxisAlignment: flex.CrossAxisAlignment.center, children: JSArrayOfWidgetL().of([this[_buildShape](this[_animation], 0), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C14 || CT.C14}), this[_buildShape](this[_animation], 1), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C17 || CT.C17}), this[_buildShape](this[_animation], 2)]), $creationLocationd_0dea112b090073317d4: C20 || CT.C20}), $creationLocationd_0dea112b090073317d4: C25 || CT.C25});
+    }
+    [_buildShape](animation, index) {
+      return new basic.Transform.scale({scale: math.sin(dart.notNull(animation.value) + -0.5 * dart.notNull(index))[$abs](), child: this[_itemBuilder](index), $creationLocationd_0dea112b090073317d4: C29 || CT.C29});
+    }
+    [_itemBuilder](index) {
+      let t2, t1, t0;
+      return new basic.SizedBox.fromSize({size: new ui.Size.square(dart.notNull(this.widget.size) / 4), child: this.widget.itemBuilder != null ? (t0 = this.widget, t1 = this.context, t2 = index, t0.itemBuilder(t1, t2)) : new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({shape: this.widget[_shape], color: this.widget.backgroundColor, border: box_border.Border.all({color: this.widget.borderColor, width: this.widget.borderSize != null ? dart.notNull(this.widget.borderSize) / 4 : dart.notNull(this.widget.size) / 32, style: borders.BorderStyle.solid})}), $creationLocationd_0dea112b090073317d4: C33 || CT.C33}), $creationLocationd_0dea112b090073317d4: C36 || CT.C36});
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+  };
+  (bouncing_line._LoadingBouncingLineState.new = function() {
+    this[_controller] = null;
+    this[_animation] = null;
+    bouncing_line._LoadingBouncingLineState.__proto__.new.call(this);
+    ;
+  }).prototype = bouncing_line._LoadingBouncingLineState.prototype;
+  dart.addTypeTests(bouncing_line._LoadingBouncingLineState);
+  dart.addTypeCaches(bouncing_line._LoadingBouncingLineState);
+  dart.setMethodSignature(bouncing_line._LoadingBouncingLineState, () => ({
+    __proto__: dart.getMethods(bouncing_line._LoadingBouncingLineState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    [_buildShape]: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(animation.Animation$(dart.legacy(core.double))), dart.legacy(core.int)]),
+    [_itemBuilder]: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(core.int)])
+  }));
+  dart.setLibraryUri(bouncing_line._LoadingBouncingLineState, L1);
+  dart.setFieldSignature(bouncing_line._LoadingBouncingLineState, () => ({
+    __proto__: dart.getFields(bouncing_line._LoadingBouncingLineState.__proto__),
+    [_controller]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_animation]: dart.fieldType(dart.legacy(animation.Animation$(dart.legacy(core.double))))
+  }));
+  dart.trackLibraries("packages/loading_animations/src/bouncing_line.dart", {
+    "package:loading_animations/src/bouncing_line.dart": bouncing_line
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["bouncing_line.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAQ4B;;;;;;IAOd;;;;;;IAKA;;;;;;IAKC;;;;;;IAKA;;;;;;IAKE;;;;;;IAIY;;;;;;;AAiDgB;IAA2B;;;QA7ChE;QACC;QACA;QACA;QACA;QACA;QACA;QACA;;IANA;IACA;IACA;IACA;IACA;IACA;IACA;UACM,AAAgB,eAAD,IAAI,yBACtB;UACG,AAAY,WAAD,IAAI,yBAClB;UACG,AAAK,IAAD,IAAI,yBACX;UACG,AAAW,UAAD,IAAI,OAAkB,aAAX,UAAU,KAAS,aAAL,IAAI,IAAG,IAAI,yBACjD;UACG,AAAS,QAAD,IAAI,yBACf;IACG,eAAW;AAClB,qEAAW,GAAG;;EAAC;;QAIf;QACC;QACA;QACA;QACA;QACA;QACA;QACA;;IANA;IACA;IACA;IACA;IACA;IACA;IACA;UACM,AAAgB,eAAD,IAAI,yBACtB;UACG,AAAY,WAAD,IAAI,yBAClB;UACG,AAAK,IAAD,IAAI,yBACX;UACG,AAAW,UAAD,IAAI,OAAkB,aAAX,UAAU,KAAS,aAAL,IAAI,IAAG,IAAI,yBACjD;UACG,AAAS,QAAD,IAAI,yBACf;IACG,eAAW;AAClB,qEAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAaF,MAAX;AAEyD,MAD/D,qBAAgC,KAAlB,AAAO,8BAAA,OACjB,yDAA2B,gBAAgB,AAAO;AAGhB,MADtC,0BAAa,AAAqC,mCAAxB,qDAAgC,oBAAR;AAC9C,wBAAY,cAAM,cAAS;;;;AAEX,MAApB,AAAY;IACd;UAG0B;AACxB,YAAgB,oCACH,mBAAO,AAAO,0BAClB,sCACgC,mDACE,0CACrB,uBAChB,kBAAY,kBAAY,IACxB,+BAA4B,aAAZ,AAAO,oBAAO,4DAC9B,kBAAY,kBAAY,IACxB,+BAA4B,aAAZ,AAAO,oBAAO,4DAC9B,kBAAY,kBAAY;IAIhC;kBAEqC,WAAe;AAClD,YAAiB,mCACR,AAA2C,SAAlB,aAAhB,AAAU,SAAD,UAAU,AAAK,CAAJ,mBAAM,KAAK,mBACxC,mBAAa,KAAK;IAE7B;mBAEwB;;AACtB,YAAgB,oCACH,mBAAmB,aAAZ,AAAO,oBAAO,WACzB,AAAO,AAAY,2BAAG,aACvB,kBAAmB,mBAAS,KAAK,EAAf,0BAClB,4CACc,6CACH,AAAO,4BACP,AAAO,qCACC,8BACN,AAAO,gCACP,AAAO,AAAW,0BAAG,OACJ,aAAlB,AAAO,0BAAa,IACR,aAAZ,AAAO,oBAAO,WACD;IAKnC;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;;;IAjEoB;IACF;;;EAiEpB","file":"../../../../../../../../../../../packages/loading_animations/src/bouncing_line.dart.lib.js"}');
+  // Exports:
+  return {
+    src__bouncing_line: bouncing_line
+  };
+}));
+
+//# sourceMappingURL=bouncing_line.dart.lib.js.map

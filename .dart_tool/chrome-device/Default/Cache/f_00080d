@@ -1,0 +1,832 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/stacked/src/reactive_service_mixin.dart'], (function load__packages__stacked__src__base_view_models_dart(dart_sdk, packages__flutter__src__foundation__change_notifier$46dart, packages__stacked__src__reactive_service_mixin$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const reactive_service_mixin = packages__stacked__src__reactive_service_mixin$46dart.src__reactive_service_mixin;
+  var base_view_models = Object.create(dart.library);
+  var $hashCode = dartx.hashCode;
+  var $_get = dartx._get;
+  var $values = dartx.values;
+  var $any = dartx.any;
+  var $clear = dartx.clear;
+  var $_set = dartx._set;
+  var $keys = dartx.keys;
+  var $length = dartx.length;
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var LinkedMapOfintL$boolL = () => (LinkedMapOfintL$boolL = dart.constFn(_js_helper.LinkedMap$(intL(), boolL())))();
+  var LinkedMapOfintL$dynamic = () => (LinkedMapOfintL$dynamic = dart.constFn(_js_helper.LinkedMap$(intL(), dart.dynamic)))();
+  var boolLToboolL = () => (boolLToboolL = dart.constFn(dart.fnType(boolL(), [boolL()])))();
+  var FunctionL = () => (FunctionL = dart.constFn(dart.legacy(core.Function)))();
+  var ReactiveServiceMixinL = () => (ReactiveServiceMixinL = dart.constFn(dart.legacy(reactive_service_mixin.ReactiveServiceMixin)))();
+  var JSArrayOfReactiveServiceMixinL = () => (JSArrayOfReactiveServiceMixinL = dart.constFn(_interceptors.JSArray$(ReactiveServiceMixinL())))();
+  var dynamicToNull = () => (dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var LinkedMapOfStringL$dynamic = () => (LinkedMapOfStringL$dynamic = dart.constFn(_js_helper.LinkedMap$(StringL(), dart.dynamic)))();
+  var StreamSubscriptionL = () => (StreamSubscriptionL = dart.constFn(dart.legacy(async.StreamSubscription)))();
+  var LinkedMapOfStringL$StreamSubscriptionL = () => (LinkedMapOfStringL$StreamSubscriptionL = dart.constFn(_js_helper.LinkedMap$(StringL(), StreamSubscriptionL())))();
+  const CT = Object.create(null);
+  var L0 = "package:stacked/src/base_view_models.dart";
+  var _busyStates = dart.privateName(base_view_models, "_busyStates");
+  var _errorStates = dart.privateName(base_view_models, "_errorStates");
+  var _initialised = dart.privateName(base_view_models, "_initialised");
+  var _onModelReadyCalled = dart.privateName(base_view_models, "_onModelReadyCalled");
+  var _disposed = dart.privateName(base_view_models, "_disposed");
+  var _setBusyForModelOrObject = dart.privateName(base_view_models, "_setBusyForModelOrObject");
+  var _setErrorForModelOrObject = dart.privateName(base_view_models, "_setErrorForModelOrObject");
+  base_view_models.BaseViewModel = class BaseViewModel extends change_notifier.ChangeNotifier {
+    get initialised() {
+      return this[_initialised];
+    }
+    get onModelReadyCalled() {
+      return this[_onModelReadyCalled];
+    }
+    get disposed() {
+      return this[_disposed];
+    }
+    busy(object) {
+      let t0;
+      t0 = this[_busyStates][$_get](dart.hashCode(object));
+      return t0 == null ? false : t0;
+    }
+    error(object) {
+      return this[_errorStates][$_get](dart.hashCode(object));
+    }
+    get isBusy() {
+      return this.busy(this);
+    }
+    get hasError() {
+      return this.error(this) != null;
+    }
+    get modelError() {
+      return this.error(this);
+    }
+    get anyObjectsBusy() {
+      return this[_busyStates][$values][$any](dart.fn(busy => busy, boolLToboolL()));
+    }
+    setBusy(value) {
+      this.setBusyForObject(this, value);
+    }
+    setError(error) {
+      this.setErrorForObject(this, error);
+    }
+    hasErrorForKey(key) {
+      return this.error(key) != null;
+    }
+    clearErrors() {
+      this[_errorStates][$clear]();
+    }
+    setBusyForObject(object, value) {
+      this[_busyStates][$_set](dart.hashCode(object), value);
+      this.notifyListeners();
+    }
+    setErrorForObject(object, value) {
+      this[_errorStates][$_set](dart.hashCode(object), value);
+      this.notifyListeners();
+    }
+    onFutureError(error, key) {
+    }
+    runBusyFuture(busyFuture, opts) {
+      let busyObject = opts && 'busyObject' in opts ? opts.busyObject : null;
+      let throwException = opts && 'throwException' in opts ? opts.throwException : false;
+      return async.async(dart.dynamic, (function* runBusyFuture() {
+        this[_setBusyForModelOrObject](true, {busyObject: busyObject});
+        try {
+          let value = (yield this.runErrorFuture(busyFuture, {key: busyObject, throwException: throwException}));
+          this[_setBusyForModelOrObject](false, {busyObject: busyObject});
+          return value;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          this[_setBusyForModelOrObject](false, {busyObject: busyObject});
+          if (dart.test(throwException)) dart.rethrow(e$);
+        }
+      }).bind(this));
+    }
+    runErrorFuture(future, opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let throwException = opts && 'throwException' in opts ? opts.throwException : false;
+      return async.async(dart.dynamic, (function* runErrorFuture() {
+        try {
+          return yield future;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          this[_setErrorForModelOrObject](e, {key: key});
+          this.onFutureError(e, key);
+          if (dart.test(throwException)) dart.rethrow(e$);
+          return async.Future.value();
+        }
+      }).bind(this));
+    }
+    setInitialised(value) {
+      this[_initialised] = value;
+    }
+    setOnModelReadyCalled(value) {
+      this[_onModelReadyCalled] = value;
+    }
+    [_setBusyForModelOrObject](value, opts) {
+      let busyObject = opts && 'busyObject' in opts ? opts.busyObject : null;
+      if (busyObject != null) {
+        this.setBusyForObject(busyObject, value);
+      } else {
+        this.setBusyForObject(this, value);
+      }
+    }
+    [_setErrorForModelOrObject](value, opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      if (key != null) {
+        this.setErrorForObject(key, value);
+      } else {
+        this.setErrorForObject(this, value);
+      }
+    }
+    setupStream(T, stream, opts) {
+      let onData = opts && 'onData' in opts ? opts.onData : null;
+      let onSubscribed = opts && 'onSubscribed' in opts ? opts.onSubscribed : null;
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
+      let transformData = opts && 'transformData' in opts ? opts.transformData : null;
+      let streamData = new (base_view_models.StreamData$(dart.legacy(T))).new(stream, {onData: FunctionL().as(onData), onSubscribed: FunctionL().as(onSubscribed), onError: FunctionL().as(onError), onCancel: FunctionL().as(onCancel), transformData: FunctionL().as(transformData)});
+      streamData.initialise();
+      return streamData;
+    }
+    notifyListeners() {
+      if (!dart.test(this.disposed)) {
+        super.notifyListeners();
+      }
+    }
+    dispose() {
+      this[_disposed] = true;
+      super.dispose();
+    }
+  };
+  (base_view_models.BaseViewModel.new = function() {
+    this[_busyStates] = new (LinkedMapOfintL$boolL()).new();
+    this[_errorStates] = new (LinkedMapOfintL$dynamic()).new();
+    this[_initialised] = false;
+    this[_onModelReadyCalled] = false;
+    this[_disposed] = false;
+    base_view_models.BaseViewModel.__proto__.new.call(this);
+    ;
+  }).prototype = base_view_models.BaseViewModel.prototype;
+  dart.addTypeTests(base_view_models.BaseViewModel);
+  dart.addTypeCaches(base_view_models.BaseViewModel);
+  dart.setMethodSignature(base_view_models.BaseViewModel, () => ({
+    __proto__: dart.getMethods(base_view_models.BaseViewModel.__proto__),
+    busy: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    error: dart.fnType(dart.dynamic, [dart.legacy(core.Object)]),
+    setBusy: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    setError: dart.fnType(dart.void, [dart.dynamic]),
+    hasErrorForKey: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    clearErrors: dart.fnType(dart.void, []),
+    setBusyForObject: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.bool)]),
+    setErrorForObject: dart.fnType(dart.void, [dart.legacy(core.Object), dart.dynamic]),
+    onFutureError: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)]),
+    runBusyFuture: dart.fnType(dart.legacy(async.Future), [dart.legacy(async.Future)], {busyObject: dart.legacy(core.Object), throwException: dart.legacy(core.bool)}, {}),
+    runErrorFuture: dart.fnType(dart.legacy(async.Future), [dart.legacy(async.Future)], {key: dart.legacy(core.Object), throwException: dart.legacy(core.bool)}, {}),
+    setInitialised: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    setOnModelReadyCalled: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    [_setBusyForModelOrObject]: dart.fnType(dart.void, [dart.legacy(core.bool)], {busyObject: dart.legacy(core.Object)}, {}),
+    [_setErrorForModelOrObject]: dart.fnType(dart.void, [dart.dynamic], {key: dart.legacy(core.Object)}, {}),
+    setupStream: dart.gFnType(T => [dart.legacy(base_view_models.StreamData), [dart.legacy(async.Stream$(dart.legacy(T)))], {onCancel: dart.dynamic, onData: dart.dynamic, onError: dart.dynamic, onSubscribed: dart.dynamic, transformData: dart.dynamic}, {}])
+  }));
+  dart.setGetterSignature(base_view_models.BaseViewModel, () => ({
+    __proto__: dart.getGetters(base_view_models.BaseViewModel.__proto__),
+    initialised: dart.legacy(core.bool),
+    onModelReadyCalled: dart.legacy(core.bool),
+    disposed: dart.legacy(core.bool),
+    isBusy: dart.legacy(core.bool),
+    hasError: dart.legacy(core.bool),
+    modelError: dart.dynamic,
+    anyObjectsBusy: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(base_view_models.BaseViewModel, L0);
+  dart.setFieldSignature(base_view_models.BaseViewModel, () => ({
+    __proto__: dart.getFields(base_view_models.BaseViewModel.__proto__),
+    [_busyStates]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(core.bool)))),
+    [_errorStates]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.dynamic))),
+    [_initialised]: dart.fieldType(dart.legacy(core.bool)),
+    [_onModelReadyCalled]: dart.fieldType(dart.legacy(core.bool)),
+    [_disposed]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  var _reactiveServices = dart.privateName(base_view_models, "_reactiveServices");
+  var _reactToServices = dart.privateName(base_view_models, "_reactToServices");
+  var _indicateChange = dart.privateName(base_view_models, "_indicateChange");
+  base_view_models.ReactiveViewModel = class ReactiveViewModel extends base_view_models.BaseViewModel {
+    [_reactToServices](reactiveServices) {
+      this[_reactiveServices] = reactiveServices;
+      for (let reactiveService of this[_reactiveServices]) {
+        reactiveService.addListener(dart.bind(this, _indicateChange));
+      }
+    }
+    dispose() {
+      for (let reactiveService of this[_reactiveServices]) {
+        reactiveService.removeListener(dart.bind(this, _indicateChange));
+      }
+      super.dispose();
+    }
+    [_indicateChange]() {
+      this.notifyListeners();
+    }
+  };
+  (base_view_models.ReactiveViewModel.new = function() {
+    this[_reactiveServices] = null;
+    base_view_models.ReactiveViewModel.__proto__.new.call(this);
+    this[_reactToServices](this.reactiveServices);
+  }).prototype = base_view_models.ReactiveViewModel.prototype;
+  dart.addTypeTests(base_view_models.ReactiveViewModel);
+  dart.addTypeCaches(base_view_models.ReactiveViewModel);
+  dart.setMethodSignature(base_view_models.ReactiveViewModel, () => ({
+    __proto__: dart.getMethods(base_view_models.ReactiveViewModel.__proto__),
+    [_reactToServices]: dart.fnType(dart.void, [dart.legacy(core.List$(dart.legacy(reactive_service_mixin.ReactiveServiceMixin)))]),
+    [_indicateChange]: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(base_view_models.ReactiveViewModel, L0);
+  dart.setFieldSignature(base_view_models.ReactiveViewModel, () => ({
+    __proto__: dart.getFields(base_view_models.ReactiveViewModel.__proto__),
+    [_reactiveServices]: dart.fieldType(dart.legacy(core.List$(dart.legacy(reactive_service_mixin.ReactiveServiceMixin))))
+  }));
+  const _is_DynamicSourceViewModel_default = Symbol('_is_DynamicSourceViewModel_default');
+  var changeSource = dart.privateName(base_view_models, "DynamicSourceViewModel.changeSource");
+  base_view_models.DynamicSourceViewModel$ = dart.generic(T => {
+    class DynamicSourceViewModel extends base_view_models.ReactiveViewModel {
+      get changeSource() {
+        return this[changeSource];
+      }
+      set changeSource(value) {
+        this[changeSource] = value;
+      }
+      notifySourceChanged(opts) {
+        let clearOldData = opts && 'clearOldData' in opts ? opts.clearOldData : false;
+        this.changeSource = true;
+      }
+      get reactiveServices() {
+        return JSArrayOfReactiveServiceMixinL().of([]);
+      }
+    }
+    (DynamicSourceViewModel.new = function() {
+      this[changeSource] = false;
+      DynamicSourceViewModel.__proto__.new.call(this);
+      ;
+    }).prototype = DynamicSourceViewModel.prototype;
+    dart.addTypeTests(DynamicSourceViewModel);
+    DynamicSourceViewModel.prototype[_is_DynamicSourceViewModel_default] = true;
+    dart.addTypeCaches(DynamicSourceViewModel);
+    dart.setMethodSignature(DynamicSourceViewModel, () => ({
+      __proto__: dart.getMethods(DynamicSourceViewModel.__proto__),
+      notifySourceChanged: dart.fnType(dart.void, [], {clearOldData: dart.legacy(core.bool)}, {})
+    }));
+    dart.setGetterSignature(DynamicSourceViewModel, () => ({
+      __proto__: dart.getGetters(DynamicSourceViewModel.__proto__),
+      reactiveServices: dart.legacy(core.List$(dart.legacy(reactive_service_mixin.ReactiveServiceMixin)))
+    }));
+    dart.setLibraryUri(DynamicSourceViewModel, L0);
+    dart.setFieldSignature(DynamicSourceViewModel, () => ({
+      __proto__: dart.getFields(DynamicSourceViewModel.__proto__),
+      changeSource: dart.fieldType(dart.legacy(core.bool))
+    }));
+    return DynamicSourceViewModel;
+  });
+  base_view_models.DynamicSourceViewModel = base_view_models.DynamicSourceViewModel$();
+  dart.addTypeTests(base_view_models.DynamicSourceViewModel, _is_DynamicSourceViewModel_default);
+  var _data = dart.privateName(base_view_models, "_data");
+  var _error = dart.privateName(base_view_models, "_error");
+  const _is__SingleDataSourceViewModel_default = Symbol('_is__SingleDataSourceViewModel_default');
+  base_view_models._SingleDataSourceViewModel$ = dart.generic(T => {
+    class _SingleDataSourceViewModel extends base_view_models.DynamicSourceViewModel {
+      get data() {
+        return this[_data];
+      }
+      error(object = null) {
+        return this[_error];
+      }
+      get dataReady() {
+        return this[_data] != null && !dart.test(this.hasError);
+      }
+    }
+    (_SingleDataSourceViewModel.new = function() {
+      this[_data] = null;
+      this[_error] = null;
+      _SingleDataSourceViewModel.__proto__.new.call(this);
+      ;
+    }).prototype = _SingleDataSourceViewModel.prototype;
+    dart.addTypeTests(_SingleDataSourceViewModel);
+    _SingleDataSourceViewModel.prototype[_is__SingleDataSourceViewModel_default] = true;
+    dart.addTypeCaches(_SingleDataSourceViewModel);
+    dart.setMethodSignature(_SingleDataSourceViewModel, () => ({
+      __proto__: dart.getMethods(_SingleDataSourceViewModel.__proto__),
+      error: dart.fnType(dart.dynamic, [], [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(_SingleDataSourceViewModel, () => ({
+      __proto__: dart.getGetters(_SingleDataSourceViewModel.__proto__),
+      data: dart.legacy(T),
+      dataReady: dart.legacy(core.bool)
+    }));
+    dart.setLibraryUri(_SingleDataSourceViewModel, L0);
+    dart.setFieldSignature(_SingleDataSourceViewModel, () => ({
+      __proto__: dart.getFields(_SingleDataSourceViewModel.__proto__),
+      [_data]: dart.fieldType(dart.legacy(T)),
+      [_error]: dart.fieldType(dart.dynamic)
+    }));
+    return _SingleDataSourceViewModel;
+  });
+  base_view_models._SingleDataSourceViewModel = base_view_models._SingleDataSourceViewModel$();
+  dart.addTypeTests(base_view_models._SingleDataSourceViewModel, _is__SingleDataSourceViewModel_default);
+  var _dataMap = dart.privateName(base_view_models, "_dataMap");
+  base_view_models._MultiDataSourceViewModel = class _MultiDataSourceViewModel extends base_view_models.DynamicSourceViewModel {
+    get dataMap() {
+      return this[_dataMap];
+    }
+    dataReady(key) {
+      return this[_dataMap][$_get](key) != null && this.error(key) == null;
+    }
+  };
+  (base_view_models._MultiDataSourceViewModel.new = function() {
+    this[_dataMap] = null;
+    base_view_models._MultiDataSourceViewModel.__proto__.new.call(this);
+    ;
+  }).prototype = base_view_models._MultiDataSourceViewModel.prototype;
+  dart.addTypeTests(base_view_models._MultiDataSourceViewModel);
+  dart.addTypeCaches(base_view_models._MultiDataSourceViewModel);
+  dart.setMethodSignature(base_view_models._MultiDataSourceViewModel, () => ({
+    __proto__: dart.getMethods(base_view_models._MultiDataSourceViewModel.__proto__),
+    dataReady: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(base_view_models._MultiDataSourceViewModel, () => ({
+    __proto__: dart.getGetters(base_view_models._MultiDataSourceViewModel.__proto__),
+    dataMap: dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))
+  }));
+  dart.setLibraryUri(base_view_models._MultiDataSourceViewModel, L0);
+  dart.setFieldSignature(base_view_models._MultiDataSourceViewModel, () => ({
+    __proto__: dart.getFields(base_view_models._MultiDataSourceViewModel.__proto__),
+    [_dataMap]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)))
+  }));
+  const _is_FutureViewModel_default = Symbol('_is_FutureViewModel_default');
+  base_view_models.FutureViewModel$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    class FutureViewModel extends base_view_models._SingleDataSourceViewModel$(dart.legacy(T)) {
+      get future() {
+        return null;
+      }
+      get rethrowException() {
+        return false;
+      }
+      initialise() {
+        return async.async(dart.dynamic, (function* initialise() {
+          this.setError(null);
+          this[_error] = null;
+          this.setBusy(true);
+          this.notifyListeners();
+          this[_data] = TL().as(yield this.runBusyFuture(this.futureToRun(), {throwException: true}).catchError(dart.fn(error => {
+            this.setError(error);
+            this[_error] = error;
+            this.setBusy(false);
+            this.onError(error);
+            this.notifyListeners();
+            if (dart.test(this.rethrowException)) {
+              dart.throw(error);
+            }
+          }, dynamicToNull())));
+          if (this[_data] != null) {
+            this.onData(this[_data]);
+          }
+          this.changeSource = false;
+        }).bind(this));
+      }
+      onError(error) {
+      }
+      onData(data) {
+        TL().as(data);
+      }
+    }
+    (FutureViewModel.new = function() {
+      FutureViewModel.__proto__.new.call(this);
+      ;
+    }).prototype = FutureViewModel.prototype;
+    dart.addTypeTests(FutureViewModel);
+    FutureViewModel.prototype[_is_FutureViewModel_default] = true;
+    dart.addTypeCaches(FutureViewModel);
+    FutureViewModel[dart.implements] = () => [base_view_models.Initialisable];
+    dart.setMethodSignature(FutureViewModel, () => ({
+      __proto__: dart.getMethods(FutureViewModel.__proto__),
+      initialise: dart.fnType(dart.legacy(async.Future), []),
+      onError: dart.fnType(dart.void, [dart.dynamic]),
+      onData: dart.fnType(dart.void, [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(FutureViewModel, () => ({
+      __proto__: dart.getGetters(FutureViewModel.__proto__),
+      future: dart.legacy(async.Future$(dart.legacy(T))),
+      rethrowException: dart.legacy(core.bool)
+    }));
+    dart.setLibraryUri(FutureViewModel, L0);
+    return FutureViewModel;
+  });
+  base_view_models.FutureViewModel = base_view_models.FutureViewModel$();
+  dart.addTypeTests(base_view_models.FutureViewModel, _is_FutureViewModel_default);
+  var _futuresCompleter = dart.privateName(base_view_models, "_futuresCompleter");
+  var _futuresCompleted = dart.privateName(base_view_models, "_futuresCompleted");
+  var _initialiseData = dart.privateName(base_view_models, "_initialiseData");
+  var _incrementAndCheckFuturesCompleted = dart.privateName(base_view_models, "_incrementAndCheckFuturesCompleted");
+  base_view_models.MultipleFutureViewModel = class MultipleFutureViewModel extends base_view_models._MultiDataSourceViewModel {
+    [_initialiseData]() {
+      if (this[_dataMap] == null) {
+        this[_dataMap] = new (LinkedMapOfStringL$dynamic()).new();
+      }
+      this[_futuresCompleted] = 0;
+    }
+    initialise() {
+      this[_futuresCompleter] = async.Completer.new();
+      this[_initialiseData]();
+      this.setBusy(true);
+      this.notifyListeners();
+      for (let key of this.futuresMap[$keys]) {
+        this.runBusyFuture(this.futuresMap[$_get](key)(), {busyObject: key, throwException: true}).then(core.Null, dart.fn(futureData => {
+          this[_dataMap][$_set](key, futureData);
+          this.setBusyForObject(key, false);
+          this.notifyListeners();
+          this.onData(key);
+          this[_incrementAndCheckFuturesCompleted]();
+        }, dynamicToNull())).catchError(dart.fn(error => {
+          this.setErrorForObject(key, error);
+          this.setBusyForObject(key, false);
+          this.onError({key: key, error: error});
+          this.notifyListeners();
+          this[_incrementAndCheckFuturesCompleted]();
+        }, dynamicToNull()));
+      }
+      this.changeSource = false;
+      return this[_futuresCompleter].future;
+    }
+    [_incrementAndCheckFuturesCompleted]() {
+      this[_futuresCompleted] = dart.notNull(this[_futuresCompleted]) + 1;
+      if (this[_futuresCompleted] == this.futuresMap[$length] && !dart.test(this[_futuresCompleter].isCompleted)) {
+        this[_futuresCompleter].complete();
+      }
+    }
+    onError(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let error = opts && 'error' in opts ? opts.error : null;
+    }
+    onData(key) {
+    }
+  };
+  (base_view_models.MultipleFutureViewModel.new = function() {
+    this[_futuresCompleter] = null;
+    this[_futuresCompleted] = null;
+    base_view_models.MultipleFutureViewModel.__proto__.new.call(this);
+    ;
+  }).prototype = base_view_models.MultipleFutureViewModel.prototype;
+  dart.addTypeTests(base_view_models.MultipleFutureViewModel);
+  dart.addTypeCaches(base_view_models.MultipleFutureViewModel);
+  base_view_models.MultipleFutureViewModel[dart.implements] = () => [base_view_models.Initialisable];
+  dart.setMethodSignature(base_view_models.MultipleFutureViewModel, () => ({
+    __proto__: dart.getMethods(base_view_models.MultipleFutureViewModel.__proto__),
+    [_initialiseData]: dart.fnType(dart.void, []),
+    initialise: dart.fnType(dart.legacy(async.Future), []),
+    [_incrementAndCheckFuturesCompleted]: dart.fnType(dart.void, []),
+    onError: dart.fnType(dart.void, [], {error: dart.dynamic, key: dart.legacy(core.String)}, {}),
+    onData: dart.fnType(dart.void, [dart.legacy(core.String)])
+  }));
+  dart.setLibraryUri(base_view_models.MultipleFutureViewModel, L0);
+  dart.setFieldSignature(base_view_models.MultipleFutureViewModel, () => ({
+    __proto__: dart.getFields(base_view_models.MultipleFutureViewModel.__proto__),
+    [_futuresCompleter]: dart.fieldType(dart.legacy(async.Completer)),
+    [_futuresCompleted]: dart.fieldType(dart.legacy(core.int))
+  }));
+  var _streamsSubscriptions = dart.privateName(base_view_models, "_streamsSubscriptions");
+  var _disposeAllSubscriptions = dart.privateName(base_view_models, "_disposeAllSubscriptions");
+  base_view_models.MultipleStreamViewModel = class MultipleStreamViewModel extends base_view_models._MultiDataSourceViewModel {
+    get streamsSubscriptions() {
+      return this[_streamsSubscriptions];
+    }
+    getSubscriptionForKey(key) {
+      return this[_streamsSubscriptions][$_get](key);
+    }
+    initialise() {
+      this[_dataMap] = new (LinkedMapOfStringL$dynamic()).new();
+      this.clearErrors();
+      this[_streamsSubscriptions] = new (LinkedMapOfStringL$StreamSubscriptionL()).new();
+      if (!dart.test(this.changeSource)) {
+        this.notifyListeners();
+      }
+      for (let key of this.streamsMap[$keys]) {
+        this[_streamsSubscriptions][$_set](key, this.streamsMap[$_get](key).stream.listen(dart.fn(incomingData => {
+          let t3, t2, t3$, t2$;
+          this.setErrorForObject(key, null);
+          this.notifyListeners();
+          let interceptedData = this.streamsMap[$_get](key).transformData == null ? this.transformData(key, incomingData) : (t2 = this.streamsMap[$_get](key), t3 = incomingData, dart.dsend(t2, 'transformData', [t3]));
+          if (interceptedData != null) {
+            this[_dataMap][$_set](key, interceptedData);
+          } else {
+            this[_dataMap][$_set](key, incomingData);
+          }
+          this.notifyListeners();
+          this.streamsMap[$_get](key).onData != null ? (t2$ = this.streamsMap[$_get](key), t3$ = this[_dataMap][$_get](key), dart.dsend(t2$, 'onData', [t3$])) : this.onData(key, this[_dataMap][$_get](key));
+        }, dynamicToNull()), {onError: dart.fn(error => {
+            let t3, t2;
+            this.setErrorForObject(key, error);
+            this[_dataMap][$_set](key, null);
+            this.streamsMap[$_get](key).onError != null ? (t2 = this.streamsMap[$_get](key), t3 = error, dart.dsend(t2, 'onError', [t3])) : this.onError(key, error);
+            this.notifyListeners();
+          }, dynamicToNull())}));
+        this.streamsMap[$_get](key).onSubscribed != null ? dart.dsend(this.streamsMap[$_get](key), 'onSubscribed', []) : this.onSubscribed(key);
+        this.changeSource = false;
+      }
+    }
+    notifySourceChanged(opts) {
+      let clearOldData = opts && 'clearOldData' in opts ? opts.clearOldData : false;
+      this.changeSource = true;
+      this[_disposeAllSubscriptions]();
+      if (dart.test(clearOldData)) {
+        this.dataMap[$clear]();
+        this.clearErrors();
+      }
+      this.notifyListeners();
+    }
+    onData(key, data) {
+    }
+    onSubscribed(key) {
+    }
+    onError(key, error) {
+    }
+    onCancel(key) {
+    }
+    transformData(key, data) {
+      return data;
+    }
+    dispose() {
+      this[_disposeAllSubscriptions]();
+      super.dispose();
+    }
+    [_disposeAllSubscriptions]() {
+      if (this[_streamsSubscriptions] != null) {
+        for (let key of this[_streamsSubscriptions][$keys]) {
+          this[_streamsSubscriptions][$_get](key).cancel();
+          this.onCancel(key);
+        }
+        this[_streamsSubscriptions][$clear]();
+      }
+    }
+  };
+  (base_view_models.MultipleStreamViewModel.new = function() {
+    this[_streamsSubscriptions] = null;
+    base_view_models.MultipleStreamViewModel.__proto__.new.call(this);
+    ;
+  }).prototype = base_view_models.MultipleStreamViewModel.prototype;
+  dart.addTypeTests(base_view_models.MultipleStreamViewModel);
+  dart.addTypeCaches(base_view_models.MultipleStreamViewModel);
+  base_view_models.MultipleStreamViewModel[dart.implements] = () => [base_view_models.Initialisable];
+  dart.setMethodSignature(base_view_models.MultipleStreamViewModel, () => ({
+    __proto__: dart.getMethods(base_view_models.MultipleStreamViewModel.__proto__),
+    getSubscriptionForKey: dart.fnType(dart.legacy(async.StreamSubscription), [dart.legacy(core.String)]),
+    initialise: dart.fnType(dart.void, []),
+    onData: dart.fnType(dart.void, [dart.legacy(core.String), dart.dynamic]),
+    onSubscribed: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    onError: dart.fnType(dart.void, [dart.legacy(core.String), dart.dynamic]),
+    onCancel: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    transformData: dart.fnType(dart.dynamic, [dart.legacy(core.String), dart.dynamic]),
+    [_disposeAllSubscriptions]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(base_view_models.MultipleStreamViewModel, () => ({
+    __proto__: dart.getGetters(base_view_models.MultipleStreamViewModel.__proto__),
+    streamsSubscriptions: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(async.StreamSubscription)))
+  }));
+  dart.setLibraryUri(base_view_models.MultipleStreamViewModel, L0);
+  dart.setFieldSignature(base_view_models.MultipleStreamViewModel, () => ({
+    __proto__: dart.getFields(base_view_models.MultipleStreamViewModel.__proto__),
+    [_streamsSubscriptions]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(async.StreamSubscription))))
+  }));
+  var _streamSubscription = dart.privateName(base_view_models, "_streamSubscription");
+  const _is_StreamViewModel_default = Symbol('_is_StreamViewModel_default');
+  base_view_models.StreamViewModel$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var TLToNull = () => (TLToNull = dart.constFn(dart.fnType(core.Null, [TL()])))();
+    class StreamViewModel extends base_view_models._SingleDataSourceViewModel$(dart.legacy(T)) {
+      get streamSubscription() {
+        return this[_streamSubscription];
+      }
+      notifySourceChanged(opts) {
+        let t2;
+        let clearOldData = opts && 'clearOldData' in opts ? opts.clearOldData : false;
+        this.changeSource = true;
+        t2 = this[_streamSubscription];
+        t2 == null ? null : t2.cancel();
+        this[_streamSubscription] = null;
+        if (dart.test(clearOldData)) {
+          this[_data] = null;
+        }
+        this.notifyListeners();
+      }
+      initialise() {
+        this[_streamSubscription] = this.stream.listen(dart.fn(incomingData => {
+          this.setError(null);
+          this[_error] = null;
+          this.notifyListeners();
+          let interceptedData = dart.bind(this, 'transformData') === null ? incomingData : this.transformData(incomingData);
+          if (interceptedData != null) {
+            this[_data] = interceptedData;
+          } else {
+            this[_data] = incomingData;
+          }
+          this.onData(this[_data]);
+          this.notifyListeners();
+        }, TLToNull()), {onError: dart.fn(error => {
+            this.setError(error);
+            this[_error] = error;
+            this[_data] = null;
+            this.onError(error);
+            this.notifyListeners();
+          }, dynamicToNull())});
+        this.onSubscribed();
+        this.changeSource = false;
+      }
+      onData(data) {
+        TL().as(data);
+      }
+      onSubscribed() {
+      }
+      onError(error) {
+      }
+      onCancel() {
+      }
+      transformData(data) {
+        TL().as(data);
+        return data;
+      }
+      dispose() {
+        this[_streamSubscription].cancel();
+        this.onCancel();
+        super.dispose();
+      }
+    }
+    (StreamViewModel.new = function() {
+      this[_streamSubscription] = null;
+      StreamViewModel.__proto__.new.call(this);
+      ;
+    }).prototype = StreamViewModel.prototype;
+    dart.addTypeTests(StreamViewModel);
+    StreamViewModel.prototype[_is_StreamViewModel_default] = true;
+    dart.addTypeCaches(StreamViewModel);
+    StreamViewModel[dart.implements] = () => [base_view_models.DynamicSourceViewModel, base_view_models.Initialisable];
+    dart.setMethodSignature(StreamViewModel, () => ({
+      __proto__: dart.getMethods(StreamViewModel.__proto__),
+      initialise: dart.fnType(dart.void, []),
+      onData: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      onSubscribed: dart.fnType(dart.void, []),
+      onError: dart.fnType(dart.void, [dart.dynamic]),
+      onCancel: dart.fnType(dart.void, []),
+      transformData: dart.fnType(dart.legacy(T), [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(StreamViewModel, () => ({
+      __proto__: dart.getGetters(StreamViewModel.__proto__),
+      streamSubscription: dart.legacy(async.StreamSubscription)
+    }));
+    dart.setLibraryUri(StreamViewModel, L0);
+    dart.setFieldSignature(StreamViewModel, () => ({
+      __proto__: dart.getFields(StreamViewModel.__proto__),
+      [_streamSubscription]: dart.fieldType(dart.legacy(async.StreamSubscription))
+    }));
+    return StreamViewModel;
+  });
+  base_view_models.StreamViewModel = base_view_models.StreamViewModel$();
+  dart.addTypeTests(base_view_models.StreamViewModel, _is_StreamViewModel_default);
+  const _is_StreamData_default = Symbol('_is_StreamData_default');
+  var stream$ = dart.privateName(base_view_models, "StreamData.stream");
+  var onData$ = dart.privateName(base_view_models, "StreamData.onData");
+  var onSubscribed$ = dart.privateName(base_view_models, "StreamData.onSubscribed");
+  var onError$ = dart.privateName(base_view_models, "StreamData.onError");
+  var onCancel$ = dart.privateName(base_view_models, "StreamData.onCancel");
+  var transformData$ = dart.privateName(base_view_models, "StreamData.transformData");
+  base_view_models.StreamData$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var StreamOfTL = () => (StreamOfTL = dart.constFn(async.Stream$(TL())))();
+    var StreamLOfTL = () => (StreamLOfTL = dart.constFn(dart.legacy(StreamOfTL())))();
+    var TLToNull = () => (TLToNull = dart.constFn(dart.fnType(core.Null, [TL()])))();
+    class StreamData extends base_view_models._SingleDataSourceViewModel$(dart.legacy(T)) {
+      get stream() {
+        return this[stream$];
+      }
+      set stream(value) {
+        this[stream$] = StreamLOfTL().as(value);
+      }
+      get onData() {
+        return this[onData$];
+      }
+      set onData(value) {
+        this[onData$] = value;
+      }
+      get onSubscribed() {
+        return this[onSubscribed$];
+      }
+      set onSubscribed(value) {
+        this[onSubscribed$] = value;
+      }
+      get onError() {
+        return this[onError$];
+      }
+      set onError(value) {
+        this[onError$] = value;
+      }
+      get onCancel() {
+        return this[onCancel$];
+      }
+      set onCancel(value) {
+        this[onCancel$] = value;
+      }
+      get transformData() {
+        return this[transformData$];
+      }
+      set transformData(value) {
+        this[transformData$] = value;
+      }
+      initialise() {
+        this[_streamSubscription] = this.stream.listen(dart.fn(incomingData => {
+          let t2, t2$;
+          this.setError(null);
+          this[_error] = null;
+          this.notifyListeners();
+          let interceptedData = this.transformData == null ? incomingData : (t2 = incomingData, dart.dsend(this, 'transformData', [t2]));
+          if (interceptedData != null) {
+            this[_data] = TL().as(interceptedData);
+          } else {
+            this[_data] = incomingData;
+          }
+          this.notifyListeners();
+          t2$ = this[_data];
+          dart.dsend(this, 'onData', [t2$]);
+        }, TLToNull()), {onError: dart.fn(error => {
+            let t2;
+            this.setError(error);
+            this[_data] = null;
+            t2 = error;
+            dart.dsend(this, 'onError', [t2]);
+            this.notifyListeners();
+          }, dynamicToNull())});
+        dart.dsend(this, 'onSubscribed', []);
+      }
+      dispose() {
+        this[_streamSubscription].cancel();
+        dart.dsend(this, 'onCancel', []);
+        super.dispose();
+      }
+    }
+    (StreamData.new = function(stream, opts) {
+      let onData = opts && 'onData' in opts ? opts.onData : null;
+      let onSubscribed = opts && 'onSubscribed' in opts ? opts.onSubscribed : null;
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
+      let transformData = opts && 'transformData' in opts ? opts.transformData : null;
+      this[_streamSubscription] = null;
+      this[stream$] = stream;
+      this[onData$] = onData;
+      this[onSubscribed$] = onSubscribed;
+      this[onError$] = onError;
+      this[onCancel$] = onCancel;
+      this[transformData$] = transformData;
+      StreamData.__proto__.new.call(this);
+      ;
+    }).prototype = StreamData.prototype;
+    dart.addTypeTests(StreamData);
+    StreamData.prototype[_is_StreamData_default] = true;
+    dart.addTypeCaches(StreamData);
+    dart.setMethodSignature(StreamData, () => ({
+      __proto__: dart.getMethods(StreamData.__proto__),
+      initialise: dart.fnType(dart.void, [])
+    }));
+    dart.setLibraryUri(StreamData, L0);
+    dart.setFieldSignature(StreamData, () => ({
+      __proto__: dart.getFields(StreamData.__proto__),
+      stream: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(T)))),
+      onData: dart.fieldType(dart.legacy(core.Function)),
+      onSubscribed: dart.fieldType(dart.legacy(core.Function)),
+      onError: dart.fieldType(dart.legacy(core.Function)),
+      onCancel: dart.fieldType(dart.legacy(core.Function)),
+      transformData: dart.fieldType(dart.legacy(core.Function)),
+      [_streamSubscription]: dart.fieldType(dart.legacy(async.StreamSubscription))
+    }));
+    return StreamData;
+  });
+  base_view_models.StreamData = base_view_models.StreamData$();
+  dart.addTypeTests(base_view_models.StreamData, _is_StreamData_default);
+  base_view_models.Initialisable = class Initialisable extends core.Object {};
+  (base_view_models.Initialisable.new = function() {
+    ;
+  }).prototype = base_view_models.Initialisable.prototype;
+  dart.addTypeTests(base_view_models.Initialisable);
+  dart.addTypeCaches(base_view_models.Initialisable);
+  dart.setLibraryUri(base_view_models.Initialisable, L0);
+  dart.trackLibraries("packages/stacked/src/base_view_models.dart", {
+    "package:stacked/src/base_view_models.dart": base_view_models
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["base_view_models.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/stacked/src/base_view_models.dart.lib.js"}');
+  // Exports:
+  return {
+    src__base_view_models: base_view_models
+  };
+}));
+
+//# sourceMappingURL=base_view_models.dart.lib.js.map

@@ -1,0 +1,1286 @@
+define(['dart_sdk', 'packages/collection/src/union_set_controller.dart'], (function load__packages__observable_ish__value__proxy_value_dart(dart_sdk, packages__collection__src__union_set_controller$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const wrappers = packages__collection__src__union_set_controller$46dart.src__wrappers;
+  var proxy_value = Object.create(dart.library);
+  var stored_value = Object.create(dart.library);
+  var value = Object.create(dart.library);
+  var set = Object.create(dart.library);
+  var map = Object.create(dart.library);
+  var list = Object.create(dart.library);
+  var event = Object.create(dart.library);
+  var observable_ish = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $length = dartx.length;
+  var $elementAt = dartx.elementAt;
+  var $toList = dartx.toList;
+  var $_set = dartx._set;
+  var $add = dartx.add;
+  var $insert = dartx.insert;
+  var $remove = dartx.remove;
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var VoidToLboolL = () => (VoidToLboolL = dart.constFn(dart.legacy(VoidToboolL())))();
+  var boolLToNull = () => (boolLToNull = dart.constFn(dart.fnType(core.Null, [boolL()])))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var intLToNull = () => (intLToNull = dart.constFn(dart.fnType(core.Null, [intL()])))();
+  var SetChangeOpL = () => (SetChangeOpL = dart.constFn(dart.legacy(set.SetChangeOp)))();
+  var ListChangeOpL = () => (ListChangeOpL = dart.constFn(dart.legacy(list.ListChangeOp)))();
+  var VoidTodynamic = () => (VoidTodynamic = dart.constFn(dart.fnType(dart.dynamic, [])))();
+  var VoidToLdynamic = () => (VoidToLdynamic = dart.constFn(dart.legacy(VoidTodynamic())))();
+  const CT = Object.create(null);
+  var L5 = "package:observable_ish/list/list.dart";
+  var L6 = "package:observable_ish/event/event.dart";
+  var L0 = "package:observable_ish/value/proxy_value.dart";
+  var L3 = "package:observable_ish/set/set.dart";
+  var L2 = "package:observable_ish/value/value.dart";
+  var L4 = "package:observable_ish/map/map.dart";
+  var L1 = "package:observable_ish/value/stored_value.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: set.SetChangeOp.prototype,
+        [_name$]: "SetChangeOp.add",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: set.SetChangeOp.prototype,
+        [_name$]: "SetChangeOp.remove",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C0 || CT.C0, C1 || CT.C1], SetChangeOpL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: list.ListChangeOp.prototype,
+        [_name$0]: "ListChangeOp.add",
+        index: 0
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: list.ListChangeOp.prototype,
+        [_name$0]: "ListChangeOp.remove",
+        index: 1
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: list.ListChangeOp.prototype,
+        [_name$0]: "ListChangeOp.clear",
+        index: 2
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: list.ListChangeOp.prototype,
+        [_name$0]: "ListChangeOp.set",
+        index: 3
+      });
+    },
+    get C7() {
+      return C7 = dart.constList([C3 || CT.C3, C4 || CT.C4, C5 || CT.C5, C6 || CT.C6], ListChangeOpL());
+    }
+  }, false);
+  var _change = dart.privateName(proxy_value, "_change");
+  var _curBatch = dart.privateName(proxy_value, "_curBatch");
+  var _onChange = dart.privateName(proxy_value, "_onChange");
+  const _is_ProxyValue_default = Symbol('_is_ProxyValue_default');
+  var getterProxy$ = dart.privateName(proxy_value, "ProxyValue.getterProxy");
+  proxy_value.ProxyValue$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var ChangeOfTL = () => (ChangeOfTL = dart.constFn(value.Change$(TL())))();
+    var ChangeLOfTL = () => (ChangeLOfTL = dart.constFn(dart.legacy(ChangeOfTL())))();
+    var StreamControllerOfChangeLOfTL = () => (StreamControllerOfChangeLOfTL = dart.constFn(async.StreamController$(ChangeLOfTL())))();
+    var VoidToTL = () => (VoidToTL = dart.constFn(dart.fnType(TL(), [])))();
+    var VoidToLTL = () => (VoidToLTL = dart.constFn(dart.legacy(VoidToTL())))();
+    var ChangeLOfTLToboolL = () => (ChangeLOfTLToboolL = dart.constFn(dart.fnType(boolL(), [ChangeLOfTL()])))();
+    var ChangeLOfTLToTL = () => (ChangeLOfTLToTL = dart.constFn(dart.fnType(TL(), [ChangeLOfTL()])))();
+    var RxValueOfTL = () => (RxValueOfTL = dart.constFn(value.RxValue$(TL())))();
+    var RxValueLOfTL = () => (RxValueLOfTL = dart.constFn(dart.legacy(RxValueOfTL())))();
+    var TLToTL = () => (TLToTL = dart.constFn(dart.fnType(TL(), [TL()])))();
+    var StreamOfTL = () => (StreamOfTL = dart.constFn(async.Stream$(TL())))();
+    var StreamLOfTL = () => (StreamLOfTL = dart.constFn(dart.legacy(StreamOfTL())))();
+    class ProxyValue extends core.Object {
+      get getterProxy() {
+        return this[getterProxy$];
+      }
+      set getterProxy(value) {
+        this[getterProxy$] = VoidToLTL().as(value);
+      }
+      get value() {
+        return this.getterProxy != null ? this.getterProxy() : null;
+      }
+      set value(val) {
+        TL().as(val);
+        let old = this.value;
+        if (dart.equals(old, val)) return;
+        this[_change].add(new (ChangeOfTL()).new(val, old, this[_curBatch]));
+      }
+      setCast(val) {
+        return this.value = TL().as(val);
+      }
+      get onChange() {
+        this[_curBatch] = dart.notNull(this[_curBatch]) + 1;
+        let ret = StreamControllerOfChangeLOfTL().new();
+        ret.add(new (ChangeOfTL()).new(this.value, null, this[_curBatch]));
+        if (this.getterProxy != null) {
+          ret.addStream(this[_onChange].skipWhile(dart.fn(v => dart.notNull(v.batch) < dart.notNull(this[_curBatch]), ChangeLOfTLToboolL())));
+        } else {
+          ret.addStream(this[_onChange]);
+        }
+        return ret.stream.asBroadcastStream();
+      }
+      get values() {
+        return this.onChange.map(TL(), dart.fn(c => c.neu, ChangeLOfTLToTL()));
+      }
+      bind(reactive) {
+        RxValueLOfTL().as(reactive);
+        this.value = reactive.value;
+        reactive.values.listen(dart.fn(v => this.value = v, TLToTL()));
+      }
+      bindStream(stream) {
+        StreamLOfTL().as(stream);
+        return stream.listen(dart.fn(v => this.value = v, TLToTL()));
+      }
+      bindOrSet(other) {
+        if (RxValueLOfTL().is(other)) {
+          this.bind(other);
+        } else if (StreamLOfTL().is(other)) {
+          this.bindStream(other.cast(TL()));
+        } else {
+          this.value = TL().as(other);
+        }
+      }
+      listen(callback) {
+        return this.values.listen(callback);
+      }
+      map(R, mapper) {
+        return this.values.map(dart.legacy(R), mapper);
+      }
+    }
+    (ProxyValue.new = function(opts) {
+      let getterProxy = opts && 'getterProxy' in opts ? opts.getterProxy : null;
+      this[_change] = StreamControllerOfChangeLOfTL().new();
+      this[_curBatch] = 0;
+      this[_onChange] = null;
+      this[getterProxy$] = getterProxy;
+      this[_onChange] = this[_change].stream.asBroadcastStream();
+    }).prototype = ProxyValue.prototype;
+    dart.addTypeTests(ProxyValue);
+    ProxyValue.prototype[_is_ProxyValue_default] = true;
+    dart.addTypeCaches(ProxyValue);
+    ProxyValue[dart.implements] = () => [value.RxValue$(dart.legacy(T))];
+    dart.setMethodSignature(ProxyValue, () => ({
+      __proto__: dart.getMethods(ProxyValue.__proto__),
+      setCast: dart.fnType(dart.void, [dart.dynamic]),
+      bind: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      bindStream: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      bindOrSet: dart.fnType(dart.void, [dart.dynamic]),
+      listen: dart.fnType(dart.legacy(async.StreamSubscription$(dart.legacy(T))), [dart.legacy(dart.fnType(dart.void, [dart.legacy(T)]))]),
+      map: dart.gFnType(R => [dart.legacy(async.Stream$(dart.legacy(R))), [dart.legacy(dart.fnType(dart.legacy(R), [dart.legacy(T)]))]])
+    }));
+    dart.setGetterSignature(ProxyValue, () => ({
+      __proto__: dart.getGetters(ProxyValue.__proto__),
+      value: dart.legacy(T),
+      onChange: dart.legacy(async.Stream$(dart.legacy(value.Change$(dart.legacy(T))))),
+      values: dart.legacy(async.Stream$(dart.legacy(T)))
+    }));
+    dart.setSetterSignature(ProxyValue, () => ({
+      __proto__: dart.getSetters(ProxyValue.__proto__),
+      value: dart.legacy(core.Object)
+    }));
+    dart.setLibraryUri(ProxyValue, L0);
+    dart.setFieldSignature(ProxyValue, () => ({
+      __proto__: dart.getFields(ProxyValue.__proto__),
+      getterProxy: dart.fieldType(dart.legacy(dart.fnType(dart.legacy(T), []))),
+      [_change]: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(value.Change$(dart.legacy(T)))))),
+      [_curBatch]: dart.fieldType(dart.legacy(core.int)),
+      [_onChange]: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(value.Change$(dart.legacy(T))))))
+    }));
+    return ProxyValue;
+  });
+  proxy_value.ProxyValue = proxy_value.ProxyValue$();
+  dart.addTypeTests(proxy_value.ProxyValue, _is_ProxyValue_default);
+  var _change$ = dart.privateName(stored_value, "_change");
+  var _curBatch$ = dart.privateName(stored_value, "_curBatch");
+  var _onChange$ = dart.privateName(stored_value, "_onChange");
+  var _value = dart.privateName(stored_value, "_value");
+  const _is_StoredValue_default = Symbol('_is_StoredValue_default');
+  stored_value.StoredValue$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var ChangeOfTL = () => (ChangeOfTL = dart.constFn(value.Change$(TL())))();
+    var ChangeLOfTL = () => (ChangeLOfTL = dart.constFn(dart.legacy(ChangeOfTL())))();
+    var StreamControllerOfChangeLOfTL = () => (StreamControllerOfChangeLOfTL = dart.constFn(async.StreamController$(ChangeLOfTL())))();
+    var ChangeLOfTLToboolL = () => (ChangeLOfTLToboolL = dart.constFn(dart.fnType(boolL(), [ChangeLOfTL()])))();
+    var ChangeLOfTLToTL = () => (ChangeLOfTLToTL = dart.constFn(dart.fnType(TL(), [ChangeLOfTL()])))();
+    var RxValueOfTL = () => (RxValueOfTL = dart.constFn(value.RxValue$(TL())))();
+    var RxValueLOfTL = () => (RxValueLOfTL = dart.constFn(dart.legacy(RxValueOfTL())))();
+    var TLToTL = () => (TLToTL = dart.constFn(dart.fnType(TL(), [TL()])))();
+    var StreamOfTL = () => (StreamOfTL = dart.constFn(async.Stream$(TL())))();
+    var StreamLOfTL = () => (StreamLOfTL = dart.constFn(dart.legacy(StreamOfTL())))();
+    class StoredValue extends core.Object {
+      get value() {
+        return this[_value];
+      }
+      set value(val) {
+        TL().as(val);
+        if (dart.equals(this[_value], val)) return;
+        let old = this[_value];
+        this[_value] = val;
+        this[_change$].add(new (ChangeOfTL()).new(val, old, this[_curBatch$]));
+      }
+      setCast(val) {
+        return this.value = TL().as(val);
+      }
+      get onChange() {
+        this[_curBatch$] = dart.notNull(this[_curBatch$]) + 1;
+        let ret = StreamControllerOfChangeLOfTL().new();
+        ret.add(new (ChangeOfTL()).new(this.value, null, this[_curBatch$]));
+        ret.addStream(this[_onChange$].skipWhile(dart.fn(v => dart.notNull(v.batch) < dart.notNull(this[_curBatch$]), ChangeLOfTLToboolL())));
+        return ret.stream.asBroadcastStream();
+      }
+      get values() {
+        return this.onChange.map(TL(), dart.fn(c => c.neu, ChangeLOfTLToTL()));
+      }
+      bind(reactive) {
+        RxValueLOfTL().as(reactive);
+        this.value = reactive.value;
+        reactive.values.listen(dart.fn(v => this.value = v, TLToTL()));
+      }
+      bindStream(stream) {
+        StreamLOfTL().as(stream);
+        return stream.listen(dart.fn(v => this.value = v, TLToTL()));
+      }
+      bindOrSet(other) {
+        if (RxValueLOfTL().is(other)) {
+          this.bind(other);
+        } else if (StreamLOfTL().is(other)) {
+          this.bindStream(other.cast(TL()));
+        } else {
+          this.value = TL().as(other);
+        }
+      }
+      listen(callback) {
+        return this.values.listen(callback);
+      }
+      map(R, mapper) {
+        return this.values.map(dart.legacy(R), mapper);
+      }
+    }
+    (StoredValue.new = function(opts) {
+      let initial = opts && 'initial' in opts ? opts.initial : null;
+      this[_change$] = StreamControllerOfChangeLOfTL().new();
+      this[_curBatch$] = 0;
+      this[_onChange$] = null;
+      this[_value] = initial;
+      this[_onChange$] = this[_change$].stream.asBroadcastStream();
+    }).prototype = StoredValue.prototype;
+    dart.addTypeTests(StoredValue);
+    StoredValue.prototype[_is_StoredValue_default] = true;
+    dart.addTypeCaches(StoredValue);
+    StoredValue[dart.implements] = () => [value.RxValue$(dart.legacy(T))];
+    dart.setMethodSignature(StoredValue, () => ({
+      __proto__: dart.getMethods(StoredValue.__proto__),
+      setCast: dart.fnType(dart.void, [dart.dynamic]),
+      bind: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      bindStream: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      bindOrSet: dart.fnType(dart.void, [dart.dynamic]),
+      listen: dart.fnType(dart.legacy(async.StreamSubscription$(dart.legacy(T))), [dart.legacy(dart.fnType(dart.void, [dart.legacy(T)]))]),
+      map: dart.gFnType(R => [dart.legacy(async.Stream$(dart.legacy(R))), [dart.legacy(dart.fnType(dart.legacy(R), [dart.legacy(T)]))]])
+    }));
+    dart.setGetterSignature(StoredValue, () => ({
+      __proto__: dart.getGetters(StoredValue.__proto__),
+      value: dart.legacy(T),
+      onChange: dart.legacy(async.Stream$(dart.legacy(value.Change$(dart.legacy(T))))),
+      values: dart.legacy(async.Stream$(dart.legacy(T)))
+    }));
+    dart.setSetterSignature(StoredValue, () => ({
+      __proto__: dart.getSetters(StoredValue.__proto__),
+      value: dart.legacy(core.Object)
+    }));
+    dart.setLibraryUri(StoredValue, L1);
+    dart.setFieldSignature(StoredValue, () => ({
+      __proto__: dart.getFields(StoredValue.__proto__),
+      [_value]: dart.fieldType(dart.legacy(T)),
+      [_change$]: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(value.Change$(dart.legacy(T)))))),
+      [_curBatch$]: dart.fieldType(dart.legacy(core.int)),
+      [_onChange$]: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(value.Change$(dart.legacy(T))))))
+    }));
+    return StoredValue;
+  });
+  stored_value.StoredValue = stored_value.StoredValue$();
+  dart.addTypeTests(stored_value.StoredValue, _is_StoredValue_default);
+  const _is_RxValue_default = Symbol('_is_RxValue_default');
+  value.RxValue$ = dart.generic(T => {
+    class RxValue extends core.Object {
+      static new(opts) {
+        let initial = opts && 'initial' in opts ? opts.initial : null;
+        return new (stored_value.StoredValue$(dart.legacy(T))).new({initial: initial});
+      }
+      static proxy(opts) {
+        let getterProxy = opts && 'getterProxy' in opts ? opts.getterProxy : null;
+        return new (proxy_value.ProxyValue$(dart.legacy(T))).new({getterProxy: getterProxy});
+      }
+    }
+    (RxValue[dart.mixinNew] = function() {
+    }).prototype = RxValue.prototype;
+    dart.addTypeTests(RxValue);
+    RxValue.prototype[_is_RxValue_default] = true;
+    dart.addTypeCaches(RxValue);
+    dart.setLibraryUri(RxValue, L2);
+    return RxValue;
+  });
+  value.RxValue = value.RxValue$();
+  dart.addTypeTests(value.RxValue, _is_RxValue_default);
+  const _is_Change_default = Symbol('_is_Change_default');
+  var old$ = dart.privateName(value, "Change.old");
+  var neu$ = dart.privateName(value, "Change.neu");
+  var time$ = dart.privateName(value, "Change.time");
+  var batch$ = dart.privateName(value, "Change.batch");
+  value.Change$ = dart.generic(T => {
+    class Change extends core.Object {
+      get old() {
+        return this[old$];
+      }
+      set old(value) {
+        super.old = value;
+      }
+      get neu() {
+        return this[neu$];
+      }
+      set neu(value) {
+        super.neu = value;
+      }
+      get time() {
+        return this[time$];
+      }
+      set time(value) {
+        super.time = value;
+      }
+      get batch() {
+        return this[batch$];
+      }
+      set batch(value) {
+        super.batch = value;
+      }
+      toString() {
+        return "Change(new: " + dart.str(this.neu) + ", old: " + dart.str(this.old) + ")";
+      }
+    }
+    (Change.new = function(neu, old, batch, opts) {
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[neu$] = neu;
+      this[old$] = old;
+      this[batch$] = batch;
+      this[time$] = new core.DateTime.now();
+      ;
+    }).prototype = Change.prototype;
+    dart.addTypeTests(Change);
+    Change.prototype[_is_Change_default] = true;
+    dart.addTypeCaches(Change);
+    dart.setMethodSignature(Change, () => ({
+      __proto__: dart.getMethods(Change.__proto__),
+      toString: dart.fnType(dart.legacy(core.String), []),
+      [$toString]: dart.fnType(dart.legacy(core.String), [])
+    }));
+    dart.setLibraryUri(Change, L2);
+    dart.setFieldSignature(Change, () => ({
+      __proto__: dart.getFields(Change.__proto__),
+      old: dart.finalFieldType(dart.legacy(T)),
+      neu: dart.finalFieldType(dart.legacy(T)),
+      time: dart.finalFieldType(dart.legacy(core.DateTime)),
+      batch: dart.finalFieldType(dart.legacy(core.int))
+    }));
+    dart.defineExtensionMethods(Change, ['toString']);
+    return Change;
+  });
+  value.Change = value.Change$();
+  dart.addTypeTests(value.Change, _is_Change_default);
+  var __onChange = dart.privateName(set, "__onChange");
+  var _changes = dart.privateName(set, "_changes");
+  var _add = dart.privateName(set, "_add");
+  var _onChange$0 = dart.privateName(set, "_onChange");
+  const _is_RxSet_default = Symbol('_is_RxSet_default');
+  set.RxSet$ = dart.generic(E => {
+    var EL = () => (EL = dart.constFn(dart.legacy(E)))();
+    var SetChangeNotificationOfEL = () => (SetChangeNotificationOfEL = dart.constFn(set.SetChangeNotification$(EL())))();
+    var SetChangeNotificationLOfEL = () => (SetChangeNotificationLOfEL = dart.constFn(dart.legacy(SetChangeNotificationOfEL())))();
+    var StreamControllerOfSetChangeNotificationLOfEL = () => (StreamControllerOfSetChangeNotificationLOfEL = dart.constFn(async.StreamController$(SetChangeNotificationLOfEL())))();
+    var _HashSetOfEL = () => (_HashSetOfEL = dart.constFn(collection._HashSet$(EL())))();
+    var LinkedHashSetOfEL = () => (LinkedHashSetOfEL = dart.constFn(collection.LinkedHashSet$(EL())))();
+    var JSArrayOfEL = () => (JSArrayOfEL = dart.constFn(_interceptors.JSArray$(EL())))();
+    var IterableOfEL = () => (IterableOfEL = dart.constFn(core.Iterable$(EL())))();
+    var IterableLOfEL = () => (IterableLOfEL = dart.constFn(dart.legacy(IterableOfEL())))();
+    class RxSet extends wrappers.DelegatingSet$(dart.legacy(E)) {
+      addIf(condition, element) {
+        EL().as(element);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this.add(element);
+      }
+      addAllIf(condition, elements) {
+        IterableLOfEL().as(elements);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this.addAll(elements);
+      }
+      [_add](element) {
+        return super.add(element);
+      }
+      add(element) {
+        EL().as(element);
+        let ret = super.add(element);
+        if (dart.test(ret)) {
+          this[_changes].add(new (SetChangeNotificationOfEL()).add(element));
+        }
+        return ret;
+      }
+      addNonNull(element) {
+        EL().as(element);
+        if (element == null) return false;
+        return this.add(element);
+      }
+      remove(element) {
+        let hasRemoved = super.remove(element);
+        if (dart.test(hasRemoved)) {
+          this[_changes].add(new (SetChangeNotificationOfEL()).remove(EL().as(element)));
+        }
+        return hasRemoved;
+      }
+      clear() {
+        let removed = this.toList();
+        super.clear();
+        for (let el of removed) {
+          this[_changes].add(new (SetChangeNotificationOfEL()).remove(el));
+        }
+      }
+      get [_onChange$0]() {
+        let t0;
+        t0 = this[__onChange];
+        return t0 == null ? this[__onChange] = this[_changes].stream.asBroadcastStream() : t0;
+      }
+      get onChange() {
+        let ret = StreamControllerOfSetChangeNotificationLOfEL().new();
+        ret.addStream(this[_onChange$0]);
+        return ret.stream.asBroadcastStream();
+      }
+      bindBool(element, stream, initial = false) {
+        EL().as(element);
+        if (dart.test(initial)) {
+          this.add(element);
+        } else {
+          this.remove(element);
+        }
+        stream.listen(dart.fn(value => {
+          if (dart.test(value)) {
+            this.add(element);
+          } else {
+            this.remove(element);
+          }
+        }, boolLToNull()));
+      }
+      bindBoolValue(element, other) {
+        EL().as(element);
+        if (dart.test(other.value)) {
+          this.add(element);
+        } else {
+          this.remove(element);
+        }
+        other.values.listen(dart.fn(value => {
+          if (dart.test(value))
+            this.add(element);
+          else
+            this.remove(element);
+        }, boolLToNull()));
+      }
+      bindOneByIndexStream(options, other, initial = null) {
+        IterableLOfEL().as(options);
+        {
+          let value = initial;
+          for (let i = 0; i < dart.notNull(options[$length]); i = i + 1) {
+            if (value === i)
+              this.add(options[$elementAt](i));
+            else
+              this.remove(options[$elementAt](i));
+          }
+        }
+        other.listen(dart.fn(value => {
+          for (let i = 0; i < dart.notNull(options[$length]); i = i + 1) {
+            if (value === i)
+              this.add(options[$elementAt](i));
+            else
+              this.remove(options[$elementAt](i));
+          }
+        }, intLToNull()));
+      }
+      bindOneByIndex(options, other) {
+        IterableLOfEL().as(options);
+        {
+          let value = other.value;
+          for (let i = 0; i < dart.notNull(options[$length]); i = i + 1) {
+            if (value === i)
+              this.add(options[$elementAt](i));
+            else
+              this.remove(options[$elementAt](i));
+          }
+        }
+        other.values.listen(dart.fn(value => {
+          for (let i = 0; i < dart.notNull(options[$length]); i = i + 1) {
+            if (value === i)
+              this.add(options[$elementAt](i));
+            else
+              this.remove(options[$elementAt](i));
+          }
+        }, intLToNull()));
+      }
+    }
+    (RxSet.new = function() {
+      this[__onChange] = null;
+      this[_changes] = StreamControllerOfSetChangeNotificationLOfEL().new();
+      RxSet.__proto__.new.call(this, new (_HashSetOfEL()).new());
+      ;
+    }).prototype = RxSet.prototype;
+    (RxSet.from = function(elements) {
+      this[__onChange] = null;
+      this[_changes] = StreamControllerOfSetChangeNotificationLOfEL().new();
+      RxSet.__proto__.new.call(this, LinkedHashSetOfEL().from(elements));
+      ;
+    }).prototype = RxSet.prototype;
+    (RxSet.union = function(elements, element = null) {
+      let t0;
+      this[__onChange] = null;
+      this[_changes] = StreamControllerOfSetChangeNotificationLOfEL().new();
+      RxSet.__proto__.new.call(this, LinkedHashSetOfEL().from((t0 = elements, t0 == null ? JSArrayOfEL().of([]) : t0)));
+      if (element != null) this[_add](element);
+    }).prototype = RxSet.prototype;
+    (RxSet.of = function(elements) {
+      this[__onChange] = null;
+      this[_changes] = StreamControllerOfSetChangeNotificationLOfEL().new();
+      RxSet.__proto__.new.call(this, LinkedHashSetOfEL().of(elements));
+      ;
+    }).prototype = RxSet.prototype;
+    dart.addTypeTests(RxSet);
+    RxSet.prototype[_is_RxSet_default] = true;
+    dart.addTypeCaches(RxSet);
+    RxSet[dart.implements] = () => [core.Set$(dart.legacy(E))];
+    dart.setMethodSignature(RxSet, () => ({
+      __proto__: dart.getMethods(RxSet.__proto__),
+      addIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)]),
+      addAllIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)]),
+      [_add]: dart.fnType(dart.legacy(core.bool), [dart.legacy(E)]),
+      add: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      addNonNull: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      remove: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      bindBool: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(async.Stream$(dart.legacy(core.bool)))], [dart.legacy(core.bool)]),
+      bindBoolValue: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(value.RxValue$(dart.legacy(core.bool)))]),
+      bindOneByIndexStream: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(async.Stream$(dart.legacy(core.int)))], [dart.legacy(core.int)]),
+      bindOneByIndex: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(value.RxValue$(dart.legacy(core.int)))])
+    }));
+    dart.setGetterSignature(RxSet, () => ({
+      __proto__: dart.getGetters(RxSet.__proto__),
+      [_onChange$0]: dart.legacy(async.Stream$(dart.legacy(set.SetChangeNotification$(dart.legacy(E))))),
+      onChange: dart.legacy(async.Stream$(dart.legacy(set.SetChangeNotification$(dart.legacy(E)))))
+    }));
+    dart.setLibraryUri(RxSet, L3);
+    dart.setFieldSignature(RxSet, () => ({
+      __proto__: dart.getFields(RxSet.__proto__),
+      [__onChange]: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(set.SetChangeNotification$(dart.legacy(E)))))),
+      [_changes]: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(set.SetChangeNotification$(dart.legacy(E))))))
+    }));
+    return RxSet;
+  });
+  set.RxSet = set.RxSet$();
+  dart.addTypeTests(set.RxSet, _is_RxSet_default);
+  set.Classes = class Classes extends set.RxSet$(dart.legacy(core.String)) {
+    bind(class_, changes) {
+      changes.listen(dart.fn(has => {
+        if (dart.test(has))
+          this.add(class_);
+        else
+          this.remove(class_);
+      }, boolLToNull()));
+    }
+  };
+  (set.Classes.new = function() {
+    set.Classes.__proto__.new.call(this);
+    ;
+  }).prototype = set.Classes.prototype;
+  (set.Classes.from = function(elements) {
+    set.Classes.__proto__.from.call(this, elements);
+    ;
+  }).prototype = set.Classes.prototype;
+  (set.Classes.union = function(elements, element = null) {
+    set.Classes.__proto__.union.call(this, elements, element);
+    ;
+  }).prototype = set.Classes.prototype;
+  (set.Classes.of = function(elements) {
+    set.Classes.__proto__.of.call(this, elements);
+    ;
+  }).prototype = set.Classes.prototype;
+  dart.addTypeTests(set.Classes);
+  dart.addTypeCaches(set.Classes);
+  dart.setMethodSignature(set.Classes, () => ({
+    __proto__: dart.getMethods(set.Classes.__proto__),
+    bind: dart.fnType(dart.void, [dart.legacy(core.String), dart.legacy(async.Stream$(dart.legacy(core.bool)))])
+  }));
+  dart.setLibraryUri(set.Classes, L3);
+  var _name$ = dart.privateName(set, "_name");
+  var C0;
+  var C1;
+  var C2;
+  set.SetChangeOp = class SetChangeOp extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (set.SetChangeOp.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = set.SetChangeOp.prototype;
+  dart.addTypeTests(set.SetChangeOp);
+  dart.addTypeCaches(set.SetChangeOp);
+  dart.setMethodSignature(set.SetChangeOp, () => ({
+    __proto__: dart.getMethods(set.SetChangeOp.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(set.SetChangeOp, L3);
+  dart.setFieldSignature(set.SetChangeOp, () => ({
+    __proto__: dart.getFields(set.SetChangeOp.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(set.SetChangeOp, ['toString']);
+  set.SetChangeOp.add = C0 || CT.C0;
+  set.SetChangeOp.remove = C1 || CT.C1;
+  set.SetChangeOp.values = C2 || CT.C2;
+  const _is_SetChangeNotification_default = Symbol('_is_SetChangeNotification_default');
+  var element$ = dart.privateName(set, "SetChangeNotification.element");
+  var op$ = dart.privateName(set, "SetChangeNotification.op");
+  var time$0 = dart.privateName(set, "SetChangeNotification.time");
+  set.SetChangeNotification$ = dart.generic(E => {
+    class SetChangeNotification extends core.Object {
+      get element() {
+        return this[element$];
+      }
+      set element(value) {
+        super.element = value;
+      }
+      get op() {
+        return this[op$];
+      }
+      set op(value) {
+        super.op = value;
+      }
+      get time() {
+        return this[time$0];
+      }
+      set time(value) {
+        super.time = value;
+      }
+    }
+    (SetChangeNotification.new = function(element, op, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$] = element;
+      this[op$] = op;
+      this[time$0] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = SetChangeNotification.prototype;
+    (SetChangeNotification.add = function(element, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$] = element;
+      this[op$] = set.SetChangeOp.add;
+      this[time$0] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = SetChangeNotification.prototype;
+    (SetChangeNotification.remove = function(element, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$] = element;
+      this[op$] = set.SetChangeOp.remove;
+      this[time$0] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = SetChangeNotification.prototype;
+    dart.addTypeTests(SetChangeNotification);
+    SetChangeNotification.prototype[_is_SetChangeNotification_default] = true;
+    dart.addTypeCaches(SetChangeNotification);
+    dart.setLibraryUri(SetChangeNotification, L3);
+    dart.setFieldSignature(SetChangeNotification, () => ({
+      __proto__: dart.getFields(SetChangeNotification.__proto__),
+      element: dart.finalFieldType(dart.legacy(E)),
+      op: dart.finalFieldType(dart.legacy(set.SetChangeOp)),
+      time: dart.finalFieldType(dart.legacy(core.DateTime))
+    }));
+    return SetChangeNotification;
+  });
+  set.SetChangeNotification = set.SetChangeNotification$();
+  dart.addTypeTests(set.SetChangeNotification, _is_SetChangeNotification_default);
+  const _is_RxMap_default = Symbol('_is_RxMap_default');
+  map.RxMap$ = dart.generic((K, V) => {
+    var KL = () => (KL = dart.constFn(dart.legacy(K)))();
+    var LinkedMapOfKL$VL = () => (LinkedMapOfKL$VL = dart.constFn(_js_helper.LinkedMap$(KL(), VL())))();
+    var LinkedHashMapOfKL$VL = () => (LinkedHashMapOfKL$VL = dart.constFn(collection.LinkedHashMap$(KL(), VL())))();
+    var MapOfKL$VL = () => (MapOfKL$VL = dart.constFn(core.Map$(KL(), VL())))();
+    var MapLOfKL$VL = () => (MapLOfKL$VL = dart.constFn(dart.legacy(MapOfKL$VL())))();
+    var VL = () => (VL = dart.constFn(dart.legacy(V)))();
+    class RxMap extends wrappers.DelegatingMap$(dart.legacy(K), dart.legacy(V)) {
+      add(key, value) {
+        let t1, t0;
+        KL().as(key);
+        VL().as(value);
+        t0 = key;
+        t1 = value;
+        this._set(t0, t1);
+        return t1;
+      }
+      addIf(condition, key, value) {
+        KL().as(key);
+        VL().as(value);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this._set(key, value);
+      }
+      addAllIf(condition, values) {
+        MapLOfKL$VL().as(values);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this.addAll(values);
+      }
+    }
+    (RxMap.new = function() {
+      RxMap.__proto__.new.call(this, new (LinkedMapOfKL$VL()).new());
+      ;
+    }).prototype = RxMap.prototype;
+    (RxMap.from = function(other) {
+      RxMap.__proto__.new.call(this, LinkedHashMapOfKL$VL().from(other));
+      ;
+    }).prototype = RxMap.prototype;
+    (RxMap.of = function(other) {
+      RxMap.__proto__.new.call(this, LinkedHashMapOfKL$VL().of(other));
+      ;
+    }).prototype = RxMap.prototype;
+    (RxMap.fromIterable = function(iterable, opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let value = opts && 'value' in opts ? opts.value : null;
+      RxMap.__proto__.new.call(this, LinkedHashMapOfKL$VL().fromIterable(iterable, {key: key, value: value}));
+      ;
+    }).prototype = RxMap.prototype;
+    (RxMap.fromIterables = function(keys, values) {
+      RxMap.__proto__.new.call(this, LinkedHashMapOfKL$VL().fromIterables(keys, values));
+      ;
+    }).prototype = RxMap.prototype;
+    (RxMap.fromEntries = function(entries) {
+      RxMap.__proto__.new.call(this, MapOfKL$VL().fromEntries(entries));
+      ;
+    }).prototype = RxMap.prototype;
+    RxMap.prototype[dart.isMap] = true;
+    dart.addTypeTests(RxMap);
+    RxMap.prototype[_is_RxMap_default] = true;
+    dart.addTypeCaches(RxMap);
+    RxMap[dart.implements] = () => [core.Map$(dart.legacy(K), dart.legacy(V))];
+    dart.setMethodSignature(RxMap, () => ({
+      __proto__: dart.getMethods(RxMap.__proto__),
+      add: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+      addIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object), dart.legacy(core.Object)]),
+      addAllIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)])
+    }));
+    dart.setLibraryUri(RxMap, L4);
+    return RxMap;
+  });
+  map.RxMap = map.RxMap$();
+  dart.addTypeTests(map.RxMap, _is_RxMap_default);
+  var _onChange$1 = dart.privateName(list, "_onChange");
+  var _changes$ = dart.privateName(list, "_changes");
+  var _add$ = dart.privateName(list, "_add");
+  const _is_RxList_default = Symbol('_is_RxList_default');
+  list.RxList$ = dart.generic(E => {
+    var EL = () => (EL = dart.constFn(dart.legacy(E)))();
+    var ListChangeNotificationOfEL = () => (ListChangeNotificationOfEL = dart.constFn(list.ListChangeNotification$(EL())))();
+    var ListChangeNotificationLOfEL = () => (ListChangeNotificationLOfEL = dart.constFn(dart.legacy(ListChangeNotificationOfEL())))();
+    var StreamControllerOfListChangeNotificationLOfEL = () => (StreamControllerOfListChangeNotificationLOfEL = dart.constFn(async.StreamController$(ListChangeNotificationLOfEL())))();
+    var ListOfEL = () => (ListOfEL = dart.constFn(core.List$(EL())))();
+    var JSArrayOfEL = () => (JSArrayOfEL = dart.constFn(_interceptors.JSArray$(EL())))();
+    var IterableOfEL = () => (IterableOfEL = dart.constFn(core.Iterable$(EL())))();
+    var IterableLOfEL = () => (IterableLOfEL = dart.constFn(dart.legacy(IterableOfEL())))();
+    var ListChangeNotificationLOfELToboolL = () => (ListChangeNotificationLOfELToboolL = dart.constFn(dart.fnType(boolL(), [ListChangeNotificationLOfEL()])))();
+    class RxList extends wrappers.DelegatingList$(dart.legacy(E)) {
+      addIf(condition, element) {
+        EL().as(element);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this.add(element);
+      }
+      addAllIf(condition, elements) {
+        IterableLOfEL().as(elements);
+        if (VoidToLboolL().is(condition)) condition = dart.dcall(condition, []);
+        if (boolL().is(condition) && dart.test(condition)) this.addAll(elements);
+      }
+      _set(index, value$) {
+        let value = value$;
+        EL().as(value);
+        super._set(index, value);
+        this[_changes$].add(new (ListChangeNotificationOfEL()).set(value, index));
+        return value$;
+      }
+      [_add$](element) {
+        return super.add(element);
+      }
+      add(element) {
+        EL().as(element);
+        super.add(element);
+        this[_changes$].add(new (ListChangeNotificationOfEL()).insert(element, dart.notNull(this.length) - 1));
+      }
+      addNonNull(element) {
+        EL().as(element);
+        if (element != null) this.add(element);
+      }
+      insert(index, element) {
+        EL().as(element);
+        super.insert(index, element);
+        this[_changes$].add(new (ListChangeNotificationOfEL()).insert(element, index));
+      }
+      remove(element) {
+        let pos = this.indexOf(EL().as(element));
+        let hasRemoved = super.remove(element);
+        if (dart.test(hasRemoved)) {
+          this[_changes$].add(new (ListChangeNotificationOfEL()).remove(EL().as(element), pos));
+        }
+        return hasRemoved;
+      }
+      clear() {
+        super.clear();
+        this[_changes$].add(new (ListChangeNotificationOfEL()).clear());
+      }
+      assign(element) {
+        EL().as(element);
+        this.clear();
+        this.add(element);
+      }
+      assignAll(elements) {
+        IterableLOfEL().as(elements);
+        this.clear();
+        this.addAll(elements);
+      }
+      get onChange() {
+        let ret = StreamControllerOfListChangeNotificationLOfEL().new();
+        let now = new core.DateTime.now();
+        ret.addStream(this[_onChange$1].skipWhile(dart.fn(m => m.time.isBefore(now), ListChangeNotificationLOfELToboolL())));
+        return ret.stream.asBroadcastStream();
+      }
+    }
+    (RxList.new = function(length = null) {
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, length != null ? ListOfEL().new(length) : JSArrayOfEL().of([]));
+      this[_onChange$1] = this[_changes$].stream.asBroadcastStream();
+    }).prototype = RxList.prototype;
+    (RxList.filled = function(length, fill, opts) {
+      let growable = opts && 'growable' in opts ? opts.growable : false;
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, ListOfEL().filled(length, fill, {growable: growable}));
+      this[_onChange$1] = this[_changes$].stream.asBroadcastStream();
+    }).prototype = RxList.prototype;
+    (RxList.from = function(elements, opts) {
+      let growable = opts && 'growable' in opts ? opts.growable : true;
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, ListOfEL().from(elements, {growable: growable}));
+      this[_onChange$1] = this[_changes$].stream.asBroadcastStream();
+    }).prototype = RxList.prototype;
+    (RxList.union = function(elements, element = null) {
+      let t0, t0$;
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, (t0$ = (t0 = elements, t0 == null ? null : t0[$toList]()), t0$ == null ? JSArrayOfEL().of([]) : t0$));
+      if (element != null) this.add(element);
+      this[_onChange$1] = this[_changes$].stream.asBroadcastStream();
+    }).prototype = RxList.prototype;
+    (RxList.of = function(elements, opts) {
+      let growable = opts && 'growable' in opts ? opts.growable : true;
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, ListOfEL().of(elements, {growable: growable}));
+      ;
+    }).prototype = RxList.prototype;
+    (RxList.generate = function(length, generator, opts) {
+      let growable = opts && 'growable' in opts ? opts.growable : true;
+      this[_onChange$1] = null;
+      this[_changes$] = StreamControllerOfListChangeNotificationLOfEL().new();
+      RxList.__proto__.new.call(this, ListOfEL().generate(length, generator, {growable: growable}));
+      ;
+    }).prototype = RxList.prototype;
+    RxList.prototype[dart.isList] = true;
+    dart.addTypeTests(RxList);
+    RxList.prototype[_is_RxList_default] = true;
+    dart.addTypeCaches(RxList);
+    RxList[dart.implements] = () => [core.List$(dart.legacy(E))];
+    dart.setMethodSignature(RxList, () => ({
+      __proto__: dart.getMethods(RxList.__proto__),
+      addIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)]),
+      addAllIf: dart.fnType(dart.void, [dart.dynamic, dart.legacy(core.Object)]),
+      _set: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+      [$_set]: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+      [_add$]: dart.fnType(dart.void, [dart.legacy(E)]),
+      add: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      [$add]: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      addNonNull: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      insert: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+      [$insert]: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+      remove: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      [$remove]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      assign: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      assignAll: dart.fnType(dart.void, [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(RxList, () => ({
+      __proto__: dart.getGetters(RxList.__proto__),
+      onChange: dart.legacy(async.Stream$(dart.legacy(list.ListChangeNotification$(dart.legacy(E)))))
+    }));
+    dart.setLibraryUri(RxList, L5);
+    dart.setFieldSignature(RxList, () => ({
+      __proto__: dart.getFields(RxList.__proto__),
+      [_onChange$1]: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(list.ListChangeNotification$(dart.legacy(E)))))),
+      [_changes$]: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(list.ListChangeNotification$(dart.legacy(E))))))
+    }));
+    dart.defineExtensionMethods(RxList, [
+      '_set',
+      'add',
+      'insert',
+      'remove',
+      'clear'
+    ]);
+    return RxList;
+  });
+  list.RxList = list.RxList$();
+  dart.addTypeTests(list.RxList, _is_RxList_default);
+  const _is_BoundList_default = Symbol('_is_BoundList_default');
+  var binding$ = dart.privateName(list, "BoundList.binding");
+  var composer$ = dart.privateName(list, "BoundList.composer");
+  list.BoundList$ = dart.generic((S, E) => {
+    var SL = () => (SL = dart.constFn(dart.legacy(S)))();
+    var ListChangeNotificationOfSL = () => (ListChangeNotificationOfSL = dart.constFn(list.ListChangeNotification$(SL())))();
+    var ListChangeNotificationLOfSL = () => (ListChangeNotificationLOfSL = dart.constFn(dart.legacy(ListChangeNotificationOfSL())))();
+    var ListChangeNotificationLOfSLToNull = () => (ListChangeNotificationLOfSLToNull = dart.constFn(dart.fnType(core.Null, [ListChangeNotificationLOfSL()])))();
+    class BoundList extends list.RxList$(dart.legacy(E)) {
+      get binding() {
+        return this[binding$];
+      }
+      set binding(value) {
+        super.binding = value;
+      }
+      get composer() {
+        return this[composer$];
+      }
+      set composer(value) {
+        super.composer = value;
+      }
+    }
+    (BoundList.new = function(binding, composer) {
+      let t0;
+      this[binding$] = binding;
+      this[composer$] = composer;
+      BoundList.__proto__.new.call(this);
+      for (let v of this.binding)
+        this[_add$]((t0 = v, this.composer(t0)));
+      this.binding.onChange.listen(dart.fn(n => {
+        let t0;
+        if (n.op == list.ListChangeOp.add) {
+          this.insert(n.pos, (t0 = n.element, this.composer(t0)));
+        } else if (n.op == list.ListChangeOp.remove) {
+          this.removeAt(n.pos);
+        } else if (n.op == list.ListChangeOp.clear) {
+          this.clear();
+        }
+      }, ListChangeNotificationLOfSLToNull()));
+    }).prototype = BoundList.prototype;
+    dart.addTypeTests(BoundList);
+    BoundList.prototype[_is_BoundList_default] = true;
+    dart.addTypeCaches(BoundList);
+    dart.setLibraryUri(BoundList, L5);
+    dart.setFieldSignature(BoundList, () => ({
+      __proto__: dart.getFields(BoundList.__proto__),
+      binding: dart.finalFieldType(dart.legacy(list.RxList$(dart.legacy(S)))),
+      composer: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(E), [dart.legacy(S)])))
+    }));
+    return BoundList;
+  });
+  list.BoundList = list.BoundList$();
+  dart.addTypeTests(list.BoundList, _is_BoundList_default);
+  var _name$0 = dart.privateName(list, "_name");
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  var C7;
+  list.ListChangeOp = class ListChangeOp extends core.Object {
+    toString() {
+      return this[_name$0];
+    }
+  };
+  (list.ListChangeOp.new = function(index, _name) {
+    this.index = index;
+    this[_name$0] = _name;
+    ;
+  }).prototype = list.ListChangeOp.prototype;
+  dart.addTypeTests(list.ListChangeOp);
+  dart.addTypeCaches(list.ListChangeOp);
+  dart.setMethodSignature(list.ListChangeOp, () => ({
+    __proto__: dart.getMethods(list.ListChangeOp.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(list.ListChangeOp, L5);
+  dart.setFieldSignature(list.ListChangeOp, () => ({
+    __proto__: dart.getFields(list.ListChangeOp.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$0]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(list.ListChangeOp, ['toString']);
+  list.ListChangeOp.add = C3 || CT.C3;
+  list.ListChangeOp.remove = C4 || CT.C4;
+  list.ListChangeOp.clear = C5 || CT.C5;
+  list.ListChangeOp.set = C6 || CT.C6;
+  list.ListChangeOp.values = C7 || CT.C7;
+  const _is_ListChangeNotification_default = Symbol('_is_ListChangeNotification_default');
+  var element$0 = dart.privateName(list, "ListChangeNotification.element");
+  var op$0 = dart.privateName(list, "ListChangeNotification.op");
+  var pos$ = dart.privateName(list, "ListChangeNotification.pos");
+  var time$1 = dart.privateName(list, "ListChangeNotification.time");
+  list.ListChangeNotification$ = dart.generic(E => {
+    class ListChangeNotification extends core.Object {
+      get element() {
+        return this[element$0];
+      }
+      set element(value) {
+        super.element = value;
+      }
+      get op() {
+        return this[op$0];
+      }
+      set op(value) {
+        super.op = value;
+      }
+      get pos() {
+        return this[pos$];
+      }
+      set pos(value) {
+        super.pos = value;
+      }
+      get time() {
+        return this[time$1];
+      }
+      set time(value) {
+        super.time = value;
+      }
+    }
+    (ListChangeNotification.new = function(element, op, pos, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$0] = element;
+      this[op$0] = op;
+      this[pos$] = pos;
+      this[time$1] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = ListChangeNotification.prototype;
+    (ListChangeNotification.insert = function(element, pos, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$0] = element;
+      this[pos$] = pos;
+      this[op$0] = list.ListChangeOp.add;
+      this[time$1] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = ListChangeNotification.prototype;
+    (ListChangeNotification.set = function(element, pos, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$0] = element;
+      this[pos$] = pos;
+      this[op$0] = list.ListChangeOp.set;
+      this[time$1] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = ListChangeNotification.prototype;
+    (ListChangeNotification.remove = function(element, pos, opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[element$0] = element;
+      this[pos$] = pos;
+      this[op$0] = list.ListChangeOp.remove;
+      this[time$1] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = ListChangeNotification.prototype;
+    (ListChangeNotification.clear = function(opts) {
+      let t0;
+      let time = opts && 'time' in opts ? opts.time : null;
+      this[op$0] = list.ListChangeOp.clear;
+      this[pos$] = null;
+      this[element$0] = null;
+      this[time$1] = (t0 = time, t0 == null ? new core.DateTime.now() : t0);
+      ;
+    }).prototype = ListChangeNotification.prototype;
+    dart.addTypeTests(ListChangeNotification);
+    ListChangeNotification.prototype[_is_ListChangeNotification_default] = true;
+    dart.addTypeCaches(ListChangeNotification);
+    dart.setLibraryUri(ListChangeNotification, L5);
+    dart.setFieldSignature(ListChangeNotification, () => ({
+      __proto__: dart.getFields(ListChangeNotification.__proto__),
+      element: dart.finalFieldType(dart.legacy(E)),
+      op: dart.finalFieldType(dart.legacy(list.ListChangeOp)),
+      pos: dart.finalFieldType(dart.legacy(core.int)),
+      time: dart.finalFieldType(dart.legacy(core.DateTime))
+    }));
+    return ListChangeNotification;
+  });
+  list.ListChangeNotification = list.ListChangeNotification$();
+  dart.addTypeTests(list.ListChangeNotification, _is_ListChangeNotification_default);
+  const _is_Emitter_default = Symbol('_is_Emitter_default');
+  event.Emitter$ = dart.generic(T => {
+    class Emitter extends core.Object {
+      static new() {
+        return new (event.StreamBackedEmitter$(dart.legacy(T))).new();
+      }
+    }
+    (Emitter[dart.mixinNew] = function() {
+    }).prototype = Emitter.prototype;
+    dart.addTypeTests(Emitter);
+    Emitter.prototype[_is_Emitter_default] = true;
+    dart.addTypeCaches(Emitter);
+    dart.setLibraryUri(Emitter, L6);
+    return Emitter;
+  });
+  event.Emitter = event.Emitter$();
+  dart.addTypeTests(event.Emitter, _is_Emitter_default);
+  var _streamer = dart.privateName(event, "_streamer");
+  var _stream = dart.privateName(event, "_stream");
+  const _is_StreamBackedEmitter_default = Symbol('_is_StreamBackedEmitter_default');
+  event.StreamBackedEmitter$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var StreamControllerOfTL = () => (StreamControllerOfTL = dart.constFn(async.StreamController$(TL())))();
+    var IterableOfTL = () => (IterableOfTL = dart.constFn(core.Iterable$(TL())))();
+    var IterableLOfTL = () => (IterableLOfTL = dart.constFn(dart.legacy(IterableOfTL())))();
+    var StreamOfTL = () => (StreamOfTL = dart.constFn(async.Stream$(TL())))();
+    var StreamLOfTL = () => (StreamLOfTL = dart.constFn(dart.legacy(StreamOfTL())))();
+    var TLTodynamic = () => (TLTodynamic = dart.constFn(dart.fnType(dart.dynamic, [TL()])))();
+    var TLTovoid = () => (TLTovoid = dart.constFn(dart.fnType(dart.void, [TL()])))();
+    var TLToLvoid = () => (TLToLvoid = dart.constFn(dart.legacy(TLTovoid())))();
+    var EmitterOfTL = () => (EmitterOfTL = dart.constFn(event.Emitter$(TL())))();
+    var EmitterLOfTL = () => (EmitterLOfTL = dart.constFn(dart.legacy(EmitterOfTL())))();
+    var RxValueOfTL = () => (RxValueOfTL = dart.constFn(value.RxValue$(TL())))();
+    var RxValueLOfTL = () => (RxValueLOfTL = dart.constFn(dart.legacy(RxValueOfTL())))();
+    class StreamBackedEmitter extends core.Object {
+      emitOne(value) {
+        TL().as(value);
+        return this[_streamer].add(value);
+      }
+      emitAll(values) {
+        IterableLOfTL().as(values);
+        for (let v of values)
+          this[_streamer].add(v);
+      }
+      emitStream(stream) {
+        StreamLOfTL().as(stream);
+        return this[_streamer].addStream(stream);
+      }
+      on(callback) {
+        if (VoidToLdynamic().is(callback))
+          this[_stream].listen(dart.fn(_ => callback(), TLTodynamic()));
+        else if (TLToLvoid().is(callback))
+          this[_stream].listen(callback);
+        else
+          dart.throw(core.Exception.new("Invalid callback " + dart.str(callback) + "!"));
+      }
+      listen(callback) {
+        if (VoidToLdynamic().is(callback))
+          return this[_stream].listen(dart.fn(_ => callback(), TLTodynamic()));
+        else if (TLToLvoid().is(callback)) return this[_stream].listen(callback);
+        dart.throw(core.Exception.new("Invalid callback!"));
+      }
+      emit(emitter) {
+        EmitterLOfTL().as(emitter);
+        return emitter.listen(dart.bind(this, 'emitOne'));
+      }
+      get asStream() {
+        return this[_stream];
+      }
+      pipeTo(emitter) {
+        EmitterLOfTL().as(emitter);
+        return emitter.emit(this);
+      }
+      pipeToValue(other) {
+        RxValueLOfTL().as(other);
+        return other.bindStream(this[_stream]);
+      }
+      emitRxValue(value) {
+        RxValueLOfTL().as(value);
+        this[_streamer].addStream(value.values);
+      }
+    }
+    (StreamBackedEmitter.new = function() {
+      this[_streamer] = StreamControllerOfTL().new();
+      this[_stream] = null;
+      this[_stream] = this[_streamer].stream.asBroadcastStream();
+    }).prototype = StreamBackedEmitter.prototype;
+    dart.addTypeTests(StreamBackedEmitter);
+    StreamBackedEmitter.prototype[_is_StreamBackedEmitter_default] = true;
+    dart.addTypeCaches(StreamBackedEmitter);
+    StreamBackedEmitter[dart.implements] = () => [event.Emitter$(dart.legacy(T))];
+    dart.setMethodSignature(StreamBackedEmitter, () => ({
+      __proto__: dart.getMethods(StreamBackedEmitter.__proto__),
+      emitOne: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      emitAll: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      emitStream: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      on: dart.fnType(dart.void, [dart.dynamic]),
+      listen: dart.fnType(dart.legacy(async.StreamSubscription$(dart.legacy(T))), [dart.dynamic]),
+      emit: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      pipeTo: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      pipeToValue: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      emitRxValue: dart.fnType(dart.void, [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(StreamBackedEmitter, () => ({
+      __proto__: dart.getGetters(StreamBackedEmitter.__proto__),
+      asStream: dart.legacy(async.Stream$(dart.legacy(T)))
+    }));
+    dart.setLibraryUri(StreamBackedEmitter, L6);
+    dart.setFieldSignature(StreamBackedEmitter, () => ({
+      __proto__: dart.getFields(StreamBackedEmitter.__proto__),
+      [_streamer]: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(T)))),
+      [_stream]: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(T))))
+    }));
+    return StreamBackedEmitter;
+  });
+  event.StreamBackedEmitter = event.StreamBackedEmitter$();
+  dart.addTypeTests(event.StreamBackedEmitter, _is_StreamBackedEmitter_default);
+  dart.trackLibraries("packages/observable_ish/value/proxy_value.dart", {
+    "package:observable_ish/value/proxy_value.dart": proxy_value,
+    "package:observable_ish/value/stored_value.dart": stored_value,
+    "package:observable_ish/value/value.dart": value,
+    "package:observable_ish/set/set.dart": set,
+    "package:observable_ish/map/map.dart": map,
+    "package:observable_ish/list/list.dart": list,
+    "package:observable_ish/event/event.dart": event,
+    "package:observable_ish/observable_ish.dart": observable_ish
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["proxy_value.dart","stored_value.dart","value.dart","../set/set.dart","../map/map.dart","../list/list.dart","../event/event.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/observable_ish/value/proxy_value.dart.lib.js"}');
+  // Exports:
+  return {
+    value__proxy_value: proxy_value,
+    value__stored_value: stored_value,
+    value__value: value,
+    set__set: set,
+    map__map: map,
+    list__list: list,
+    event__event: event,
+    observable_ish: observable_ish
+  };
+}));
+
+//# sourceMappingURL=proxy_value.dart.lib.js.map

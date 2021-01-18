@@ -1,0 +1,430 @@
+define(['dart_sdk', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__loading_overlay__loading_overlay_dart(dart_sdk, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__material__icon_button$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const modal_barrier = packages__flutter__src__widgets__widget_span$46dart.src__widgets__modal_barrier;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  var loading_overlay = Object.create(dart.library);
+  var $add = dartx.add;
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var TweenOfdoubleL = () => (TweenOfdoubleL = dart.constFn(tween.Tween$(doubleL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var LinkedHashSetOfboolL = () => (LinkedHashSetOfboolL = dart.constFn(collection.LinkedHashSet$(boolL())))();
+  var SetOfboolL = () => (SetOfboolL = dart.constFn(core.Set$(boolL())))();
+  var SetLOfboolL = () => (SetLOfboolL = dart.constFn(dart.legacy(SetOfboolL())))();
+  var VoidToSetLOfboolL = () => (VoidToSetLOfboolL = dart.constFn(dart.fnType(SetLOfboolL(), [])))();
+  var AnimationStatusL = () => (AnimationStatusL = dart.constFn(dart.legacy(animation.AnimationStatus)))();
+  var AnimationStatusLToNull = () => (AnimationStatusLToNull = dart.constFn(dart.fnType(core.Null, [AnimationStatusL()])))();
+  var LoadingOverlayL = () => (LoadingOverlayL = dart.constFn(dart.legacy(loading_overlay.LoadingOverlay)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  const CT = Object.create(null);
+  var L0 = "package:loading_overlay/loading_overlay.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.constList([], _LocationL());
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C2 || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: progress_indicator._ActivityIndicatorType.prototype,
+        [_name]: "_ActivityIndicatorType.material",
+        index: 0
+      });
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: progress_indicator.CircularProgressIndicator.prototype,
+        [Widget__location]: C1 || CT.C1,
+        [Widget_key]: null,
+        [ProgressIndicator_semanticsValue]: null,
+        [ProgressIndicator_semanticsLabel]: null,
+        [ProgressIndicator_valueColor]: null,
+        [ProgressIndicator_backgroundColor]: null,
+        [ProgressIndicator_value]: null,
+        [CircularProgressIndicator_strokeWidth]: 4,
+        [CircularProgressIndicator__indicatorType]: C3 || CT.C3
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dismissible",
+        [_Location_column]: 17,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 17,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C5 = dart.constList([C6 || CT.C6, C7 || CT.C7], _LocationL());
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C5 || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 91,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 15,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.constList([C10 || CT.C10, C11 || CT.C11], _LocationL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C9 || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 20,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C13 = dart.constList([C14 || CT.C14], _LocationL());
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C13 || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.constList([C17 || CT.C17], _LocationL());
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C16 || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 9,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C19 = dart.constList([C20 || CT.C20, C21 || CT.C21], _LocationL());
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C19 || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 18,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.constList([C24 || CT.C24], _LocationL());
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C23 || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/loading_overlay-0.2.1/lib/loading_overlay.dart"
+      });
+    }
+  }, false);
+  var C2;
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C1;
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var ProgressIndicator_semanticsValue = dart.privateName(progress_indicator, "ProgressIndicator.semanticsValue");
+  var ProgressIndicator_semanticsLabel = dart.privateName(progress_indicator, "ProgressIndicator.semanticsLabel");
+  var ProgressIndicator_valueColor = dart.privateName(progress_indicator, "ProgressIndicator.valueColor");
+  var ProgressIndicator_backgroundColor = dart.privateName(progress_indicator, "ProgressIndicator.backgroundColor");
+  var ProgressIndicator_value = dart.privateName(progress_indicator, "ProgressIndicator.value");
+  var CircularProgressIndicator_strokeWidth = dart.privateName(progress_indicator, "CircularProgressIndicator.strokeWidth");
+  var _name = dart.privateName(progress_indicator, "_name");
+  var C3;
+  var CircularProgressIndicator__indicatorType = dart.privateName(progress_indicator, "CircularProgressIndicator._indicatorType");
+  var C0;
+  var isLoading$ = dart.privateName(loading_overlay, "LoadingOverlay.isLoading");
+  var opacity$ = dart.privateName(loading_overlay, "LoadingOverlay.opacity");
+  var color$ = dart.privateName(loading_overlay, "LoadingOverlay.color");
+  var progressIndicator$ = dart.privateName(loading_overlay, "LoadingOverlay.progressIndicator");
+  var child$ = dart.privateName(loading_overlay, "LoadingOverlay.child");
+  loading_overlay.LoadingOverlay = class LoadingOverlay extends framework.StatefulWidget {
+    get isLoading() {
+      return this[isLoading$];
+    }
+    set isLoading(value) {
+      super.isLoading = value;
+    }
+    get opacity() {
+      return this[opacity$];
+    }
+    set opacity(value) {
+      super.opacity = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get progressIndicator() {
+      return this[progressIndicator$];
+    }
+    set progressIndicator(value) {
+      super.progressIndicator = value;
+    }
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    createState() {
+      return new loading_overlay._LoadingOverlayState.new();
+    }
+  };
+  (loading_overlay.LoadingOverlay.new = function(opts) {
+    let isLoading = opts && 'isLoading' in opts ? opts.isLoading : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let opacity = opts && 'opacity' in opts ? opts.opacity : 0.5;
+    let progressIndicator = opts && 'progressIndicator' in opts ? opts.progressIndicator : C0 || CT.C0;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[isLoading$] = isLoading;
+    this[child$] = child;
+    this[opacity$] = opacity;
+    this[progressIndicator$] = progressIndicator;
+    this[color$] = color;
+    loading_overlay.LoadingOverlay.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = loading_overlay.LoadingOverlay.prototype;
+  dart.addTypeTests(loading_overlay.LoadingOverlay);
+  dart.addTypeCaches(loading_overlay.LoadingOverlay);
+  dart.setMethodSignature(loading_overlay.LoadingOverlay, () => ({
+    __proto__: dart.getMethods(loading_overlay.LoadingOverlay.__proto__),
+    createState: dart.fnType(dart.legacy(loading_overlay._LoadingOverlayState), [])
+  }));
+  dart.setLibraryUri(loading_overlay.LoadingOverlay, L0);
+  dart.setFieldSignature(loading_overlay.LoadingOverlay, () => ({
+    __proto__: dart.getFields(loading_overlay.LoadingOverlay.__proto__),
+    isLoading: dart.finalFieldType(dart.legacy(core.bool)),
+    opacity: dart.finalFieldType(dart.legacy(core.double)),
+    color: dart.finalFieldType(dart.legacy(ui.Color)),
+    progressIndicator: dart.finalFieldType(dart.legacy(framework.Widget)),
+    child: dart.finalFieldType(dart.legacy(framework.Widget))
+  }));
+  var _controller = dart.privateName(loading_overlay, "_controller");
+  var _animation = dart.privateName(loading_overlay, "_animation");
+  var _overlayVisible = dart.privateName(loading_overlay, "_overlayVisible");
+  var C6;
+  var C7;
+  var C5;
+  var C4;
+  var C10;
+  var C11;
+  var C9;
+  var C8;
+  var C14;
+  var C13;
+  var C12;
+  var C17;
+  var C16;
+  var C15;
+  var C20;
+  var C21;
+  var C19;
+  var C18;
+  var C24;
+  var C23;
+  var C22;
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(dart.legacy(loading_overlay.LoadingOverlay)) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(loading_overlay.LoadingOverlay))[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(dart.legacy(loading_overlay.LoadingOverlay)));
+  loading_overlay._LoadingOverlayState = class _LoadingOverlayState extends State_SingleTickerProviderStateMixin$36 {
+    initState() {
+      super.initState();
+      this[_overlayVisible] = false;
+      this[_controller] = new animation_controller.AnimationController.new({vsync: this, duration: new core.Duration.new({milliseconds: 300})});
+      this[_animation] = new (TweenOfdoubleL()).new({begin: 0.0, end: 1.0}).animate(this[_controller]);
+      this[_animation].addStatusListener(dart.fn(status => {
+        dart.equals(status, animation.AnimationStatus.forward) ? this.setState(dart.fn(() => LinkedHashSetOfboolL().from([this[_overlayVisible] = true]), VoidToSetLOfboolL())) : null;
+        dart.equals(status, animation.AnimationStatus.dismissed) ? this.setState(dart.fn(() => LinkedHashSetOfboolL().from([this[_overlayVisible] = false]), VoidToSetLOfboolL())) : null;
+      }, AnimationStatusLToNull()));
+      if (dart.test(this.widget.isLoading)) {
+        this[_controller].forward();
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      LoadingOverlayL().as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.test(oldWidget.isLoading) && dart.test(this.widget.isLoading)) {
+        this[_controller].forward();
+      }
+      if (dart.test(oldWidget.isLoading) && !dart.test(this.widget.isLoading)) {
+        this[_controller].reverse();
+      }
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      let t0;
+      let widgets = JSArrayOfWidgetL().of([]);
+      widgets[$add](this.widget.child);
+      if (dart.equals(this[_overlayVisible], true)) {
+        let modal = new transitions.FadeTransition.new({opacity: this[_animation], child: new basic.Stack.new({children: JSArrayOfWidgetL().of([new basic.Opacity.new({child: new modal_barrier.ModalBarrier.new({dismissible: false, color: (t0 = this.widget.color, t0 == null ? theme.Theme.of(context).colorScheme.background : t0), $creationLocationd_0dea112b090073317d4: C4 || CT.C4}), opacity: this.widget.opacity, $creationLocationd_0dea112b090073317d4: C8 || CT.C8}), new basic.Center.new({child: this.widget.progressIndicator, $creationLocationd_0dea112b090073317d4: C12 || CT.C12})]), $creationLocationd_0dea112b090073317d4: C15 || CT.C15}), $creationLocationd_0dea112b090073317d4: C18 || CT.C18});
+        widgets[$add](modal);
+      }
+      return new basic.Stack.new({children: widgets, $creationLocationd_0dea112b090073317d4: C22 || CT.C22});
+    }
+  };
+  (loading_overlay._LoadingOverlayState.new = function() {
+    this[_controller] = null;
+    this[_animation] = null;
+    this[_overlayVisible] = null;
+    loading_overlay._LoadingOverlayState.__proto__.new.call(this);
+    ;
+  }).prototype = loading_overlay._LoadingOverlayState.prototype;
+  dart.addTypeTests(loading_overlay._LoadingOverlayState);
+  dart.addTypeCaches(loading_overlay._LoadingOverlayState);
+  dart.setMethodSignature(loading_overlay._LoadingOverlayState, () => ({
+    __proto__: dart.getMethods(loading_overlay._LoadingOverlayState.__proto__),
+    didUpdateWidget: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(loading_overlay._LoadingOverlayState, L0);
+  dart.setFieldSignature(loading_overlay._LoadingOverlayState, () => ({
+    __proto__: dart.getFields(loading_overlay._LoadingOverlayState.__proto__),
+    [_controller]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_animation]: dart.fieldType(dart.legacy(animation.Animation$(dart.legacy(core.double)))),
+    [_overlayVisible]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/loading_overlay/loading_overlay.dart", {
+    "package:loading_overlay/loading_overlay.dart": loading_overlay
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["loading_overlay.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAmBa;;;;;;IACE;;;;;;IACD;;;;;;IACC;;;;;;IACA;;;;;;;AAWyB;IAAsB;;;QAR3C;QACA;QACV;QACA;QACA;;IAJU;IACA;IACV;IACA;IACA;AALP;;EAME;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAeiB,MAAX;AACiB,MAAvB,wBAAkB;AACmE,MAArF,oBAAc,yDAA2B,gBAAgB,qCAAuB;AACnB,MAA7D,mBAAa,AAA4B,mCAAf,UAAU,cAAa;AAM/C,MALF,AAAW,mCAAkB,QAAC;AAEuD,QAA5E,YAAP,MAAM,EAAoB,qCAAU,cAAS,cAAM,6BAAC,wBAAkB,gCAAS;AAEO,QAA/E,YAAP,MAAM,EAAoB,uCAAY,cAAS,cAAM,6BAAC,wBAAkB,iCAAU;;AAEpF,oBAAI,AAAO;AACY,QAArB,AAAY;;IAEhB;;2BAGoC;AACF,MAA1B,sBAAgB,SAAS;AAC/B,qBAAK,AAAU,SAAD,yBAAc,AAAO;AACZ,QAArB,AAAY;;AAGd,oBAAI,AAAU,SAAD,0BAAe,AAAO;AACZ,QAArB,AAAY;;IAEhB;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;;AACpB,oBAAkB;AACG,MAAzB,AAAQ,OAAD,OAAK,AAAO;AAEnB,UAAoB,YAAhB,uBAAmB;AACf,oBAAQ,6CACH,yBACF,+BACa,uBAChB,8BACS,iDACQ,eACO,KAAb,AAAO,yBAAA,OAAe,AAAY,AAAY,eAArB,OAAO,gGAEhC,AAAO,4EAElB,6BAAc,AAAO;AAIT,QAAlB,AAAQ,OAAD,OAAK,KAAK;;AAGnB,YAAO,gCAAgB,OAAO;IAChC;;;IAlEoB;IACF;IACb;AAEL;;EAAsB","file":"../../../../../../../../../../packages/loading_overlay/loading_overlay.dart.lib.js"}');
+  // Exports:
+  return {
+    loading_overlay: loading_overlay
+  };
+}));
+
+//# sourceMappingURL=loading_overlay.dart.lib.js.map

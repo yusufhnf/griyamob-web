@@ -1,0 +1,559 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/stacked/src/base_view_models.dart', 'packages/provider/src/value_listenable_provider.dart', 'packages/provider/src/selector.dart', 'packages/provider/src/provider.dart'], (function load__packages__stacked__src__view_model_builder_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__stacked__src__base_view_models$46dart, packages__provider__src__value_listenable_provider$46dart, packages__provider__src__selector$46dart, packages__provider__src__provider$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const base_view_models = packages__stacked__src__base_view_models$46dart.src__base_view_models;
+  const change_notifier_provider = packages__provider__src__value_listenable_provider$46dart.src__change_notifier_provider;
+  const consumer = packages__provider__src__selector$46dart.src__consumer;
+  const provider = packages__provider__src__provider$46dart.src__provider;
+  var view_model_builder = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var _ViewModelBuilderTypeL = () => (_ViewModelBuilderTypeL = dart.constFn(dart.legacy(view_model_builder._ViewModelBuilderType)))();
+  var BaseViewModelL = () => (BaseViewModelL = dart.constFn(dart.legacy(base_view_models.BaseViewModel)))();
+  var InitialisableL = () => (InitialisableL = dart.constFn(dart.legacy(base_view_models.Initialisable)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var DynamicSourceViewModelL = () => (DynamicSourceViewModelL = dart.constFn(dart.legacy(base_view_models.DynamicSourceViewModel)))();
+  const CT = Object.create(null);
+  var L0 = "package:stacked/src/view_model_builder.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: view_model_builder._ViewModelBuilderType.prototype,
+        [_name$]: "_ViewModelBuilderType.NonReactive",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: view_model_builder._ViewModelBuilderType.prototype,
+        [_name$]: "_ViewModelBuilderType.Reactive",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C0 || CT.C0, C1 || CT.C1], _ViewModelBuilderTypeL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 11,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 132,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C5 || CT.C5, C6 || CT.C6], _LocationL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C4 || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 39,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "create",
+        [_Location_column]: 9,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 138,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C8 = dart.constList([C9 || CT.C9, C10 || CT.C10], _LocationL());
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C8 || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 136,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C12 = dart.constList([C13 || CT.C13, C14 || CT.C14], _LocationL());
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C12 || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 145,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 9,
+        [_Location_line]: 144,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 145,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.constList([C17 || CT.C17, C18 || CT.C18], _LocationL());
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C16 || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 143,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.constList([C21 || CT.C21, C22 || CT.C22], _LocationL());
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C20 || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 154,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "create",
+        [_Location_column]: 7,
+        [_Location_line]: 153,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 154,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C24 = dart.constList([C25 || CT.C25, C26 || CT.C26], _LocationL());
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C24 || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 152,
+        [_Location_file]: "file:///C:/Users/MKM/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/stacked-1.7.6/lib/src/view_model_builder.dart"
+      });
+    }
+  }, false);
+  var _name$ = dart.privateName(view_model_builder, "_name");
+  var C0;
+  var C1;
+  var C2;
+  view_model_builder._ViewModelBuilderType = class _ViewModelBuilderType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (view_model_builder._ViewModelBuilderType.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = view_model_builder._ViewModelBuilderType.prototype;
+  dart.addTypeTests(view_model_builder._ViewModelBuilderType);
+  dart.addTypeCaches(view_model_builder._ViewModelBuilderType);
+  dart.setMethodSignature(view_model_builder._ViewModelBuilderType, () => ({
+    __proto__: dart.getMethods(view_model_builder._ViewModelBuilderType.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(view_model_builder._ViewModelBuilderType, L0);
+  dart.setFieldSignature(view_model_builder._ViewModelBuilderType, () => ({
+    __proto__: dart.getFields(view_model_builder._ViewModelBuilderType.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(view_model_builder._ViewModelBuilderType, ['toString']);
+  view_model_builder._ViewModelBuilderType.NonReactive = C0 || CT.C0;
+  view_model_builder._ViewModelBuilderType.Reactive = C1 || CT.C1;
+  view_model_builder._ViewModelBuilderType.values = C2 || CT.C2;
+  const _is_ViewModelBuilder_default = Symbol('_is_ViewModelBuilder_default');
+  var staticChild$ = dart.privateName(view_model_builder, "ViewModelBuilder.staticChild");
+  var onModelReady$ = dart.privateName(view_model_builder, "ViewModelBuilder.onModelReady");
+  var builder$ = dart.privateName(view_model_builder, "ViewModelBuilder.builder");
+  var viewModelBuilder$ = dart.privateName(view_model_builder, "ViewModelBuilder.viewModelBuilder");
+  var disposeViewModel$ = dart.privateName(view_model_builder, "ViewModelBuilder.disposeViewModel");
+  var createNewModelOnInsert$ = dart.privateName(view_model_builder, "ViewModelBuilder.createNewModelOnInsert");
+  var providerType = dart.privateName(view_model_builder, "ViewModelBuilder.providerType");
+  var fireOnModelReadyOnce$ = dart.privateName(view_model_builder, "ViewModelBuilder.fireOnModelReadyOnce");
+  var initialiseSpecialViewModelsOnce$ = dart.privateName(view_model_builder, "ViewModelBuilder.initialiseSpecialViewModelsOnce");
+  view_model_builder.ViewModelBuilder$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var _ViewModelBuilderStateOfTL = () => (_ViewModelBuilderStateOfTL = dart.constFn(view_model_builder._ViewModelBuilderState$(TL())))();
+    class ViewModelBuilder extends framework.StatefulWidget {
+      get staticChild() {
+        return this[staticChild$];
+      }
+      set staticChild(value) {
+        super.staticChild = value;
+      }
+      get onModelReady() {
+        return this[onModelReady$];
+      }
+      set onModelReady(value) {
+        super.onModelReady = value;
+      }
+      get builder() {
+        return this[builder$];
+      }
+      set builder(value) {
+        super.builder = value;
+      }
+      get viewModelBuilder() {
+        return this[viewModelBuilder$];
+      }
+      set viewModelBuilder(value) {
+        super.viewModelBuilder = value;
+      }
+      get disposeViewModel() {
+        return this[disposeViewModel$];
+      }
+      set disposeViewModel(value) {
+        super.disposeViewModel = value;
+      }
+      get createNewModelOnInsert() {
+        return this[createNewModelOnInsert$];
+      }
+      set createNewModelOnInsert(value) {
+        super.createNewModelOnInsert = value;
+      }
+      get providerType() {
+        return this[providerType];
+      }
+      set providerType(value) {
+        super.providerType = value;
+      }
+      get fireOnModelReadyOnce() {
+        return this[fireOnModelReadyOnce$];
+      }
+      set fireOnModelReadyOnce(value) {
+        super.fireOnModelReadyOnce = value;
+      }
+      get initialiseSpecialViewModelsOnce() {
+        return this[initialiseSpecialViewModelsOnce$];
+      }
+      set initialiseSpecialViewModelsOnce(value) {
+        super.initialiseSpecialViewModelsOnce = value;
+      }
+      createState() {
+        return new (_ViewModelBuilderStateOfTL()).new();
+      }
+    }
+    (ViewModelBuilder.nonReactive = function(opts) {
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      let viewModelBuilder = opts && 'viewModelBuilder' in opts ? opts.viewModelBuilder : null;
+      let onModelReady = opts && 'onModelReady' in opts ? opts.onModelReady : null;
+      let disposeViewModel = opts && 'disposeViewModel' in opts ? opts.disposeViewModel : true;
+      let createNewModelOnInsert = opts && 'createNewModelOnInsert' in opts ? opts.createNewModelOnInsert : false;
+      let fireOnModelReadyOnce = opts && 'fireOnModelReadyOnce' in opts ? opts.fireOnModelReadyOnce : false;
+      let initialiseSpecialViewModelsOnce = opts && 'initialiseSpecialViewModelsOnce' in opts ? opts.initialiseSpecialViewModelsOnce : false;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[builder$] = builder;
+      this[viewModelBuilder$] = viewModelBuilder;
+      this[onModelReady$] = onModelReady;
+      this[disposeViewModel$] = disposeViewModel;
+      this[createNewModelOnInsert$] = createNewModelOnInsert;
+      this[fireOnModelReadyOnce$] = fireOnModelReadyOnce;
+      this[initialiseSpecialViewModelsOnce$] = initialiseSpecialViewModelsOnce;
+      this[providerType] = view_model_builder._ViewModelBuilderType.NonReactive;
+      this[staticChild$] = null;
+      ViewModelBuilder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = ViewModelBuilder.prototype;
+    (ViewModelBuilder.reactive = function(opts) {
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      let viewModelBuilder = opts && 'viewModelBuilder' in opts ? opts.viewModelBuilder : null;
+      let staticChild = opts && 'staticChild' in opts ? opts.staticChild : null;
+      let onModelReady = opts && 'onModelReady' in opts ? opts.onModelReady : null;
+      let disposeViewModel = opts && 'disposeViewModel' in opts ? opts.disposeViewModel : true;
+      let createNewModelOnInsert = opts && 'createNewModelOnInsert' in opts ? opts.createNewModelOnInsert : false;
+      let fireOnModelReadyOnce = opts && 'fireOnModelReadyOnce' in opts ? opts.fireOnModelReadyOnce : false;
+      let initialiseSpecialViewModelsOnce = opts && 'initialiseSpecialViewModelsOnce' in opts ? opts.initialiseSpecialViewModelsOnce : false;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[builder$] = builder;
+      this[viewModelBuilder$] = viewModelBuilder;
+      this[staticChild$] = staticChild;
+      this[onModelReady$] = onModelReady;
+      this[disposeViewModel$] = disposeViewModel;
+      this[createNewModelOnInsert$] = createNewModelOnInsert;
+      this[fireOnModelReadyOnce$] = fireOnModelReadyOnce;
+      this[initialiseSpecialViewModelsOnce$] = initialiseSpecialViewModelsOnce;
+      this[providerType] = view_model_builder._ViewModelBuilderType.Reactive;
+      ViewModelBuilder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = ViewModelBuilder.prototype;
+    dart.addTypeTests(ViewModelBuilder);
+    ViewModelBuilder.prototype[_is_ViewModelBuilder_default] = true;
+    dart.addTypeCaches(ViewModelBuilder);
+    dart.setMethodSignature(ViewModelBuilder, () => ({
+      __proto__: dart.getMethods(ViewModelBuilder.__proto__),
+      createState: dart.fnType(dart.legacy(view_model_builder._ViewModelBuilderState$(dart.legacy(T))), [])
+    }));
+    dart.setLibraryUri(ViewModelBuilder, L0);
+    dart.setFieldSignature(ViewModelBuilder, () => ({
+      __proto__: dart.getFields(ViewModelBuilder.__proto__),
+      staticChild: dart.finalFieldType(dart.legacy(framework.Widget)),
+      onModelReady: dart.finalFieldType(dart.legacy(dart.fnType(dart.dynamic, [dart.legacy(T)]))),
+      builder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext), dart.legacy(T), dart.legacy(framework.Widget)]))),
+      viewModelBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(T), []))),
+      disposeViewModel: dart.finalFieldType(dart.legacy(core.bool)),
+      createNewModelOnInsert: dart.finalFieldType(dart.legacy(core.bool)),
+      providerType: dart.finalFieldType(dart.legacy(view_model_builder._ViewModelBuilderType)),
+      fireOnModelReadyOnce: dart.finalFieldType(dart.legacy(core.bool)),
+      initialiseSpecialViewModelsOnce: dart.finalFieldType(dart.legacy(core.bool))
+    }));
+    return ViewModelBuilder;
+  });
+  view_model_builder.ViewModelBuilder = view_model_builder.ViewModelBuilder$();
+  dart.addTypeTests(view_model_builder.ViewModelBuilder, _is_ViewModelBuilder_default);
+  var _model = dart.privateName(view_model_builder, "_model");
+  var _createViewModel = dart.privateName(view_model_builder, "_createViewModel");
+  var _initialiseSpecialViewModels = dart.privateName(view_model_builder, "_initialiseSpecialViewModels");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C5;
+  var C6;
+  var C4;
+  var C3;
+  var C9;
+  var C10;
+  var C8;
+  var C7;
+  var C13;
+  var C14;
+  var C12;
+  var C11;
+  var C17;
+  var C18;
+  var C16;
+  var C15;
+  var C21;
+  var C22;
+  var C20;
+  var C19;
+  var C25;
+  var C26;
+  var C24;
+  var C23;
+  const _is__ViewModelBuilderState_default = Symbol('_is__ViewModelBuilderState_default');
+  view_model_builder._ViewModelBuilderState$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var TLTodynamic = () => (TLTodynamic = dart.constFn(dart.fnType(dart.dynamic, [TL()])))();
+    var TLToLdynamic = () => (TLToLdynamic = dart.constFn(dart.legacy(TLTodynamic())))();
+    var ChangeNotifierProviderOfTL = () => (ChangeNotifierProviderOfTL = dart.constFn(change_notifier_provider.ChangeNotifierProvider$(TL())))();
+    var BuildContextLAndTLAndWidgetLToWidgetL = () => (BuildContextLAndTLAndWidgetLToWidgetL = dart.constFn(dart.fnType(WidgetL(), [BuildContextL(), TL(), WidgetL()])))();
+    var BuildContextLAndTLAndWidgetLToLWidgetL = () => (BuildContextLAndTLAndWidgetLToLWidgetL = dart.constFn(dart.legacy(BuildContextLAndTLAndWidgetLToWidgetL())))();
+    var BuildContextLToTL = () => (BuildContextLToTL = dart.constFn(dart.fnType(TL(), [BuildContextL()])))();
+    var ConsumerOfTL = () => (ConsumerOfTL = dart.constFn(consumer.Consumer$(TL())))();
+    class _ViewModelBuilderState extends framework.State$(dart.legacy(view_model_builder.ViewModelBuilder$(dart.legacy(T)))) {
+      initState() {
+        super.initState();
+        if (this[_model] == null) {
+          this[_createViewModel]();
+        } else if (dart.test(this.widget.createNewModelOnInsert)) {
+          this[_createViewModel]();
+        }
+      }
+      [_createViewModel]() {
+        let t0, t1, t0$, t0$0, t1$, t0$1;
+        if (this.widget.viewModelBuilder != null) {
+          this[_model] = this.widget.viewModelBuilder();
+        }
+        if (dart.test(this.widget.initialiseSpecialViewModelsOnce) && !dart.test(BaseViewModelL().as(this[_model]).initialised)) {
+          this[_initialiseSpecialViewModels]();
+          t0 = BaseViewModelL().as(this[_model]);
+          t0 == null ? null : t0.setInitialised(true);
+        } else if (!dart.test(this.widget.initialiseSpecialViewModelsOnce)) {
+          this[_initialiseSpecialViewModels]();
+        }
+        if (TLToLdynamic().as(this.widget.onModelReady) != null) {
+          if (dart.test(this.widget.fireOnModelReadyOnce) && !dart.test(BaseViewModelL().as(this[_model]).onModelReadyCalled)) {
+            t0$ = this.widget;
+            t1 = this[_model];
+            TLToLdynamic().as(t0$.onModelReady)(t1);
+            t0$0 = BaseViewModelL().as(this[_model]);
+            t0$0 == null ? null : t0$0.setOnModelReadyCalled(true);
+          } else if (!dart.test(this.widget.fireOnModelReadyOnce)) {
+            t0$1 = this.widget;
+            t1$ = this[_model];
+            TLToLdynamic().as(t0$1.onModelReady)(t1$);
+          }
+        }
+      }
+      [_initialiseSpecialViewModels]() {
+        if (InitialisableL().is(this[_model])) {
+          InitialisableL().as(this[_model]).initialise();
+        }
+      }
+      build(context) {
+        let t3, t2, t1, t0, t3$, t2$, t1$, t0$;
+        if (this.widget.providerType == view_model_builder._ViewModelBuilderType.NonReactive) {
+          if (!dart.test(this.widget.disposeViewModel)) {
+            return new (ChangeNotifierProviderOfTL()).value({value: this[_model], child: (t0 = this.widget, t1 = context, t2 = this[_model], t3 = this.widget.staticChild, BuildContextLAndTLAndWidgetLToLWidgetL().as(t0.builder)(t1, t2, t3)), $creationLocationd_0dea112b090073317d4: C3 || CT.C3});
+          }
+          return new (ChangeNotifierProviderOfTL()).new({create: dart.fn(context => this[_model], BuildContextLToTL()), child: (t0$ = this.widget, t1$ = context, t2$ = this[_model], t3$ = this.widget.staticChild, BuildContextLAndTLAndWidgetLToLWidgetL().as(t0$.builder)(t1$, t2$, t3$)), $creationLocationd_0dea112b090073317d4: C7 || CT.C7});
+        }
+        if (!dart.test(this.widget.disposeViewModel)) {
+          return new (ChangeNotifierProviderOfTL()).value({value: this[_model], child: new (ConsumerOfTL()).new({builder: dart.bind(this, 'builderWithDynamicSourceInitialise'), child: this.widget.staticChild, $creationLocationd_0dea112b090073317d4: C11 || CT.C11}), $creationLocationd_0dea112b090073317d4: C15 || CT.C15});
+        }
+        return new (ChangeNotifierProviderOfTL()).new({create: dart.fn(context => this[_model], BuildContextLToTL()), child: new (ConsumerOfTL()).new({builder: dart.bind(this, 'builderWithDynamicSourceInitialise'), child: this.widget.staticChild, $creationLocationd_0dea112b090073317d4: C19 || CT.C19}), $creationLocationd_0dea112b090073317d4: C23 || CT.C23});
+      }
+      builderWithDynamicSourceInitialise(context, model, child) {
+        let t0, t3, t2, t1, t0$;
+        TL().as(model);
+        if (DynamicSourceViewModelL().is(model)) {
+          if (dart.test((t0 = model.changeSource, t0 == null ? false : t0))) {
+            this[_initialiseSpecialViewModels]();
+          }
+        }
+        t0$ = this.widget;
+        t1 = context;
+        t2 = model;
+        t3 = child;
+        return BuildContextLAndTLAndWidgetLToLWidgetL().as(t0$.builder)(t1, t2, t3);
+      }
+    }
+    (_ViewModelBuilderState.new = function() {
+      this[_model] = null;
+      _ViewModelBuilderState.__proto__.new.call(this);
+      ;
+    }).prototype = _ViewModelBuilderState.prototype;
+    dart.addTypeTests(_ViewModelBuilderState);
+    _ViewModelBuilderState.prototype[_is__ViewModelBuilderState_default] = true;
+    dart.addTypeCaches(_ViewModelBuilderState);
+    dart.setMethodSignature(_ViewModelBuilderState, () => ({
+      __proto__: dart.getMethods(_ViewModelBuilderState.__proto__),
+      [_createViewModel]: dart.fnType(dart.void, []),
+      [_initialiseSpecialViewModels]: dart.fnType(dart.void, []),
+      build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+      builderWithDynamicSourceInitialise: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext), dart.legacy(core.Object), dart.legacy(framework.Widget)])
+    }));
+    dart.setLibraryUri(_ViewModelBuilderState, L0);
+    dart.setFieldSignature(_ViewModelBuilderState, () => ({
+      __proto__: dart.getFields(_ViewModelBuilderState.__proto__),
+      [_model]: dart.fieldType(dart.legacy(T))
+    }));
+    return _ViewModelBuilderState;
+  });
+  view_model_builder._ViewModelBuilderState = view_model_builder._ViewModelBuilderState$();
+  dart.addTypeTests(view_model_builder._ViewModelBuilderState, _is__ViewModelBuilderState_default);
+  view_model_builder.getParentViewModel = function getParentViewModel(T, context) {
+    return provider.Provider.of(dart.legacy(T), context);
+  };
+  dart.trackLibraries("packages/stacked/src/view_model_builder.dart", {
+    "package:stacked/src/view_model_builder.dart": view_model_builder
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["view_model_builder.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAImD;;kEAA9C;;;;EAA8C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAIpC;;;;;;MAKK;;;;;;MAG6B;;;;;;MAG5B;;;;;;MAKR;;;;;;MAQA;;;;;;MAEiB;;;;;;MAIjB;;;;;;MAGA;;;;;;;AAiCgC;MAA2B;;;UA3BrD;UACA;UACV;UACA;UACA;UACA;UACA;UACD;;MAPW;MACA;MACV;MACA;MACA;MACA;MACA;MAEY,qBAAwB;MACzB,qBAAE;AACd,sDAAW,GAAG;;IAAC;;UAIJ;UACA;UACV;UACA;UACA;UACA;UACA;UACA;UACD;;MARW;MACA;MACV;MACA;MACA;MACA;MACA;MACA;MAEY,qBAAwB;AACrC,sDAAW,GAAG;;IAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAYF,QAAX;AAEN,YAAI,AAAO,gBAAG;AACM,UAAlB;cAGG,eAAI,AAAO;AACI,UAAlB;;MAEJ;;;AAGE,YAAI,AAAO,gCAAoB;AACK,UAAlC,eAAS,AAAuB;;AAGlC,sBAAI,AAAO,2DACE,AAAkB,oBAAzB;AAC0B,UAA9B;AAC+C,eAAvC,oBAAP;uBAAuB,OAAG,kBAAe;cACrC,gBAAK,AAAO;AACa,UAA9B;;AAIF,8BAAI,AAAO,6BAAgB;AACzB,wBAAI,AAAO,gDACE,AAAkB,oBAAzB;AACuB,kBAA3B;iBAAoB;YAAD,kBAAZ;AAC+C,mBAA9C,oBAAP;2BAAuB,OAAG,2BAAsB;gBAC5C,gBAAK,AAAO;AACU,mBAA3B;kBAAoB;YAAD,kBAAZ;;;MAGb;;AAGE,YAAW,oBAAP;AACoC,UAA9B,AAAkB,oBAAzB;;MAEL;YAG0B;;AACxB,YAAI,AAAO,AAAa,4BAAyB;AAC/C,yBAAK,AAAO;AACV,kBAA8B,kDACrB,2BACA,kBAAe,OAAO,OAAE,mBAAQ,AAAO,yBAAzB,4CAAP;;AAIlB,gBAAO,iDACG,QAAC,WAAY,kDACd,mBAAe,OAAO,QAAE,oBAAQ,AAAO,yBAAzB,4CAAP;;AAIlB,uBAAK,AAAO;AACV,gBAA8B,kDACrB,qBACA,6CACI,oDACF,AAAO;;AAKpB,cAAO,iDACG,QAAC,WAAY,2CACd,6CACI,oDACF,AAAO;MAGpB;yCAGiB,SAAW,OAAc;;gBAAd;AAC1B,YAAU,6BAAN,KAAK;AACP,yBAAuB,KAAnB,AAAM,KAAD,qBAAC,OAAgB;AACM,YAA9B;;;AAGJ,cAAO;aAAe,OAAO;aAAE,KAAK;aAAE,KAAK;cAAtB,6CAAP;MAChB;;;MAzFE;;;IA0FJ;;;;;;;;;;;;;;;;;;;;yEAGqC;AAAY,UAAS,sCAAM,OAAO;EAAC","file":"../../../../../../../../../../../packages/stacked/src/view_model_builder.dart.lib.js"}');
+  // Exports:
+  return {
+    src__view_model_builder: view_model_builder
+  };
+}));
+
+//# sourceMappingURL=view_model_builder.dart.lib.js.map

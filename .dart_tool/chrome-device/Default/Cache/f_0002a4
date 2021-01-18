@@ -1,0 +1,725 @@
+define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/intl/src/intl_helpers.dart', 'packages/flutter/src/painting/gradient.dart'], (function load__packages__bezier_chart__src__bezier_chart_config_dart(dart_sdk, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__intl__src__intl_helpers$46dart, packages__flutter__src__painting__gradient$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const intl = packages__intl__src__intl_helpers$46dart.intl;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  var bezier_chart_config = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var BezierChartScaleL = () => (BezierChartScaleL = dart.constFn(dart.legacy(bezier_chart_config.BezierChartScale)))();
+  var BezierChartAggregationL = () => (BezierChartAggregationL = dart.constFn(dart.legacy(bezier_chart_config.BezierChartAggregation)))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var ColorL = () => (ColorL = dart.constFn(dart.legacy(ui.Color)))();
+  const CT = Object.create(null);
+  var L0 = "package:bezier_chart/src/bezier_chart_config.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: bezier_chart_config.BezierChartScale.prototype,
+        [_name$]: "BezierChartScale.HOURLY",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: bezier_chart_config.BezierChartScale.prototype,
+        [_name$]: "BezierChartScale.WEEKLY",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: bezier_chart_config.BezierChartScale.prototype,
+        [_name$]: "BezierChartScale.MONTHLY",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: bezier_chart_config.BezierChartScale.prototype,
+        [_name$]: "BezierChartScale.YEARLY",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: bezier_chart_config.BezierChartScale.prototype,
+        [_name$]: "BezierChartScale.CUSTOM",
+        index: 4
+      });
+    },
+    get C5() {
+      return C5 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], BezierChartScaleL());
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.AVERAGE",
+        index: 0
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.SUM",
+        index: 1
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.FIRST",
+        index: 2
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.COUNT",
+        index: 3
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.MAX",
+        index: 4
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: bezier_chart_config.BezierChartAggregation.prototype,
+        [_name$]: "BezierChartAggregation.MIN",
+        index: 5
+      });
+    },
+    get C12() {
+      return C12 = dart.constList([C6 || CT.C6, C7 || CT.C7, C8 || CT.C8, C9 || CT.C9, C10 || CT.C10, C11 || CT.C11], BezierChartAggregationL());
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294638330.0
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294309365.0
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293848814.0
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292927712.0
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292269782.0
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290624957.0
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288585374.0
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285887861.0
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284572001.0
+      });
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282532418.0
+      });
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281348144.0
+      });
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280361249.0
+      });
+    },
+    get C17() {
+      return C17 = dart.constMap(intL(), ColorL(), [50, C18 || CT.C18, 100, C19 || CT.C19, 200, C20 || CT.C20, 300, C21 || CT.C21, 350, C22 || CT.C22, 400, C23 || CT.C23, 500, C24 || CT.C24, 600, C25 || CT.C25, 700, C26 || CT.C26, 800, C27 || CT.C27, 850, C28 || CT.C28, 900, C29 || CT.C29]);
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: colors.MaterialColor.prototype,
+        [Color_value]: 4288585374.0,
+        [ColorSwatch__swatch]: C17 || CT.C17
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: ui.FontWeight.prototype,
+        [FontWeight_index]: 6
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: C31 || CT.C31,
+        [TextStyle_fontSize]: 9,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: C16 || CT.C16,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C33() {
+      return C33 = dart.const({
+        __proto__: ui.FontWeight.prototype,
+        [FontWeight_index]: 5
+      });
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: C33 || CT.C33,
+        [TextStyle_fontSize]: 9.5,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: C16 || CT.C16,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: C31 || CT.C31,
+        [TextStyle_fontSize]: 11,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: C13 || CT.C13,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: scroll_physics.AlwaysScrollableScrollPhysics.prototype,
+        [ScrollPhysics_parent]: null
+      });
+    }
+  }, false);
+  var _name$ = dart.privateName(bezier_chart_config, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  bezier_chart_config.BezierChartScale = class BezierChartScale extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (bezier_chart_config.BezierChartScale.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = bezier_chart_config.BezierChartScale.prototype;
+  dart.addTypeTests(bezier_chart_config.BezierChartScale);
+  dart.addTypeCaches(bezier_chart_config.BezierChartScale);
+  dart.setMethodSignature(bezier_chart_config.BezierChartScale, () => ({
+    __proto__: dart.getMethods(bezier_chart_config.BezierChartScale.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(bezier_chart_config.BezierChartScale, L0);
+  dart.setFieldSignature(bezier_chart_config.BezierChartScale, () => ({
+    __proto__: dart.getFields(bezier_chart_config.BezierChartScale.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(bezier_chart_config.BezierChartScale, ['toString']);
+  bezier_chart_config.BezierChartScale.HOURLY = C0 || CT.C0;
+  bezier_chart_config.BezierChartScale.WEEKLY = C1 || CT.C1;
+  bezier_chart_config.BezierChartScale.MONTHLY = C2 || CT.C2;
+  bezier_chart_config.BezierChartScale.YEARLY = C3 || CT.C3;
+  bezier_chart_config.BezierChartScale.CUSTOM = C4 || CT.C4;
+  bezier_chart_config.BezierChartScale.values = C5 || CT.C5;
+  var C6;
+  var C7;
+  var C8;
+  var C9;
+  var C10;
+  var C11;
+  var C12;
+  bezier_chart_config.BezierChartAggregation = class BezierChartAggregation extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (bezier_chart_config.BezierChartAggregation.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = bezier_chart_config.BezierChartAggregation.prototype;
+  dart.addTypeTests(bezier_chart_config.BezierChartAggregation);
+  dart.addTypeCaches(bezier_chart_config.BezierChartAggregation);
+  dart.setMethodSignature(bezier_chart_config.BezierChartAggregation, () => ({
+    __proto__: dart.getMethods(bezier_chart_config.BezierChartAggregation.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(bezier_chart_config.BezierChartAggregation, L0);
+  dart.setFieldSignature(bezier_chart_config.BezierChartAggregation, () => ({
+    __proto__: dart.getFields(bezier_chart_config.BezierChartAggregation.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(bezier_chart_config.BezierChartAggregation, ['toString']);
+  bezier_chart_config.BezierChartAggregation.AVERAGE = C6 || CT.C6;
+  bezier_chart_config.BezierChartAggregation.SUM = C7 || CT.C7;
+  bezier_chart_config.BezierChartAggregation.FIRST = C8 || CT.C8;
+  bezier_chart_config.BezierChartAggregation.COUNT = C9 || CT.C9;
+  bezier_chart_config.BezierChartAggregation.MAX = C10 || CT.C10;
+  bezier_chart_config.BezierChartAggregation.MIN = C11 || CT.C11;
+  bezier_chart_config.BezierChartAggregation.values = C12 || CT.C12;
+  var Color_value = dart.privateName(ui, "Color.value");
+  var C13;
+  var C14;
+  var C15;
+  var C18;
+  var C19;
+  var C20;
+  var C21;
+  var C22;
+  var C23;
+  var C24;
+  var C25;
+  var C26;
+  var C27;
+  var C28;
+  var C29;
+  var C17;
+  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
+  var C16;
+  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
+  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
+  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
+  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
+  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
+  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
+  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
+  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
+  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
+  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
+  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
+  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
+  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
+  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
+  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
+  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
+  var C31;
+  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
+  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
+  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
+  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
+  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
+  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
+  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
+  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
+  var C30;
+  var C33;
+  var C32;
+  var C34;
+  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  var C35;
+  var showVerticalIndicator$ = dart.privateName(bezier_chart_config, "BezierChartConfig.showVerticalIndicator");
+  var verticalIndicatorColor$ = dart.privateName(bezier_chart_config, "BezierChartConfig.verticalIndicatorColor");
+  var verticalIndicatorStrokeWidth$ = dart.privateName(bezier_chart_config, "BezierChartConfig.verticalIndicatorStrokeWidth");
+  var verticalIndicatorFixedPosition$ = dart.privateName(bezier_chart_config, "BezierChartConfig.verticalIndicatorFixedPosition");
+  var verticalLineFullHeight$ = dart.privateName(bezier_chart_config, "BezierChartConfig.verticalLineFullHeight");
+  var bubbleIndicatorColor$ = dart.privateName(bezier_chart_config, "BezierChartConfig.bubbleIndicatorColor");
+  var bubbleIndicatorTitleStyle$ = dart.privateName(bezier_chart_config, "BezierChartConfig.bubbleIndicatorTitleStyle");
+  var bubbleIndicatorValueStyle$ = dart.privateName(bezier_chart_config, "BezierChartConfig.bubbleIndicatorValueStyle");
+  var bubbleIndicatorValueFormat$ = dart.privateName(bezier_chart_config, "BezierChartConfig.bubbleIndicatorValueFormat");
+  var bubbleIndicatorLabelStyle$ = dart.privateName(bezier_chart_config, "BezierChartConfig.bubbleIndicatorLabelStyle");
+  var backgroundColor$ = dart.privateName(bezier_chart_config, "BezierChartConfig.backgroundColor");
+  var backgroundGradient$ = dart.privateName(bezier_chart_config, "BezierChartConfig.backgroundGradient");
+  var displayYAxis$ = dart.privateName(bezier_chart_config, "BezierChartConfig.displayYAxis");
+  var stepsYAxis$ = dart.privateName(bezier_chart_config, "BezierChartConfig.stepsYAxis");
+  var startYAxisFromNonZeroValue$ = dart.privateName(bezier_chart_config, "BezierChartConfig.startYAxisFromNonZeroValue");
+  var yAxisTextStyle$ = dart.privateName(bezier_chart_config, "BezierChartConfig.yAxisTextStyle");
+  var xAxisTextStyle$ = dart.privateName(bezier_chart_config, "BezierChartConfig.xAxisTextStyle");
+  var footerHeight$ = dart.privateName(bezier_chart_config, "BezierChartConfig.footerHeight");
+  var showDataPoints$ = dart.privateName(bezier_chart_config, "BezierChartConfig.showDataPoints");
+  var snap$ = dart.privateName(bezier_chart_config, "BezierChartConfig.snap");
+  var pinchZoom$ = dart.privateName(bezier_chart_config, "BezierChartConfig.pinchZoom");
+  var contentWidth$ = dart.privateName(bezier_chart_config, "BezierChartConfig.contentWidth");
+  var displayLinesXAxis$ = dart.privateName(bezier_chart_config, "BezierChartConfig.displayLinesXAxis");
+  var xLinesColor$ = dart.privateName(bezier_chart_config, "BezierChartConfig.xLinesColor");
+  var displayDataPointWhenNoValue$ = dart.privateName(bezier_chart_config, "BezierChartConfig.displayDataPointWhenNoValue");
+  var physics$ = dart.privateName(bezier_chart_config, "BezierChartConfig.physics");
+  var updatePositionOnTap$ = dart.privateName(bezier_chart_config, "BezierChartConfig.updatePositionOnTap");
+  bezier_chart_config.BezierChartConfig = class BezierChartConfig extends core.Object {
+    get showVerticalIndicator() {
+      return this[showVerticalIndicator$];
+    }
+    set showVerticalIndicator(value) {
+      super.showVerticalIndicator = value;
+    }
+    get verticalIndicatorColor() {
+      return this[verticalIndicatorColor$];
+    }
+    set verticalIndicatorColor(value) {
+      super.verticalIndicatorColor = value;
+    }
+    get verticalIndicatorStrokeWidth() {
+      return this[verticalIndicatorStrokeWidth$];
+    }
+    set verticalIndicatorStrokeWidth(value) {
+      super.verticalIndicatorStrokeWidth = value;
+    }
+    get verticalIndicatorFixedPosition() {
+      return this[verticalIndicatorFixedPosition$];
+    }
+    set verticalIndicatorFixedPosition(value) {
+      super.verticalIndicatorFixedPosition = value;
+    }
+    get verticalLineFullHeight() {
+      return this[verticalLineFullHeight$];
+    }
+    set verticalLineFullHeight(value) {
+      super.verticalLineFullHeight = value;
+    }
+    get bubbleIndicatorColor() {
+      return this[bubbleIndicatorColor$];
+    }
+    set bubbleIndicatorColor(value) {
+      super.bubbleIndicatorColor = value;
+    }
+    get bubbleIndicatorTitleStyle() {
+      return this[bubbleIndicatorTitleStyle$];
+    }
+    set bubbleIndicatorTitleStyle(value) {
+      super.bubbleIndicatorTitleStyle = value;
+    }
+    get bubbleIndicatorValueStyle() {
+      return this[bubbleIndicatorValueStyle$];
+    }
+    set bubbleIndicatorValueStyle(value) {
+      super.bubbleIndicatorValueStyle = value;
+    }
+    get bubbleIndicatorValueFormat() {
+      return this[bubbleIndicatorValueFormat$];
+    }
+    set bubbleIndicatorValueFormat(value) {
+      super.bubbleIndicatorValueFormat = value;
+    }
+    get bubbleIndicatorLabelStyle() {
+      return this[bubbleIndicatorLabelStyle$];
+    }
+    set bubbleIndicatorLabelStyle(value) {
+      super.bubbleIndicatorLabelStyle = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get backgroundGradient() {
+      return this[backgroundGradient$];
+    }
+    set backgroundGradient(value) {
+      super.backgroundGradient = value;
+    }
+    get displayYAxis() {
+      return this[displayYAxis$];
+    }
+    set displayYAxis(value) {
+      super.displayYAxis = value;
+    }
+    get stepsYAxis() {
+      return this[stepsYAxis$];
+    }
+    set stepsYAxis(value) {
+      super.stepsYAxis = value;
+    }
+    get startYAxisFromNonZeroValue() {
+      return this[startYAxisFromNonZeroValue$];
+    }
+    set startYAxisFromNonZeroValue(value) {
+      super.startYAxisFromNonZeroValue = value;
+    }
+    get yAxisTextStyle() {
+      return this[yAxisTextStyle$];
+    }
+    set yAxisTextStyle(value) {
+      super.yAxisTextStyle = value;
+    }
+    get xAxisTextStyle() {
+      return this[xAxisTextStyle$];
+    }
+    set xAxisTextStyle(value) {
+      super.xAxisTextStyle = value;
+    }
+    get footerHeight() {
+      return this[footerHeight$];
+    }
+    set footerHeight(value) {
+      super.footerHeight = value;
+    }
+    get showDataPoints() {
+      return this[showDataPoints$];
+    }
+    set showDataPoints(value) {
+      super.showDataPoints = value;
+    }
+    get snap() {
+      return this[snap$];
+    }
+    set snap(value) {
+      super.snap = value;
+    }
+    get pinchZoom() {
+      return this[pinchZoom$];
+    }
+    set pinchZoom(value) {
+      super.pinchZoom = value;
+    }
+    get contentWidth() {
+      return this[contentWidth$];
+    }
+    set contentWidth(value) {
+      super.contentWidth = value;
+    }
+    get displayLinesXAxis() {
+      return this[displayLinesXAxis$];
+    }
+    set displayLinesXAxis(value) {
+      super.displayLinesXAxis = value;
+    }
+    get xLinesColor() {
+      return this[xLinesColor$];
+    }
+    set xLinesColor(value) {
+      super.xLinesColor = value;
+    }
+    get displayDataPointWhenNoValue() {
+      return this[displayDataPointWhenNoValue$];
+    }
+    set displayDataPointWhenNoValue(value) {
+      super.displayDataPointWhenNoValue = value;
+    }
+    get physics() {
+      return this[physics$];
+    }
+    set physics(value) {
+      super.physics = value;
+    }
+    get updatePositionOnTap() {
+      return this[updatePositionOnTap$];
+    }
+    set updatePositionOnTap(value) {
+      super.updatePositionOnTap = value;
+    }
+  };
+  (bezier_chart_config.BezierChartConfig.new = function(opts) {
+    let t0;
+    let verticalIndicatorStrokeWidth = opts && 'verticalIndicatorStrokeWidth' in opts ? opts.verticalIndicatorStrokeWidth : 2;
+    let verticalIndicatorColor = opts && 'verticalIndicatorColor' in opts ? opts.verticalIndicatorColor : C13 || CT.C13;
+    let showVerticalIndicator = opts && 'showVerticalIndicator' in opts ? opts.showVerticalIndicator : true;
+    let showDataPoints = opts && 'showDataPoints' in opts ? opts.showDataPoints : true;
+    let displayYAxis = opts && 'displayYAxis' in opts ? opts.displayYAxis : false;
+    let snap = opts && 'snap' in opts ? opts.snap : true;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : C14 || CT.C14;
+    let xAxisTextStyle = opts && 'xAxisTextStyle' in opts ? opts.xAxisTextStyle : null;
+    let yAxisTextStyle = opts && 'yAxisTextStyle' in opts ? opts.yAxisTextStyle : null;
+    let footerHeight = opts && 'footerHeight' in opts ? opts.footerHeight : 35;
+    let contentWidth = opts && 'contentWidth' in opts ? opts.contentWidth : null;
+    let pinchZoom = opts && 'pinchZoom' in opts ? opts.pinchZoom : true;
+    let bubbleIndicatorColor = opts && 'bubbleIndicatorColor' in opts ? opts.bubbleIndicatorColor : C15 || CT.C15;
+    let backgroundGradient = opts && 'backgroundGradient' in opts ? opts.backgroundGradient : null;
+    let verticalIndicatorFixedPosition = opts && 'verticalIndicatorFixedPosition' in opts ? opts.verticalIndicatorFixedPosition : false;
+    let startYAxisFromNonZeroValue = opts && 'startYAxisFromNonZeroValue' in opts ? opts.startYAxisFromNonZeroValue : true;
+    let displayLinesXAxis = opts && 'displayLinesXAxis' in opts ? opts.displayLinesXAxis : false;
+    let stepsYAxis = opts && 'stepsYAxis' in opts ? opts.stepsYAxis : null;
+    let xLinesColor = opts && 'xLinesColor' in opts ? opts.xLinesColor : C16 || CT.C16;
+    let displayDataPointWhenNoValue = opts && 'displayDataPointWhenNoValue' in opts ? opts.displayDataPointWhenNoValue : true;
+    let bubbleIndicatorLabelStyle = opts && 'bubbleIndicatorLabelStyle' in opts ? opts.bubbleIndicatorLabelStyle : C30 || CT.C30;
+    let bubbleIndicatorTitleStyle = opts && 'bubbleIndicatorTitleStyle' in opts ? opts.bubbleIndicatorTitleStyle : C32 || CT.C32;
+    let bubbleIndicatorValueStyle = opts && 'bubbleIndicatorValueStyle' in opts ? opts.bubbleIndicatorValueStyle : C34 || CT.C34;
+    let bubbleIndicatorValueFormat = opts && 'bubbleIndicatorValueFormat' in opts ? opts.bubbleIndicatorValueFormat : null;
+    let physics = opts && 'physics' in opts ? opts.physics : C35 || CT.C35;
+    let updatePositionOnTap = opts && 'updatePositionOnTap' in opts ? opts.updatePositionOnTap : false;
+    let verticalLineFullHeight = opts && 'verticalLineFullHeight' in opts ? opts.verticalLineFullHeight : null;
+    this[verticalIndicatorStrokeWidth$] = verticalIndicatorStrokeWidth;
+    this[verticalIndicatorColor$] = verticalIndicatorColor;
+    this[showVerticalIndicator$] = showVerticalIndicator;
+    this[showDataPoints$] = showDataPoints;
+    this[displayYAxis$] = displayYAxis;
+    this[snap$] = snap;
+    this[backgroundColor$] = backgroundColor;
+    this[xAxisTextStyle$] = xAxisTextStyle;
+    this[yAxisTextStyle$] = yAxisTextStyle;
+    this[footerHeight$] = footerHeight;
+    this[contentWidth$] = contentWidth;
+    this[pinchZoom$] = pinchZoom;
+    this[bubbleIndicatorColor$] = bubbleIndicatorColor;
+    this[backgroundGradient$] = backgroundGradient;
+    this[verticalIndicatorFixedPosition$] = verticalIndicatorFixedPosition;
+    this[startYAxisFromNonZeroValue$] = startYAxisFromNonZeroValue;
+    this[displayLinesXAxis$] = displayLinesXAxis;
+    this[stepsYAxis$] = stepsYAxis;
+    this[xLinesColor$] = xLinesColor;
+    this[displayDataPointWhenNoValue$] = displayDataPointWhenNoValue;
+    this[bubbleIndicatorLabelStyle$] = bubbleIndicatorLabelStyle;
+    this[bubbleIndicatorTitleStyle$] = bubbleIndicatorTitleStyle;
+    this[bubbleIndicatorValueStyle$] = bubbleIndicatorValueStyle;
+    this[bubbleIndicatorValueFormat$] = bubbleIndicatorValueFormat;
+    this[physics$] = physics;
+    this[updatePositionOnTap$] = updatePositionOnTap;
+    this[verticalLineFullHeight$] = (t0 = verticalLineFullHeight, t0 == null ? verticalIndicatorFixedPosition : t0);
+    ;
+  }).prototype = bezier_chart_config.BezierChartConfig.prototype;
+  dart.addTypeTests(bezier_chart_config.BezierChartConfig);
+  dart.addTypeCaches(bezier_chart_config.BezierChartConfig);
+  dart.setLibraryUri(bezier_chart_config.BezierChartConfig, L0);
+  dart.setFieldSignature(bezier_chart_config.BezierChartConfig, () => ({
+    __proto__: dart.getFields(bezier_chart_config.BezierChartConfig.__proto__),
+    showVerticalIndicator: dart.finalFieldType(dart.legacy(core.bool)),
+    verticalIndicatorColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    verticalIndicatorStrokeWidth: dart.finalFieldType(dart.legacy(core.double)),
+    verticalIndicatorFixedPosition: dart.finalFieldType(dart.legacy(core.bool)),
+    verticalLineFullHeight: dart.finalFieldType(dart.legacy(core.bool)),
+    bubbleIndicatorColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    bubbleIndicatorTitleStyle: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    bubbleIndicatorValueStyle: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    bubbleIndicatorValueFormat: dart.finalFieldType(dart.legacy(intl.NumberFormat)),
+    bubbleIndicatorLabelStyle: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    backgroundColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    backgroundGradient: dart.finalFieldType(dart.legacy(gradient.LinearGradient)),
+    displayYAxis: dart.finalFieldType(dart.legacy(core.bool)),
+    stepsYAxis: dart.finalFieldType(dart.legacy(core.int)),
+    startYAxisFromNonZeroValue: dart.finalFieldType(dart.legacy(core.bool)),
+    yAxisTextStyle: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    xAxisTextStyle: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    footerHeight: dart.finalFieldType(dart.legacy(core.double)),
+    showDataPoints: dart.finalFieldType(dart.legacy(core.bool)),
+    snap: dart.finalFieldType(dart.legacy(core.bool)),
+    pinchZoom: dart.finalFieldType(dart.legacy(core.bool)),
+    contentWidth: dart.finalFieldType(dart.legacy(core.double)),
+    displayLinesXAxis: dart.finalFieldType(dart.legacy(core.bool)),
+    xLinesColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    displayDataPointWhenNoValue: dart.finalFieldType(dart.legacy(core.bool)),
+    physics: dart.finalFieldType(dart.legacy(scroll_physics.ScrollPhysics)),
+    updatePositionOnTap: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/bezier_chart/src/bezier_chart_config.dart", {
+    "package:bezier_chart/src/bezier_chart_config.dart": bezier_chart_config
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["bezier_chart_config.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAYA;;8DARK;;;;EAQL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IASA;;oEAPK;;;;EAOL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAKa;;;;;;IACC;;;;;;IAGC;;;;;;IAGF;;;;;;IAGA;;;;;;IAGC;;;;;;IAGI;;;;;;IAGA;;;;;;IAGG;;;;;;IAGH;;;;;;IAGJ;;;;;;IAGS;;;;;;IAGV;;;;;;IAKD;;;;;;IAGC;;;;;;IAGK;;;;;;IAGA;;;;;;IAGH;;;;;;IAGF;;;;;;IAGA;;;;;;IAIA;;;;;;IAGE;;;;;;IAGF;;;;;;IAGC;;;;;;IAGD;;;;;;IAGS;;;;;;IAGT;;;;;;;;;QAGJ;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QAKA;QAKA;QAKA;QACA;QACA;QACA;IAtCA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAKA;IAKA;IAKA;IACA;IACA;IAE0B,iCACA,KAAvB,sBAAsB,QAAtB,OAA0B,8BAA8B","file":"../../../../../../../../../../../packages/bezier_chart/src/bezier_chart_config.dart.lib.js"}');
+  // Exports:
+  return {
+    src__bezier_chart_config: bezier_chart_config
+  };
+}));
+
+//# sourceMappingURL=bezier_chart_config.dart.lib.js.map
